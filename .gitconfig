@@ -1,0 +1,52 @@
+[user]
+email = david.guyon@playmedia.fr
+name = David Guyon
+
+[core]
+excludesfile = ~/.gitignore_global
+editor = subl -n -w
+protectHFS = true
+protectNTFS = true
+preloadindex = true
+
+[color]
+ui = true
+
+[alias]
+co = checkout
+hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+unstage = reset HEAD --
+branches = branch -avv
+remotes = remote -v
+tags = tag -l
+last = log -1 HEAD
+lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+wip = !git add . && git commit -m 'WIP'
+sync = !git co master && git pull && git co - && git rebase master
+rewrite = !git rebase -i $(git merge-base master HEAD)
+
+[gc]
+auto = 1
+
+[push]
+default = simple
+
+[grep]
+fullname = true
+
+[tag]
+sort = -version:refname
+
+[status]
+showUntrackedFiles = all
+
+[credential]
+helper = /usr/local/bin/git-credential-osxkeychain
+
+[filter "media"]
+required = true
+clean = git media clean %f
+smudge = git media smudge %f
+
+[receive]
+fsckObjects = true

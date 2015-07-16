@@ -1,0 +1,37 @@
+#
+# Core
+#
+alias reload='exec $SHELL'
+alias cp='cp -i'
+alias mv='mv -i'
+alias q='exit'
+alias l='ls -1A'
+alias ll='ls -lh'
+alias la='ll -A'
+
+#
+# Languages
+#
+alias rocknroll='~/.dotfiles/bin/rocknroll'
+alias brewroll='brew update && brew upgrade --all && brew cleanup'
+alias rubyroll='gem update --system && gem update && gem cleanup'
+alias phproll='composer self-update --clean-backups'
+alias noderoll='npm update -g'
+
+#
+# Fixes
+#
+alias composer='nocorrect composer'
+
+#
+# Git
+#
+alias gst='git status'
+
+#
+# Useful
+#
+alias top_process='ps -eo pcpu,pid,user,args | sort -k 1 -r | head -5'
+alias whatsmyip='curl https://diagnostic.opendns.com/myip'
+alias flushcache='dscacheutil -flushcache'
+alias flushterminal='sudo rm /var/log/asl/*.asl'

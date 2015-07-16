@@ -1,0 +1,138 @@
+#!/usr/bin/env zsh
+
+setopt extendedglob
+
+if ! type 'brew' > /dev/null; then
+  echo '--> Installing Homebrew'
+  ruby -e '$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)'
+fi
+
+echo '--> Add extras Homebrew formulas'
+brew tap homebrew/dupes
+brew tap homebrew/versions
+brew tap homebrew/homebrew-php
+
+echo '--> Make sure Homebrew is up to date'
+brew update
+
+echo '--> Upgrade installed formulas'
+brew upgrade --all
+
+echo '--> BREW ALL THE THINGS!'
+brew install git
+brew install bash
+brew install zsh
+brew install coreutils
+brew install curl
+brew install wget
+brew install midnight-commander
+brew install mtr
+brew install htop-osx
+brew install gettext
+brew install make
+brew install gnu-sed --with-default-names
+brew install gnu-tar --with-default-names
+brew install gnu-which --with-default-names
+brew install md5sha1sum
+brew install mysql
+brew install pv
+brew install rsync
+brew install ssh-copy-id
+brew install openssl
+brew install boot2docker
+brew install docker
+brew install docker-compose
+
+# PHP
+brew install php56 --disable-opcache --with-homebrew-curl --with-homebrew-libxslt --with-homebrew-openssl --with-homebrew-libxml2 --with-imap --without-fpm --without-snmp
+brew install php56-mcrypt
+brew install php56-igbinary
+brew install php56-msgpack
+brew install php56-memcached --with-igbinary
+brew install php56-redis --with-igbinary
+brew install php56-xdebug
+
+# PHP Conf
+echo "memory_limit = 2048M" >> /usr/local/etc/php/5.6/php.ini
+echo "post_max_size = 16M" >> /usr/local/etc/php/5.6/php.ini
+echo "upload_max_filesize = 16M" >> /usr/local/etc/php/5.6/php.ini
+echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/5.6/php.ini
+echo "phar.readonly = Off" >> /usr/local/etc/php/5.6/php.ini
+
+if ! type 'composer' > /dev/null; then
+  curl -sS https://getcomposer.org/installer | php
+  mv composer.phar /usr/local/bin/composer
+  chmod +x /usr/local/bin/composer
+else
+  composer self-update --clean-backups
+fi
+
+# Python
+brew install python --with-brewed-openssl
+pip install -U setuptools pip fabric
+
+# Ruby
+brew install ruby
+gem update --system
+gem pristine --all --only-executables
+
+# Go
+brew install go --with-cc-common
+
+# node.js
+brew install nodejs
+npm install -g npm@latest
+npm install -g gulp@latest
+npm install -g bower@latest
+
+echo '--> Clean Homebrew formulas'
+brew cleanup
+
+# Homebrew Cask (in `/Applications` instead of `~/Applications`)
+export HOMEBREW_CASK_OPTS=--appdir=/Applications
+
+echo '--> Installing Cask'
+brew install caskroom/cask/brew-cask
+
+echo '--> Add extras Cask formulas'
+brew tap caskroom/fonts
+brew tap caskroom/versions
+
+echo '--> Make sure Cask is up to date'
+brew cask update
+
+echo '--> CASK ALL THE THINGS!'
+brew cask install virtualbox
+brew cask install vagrant
+brew cask install iterm2
+brew cask install appcleaner
+brew cask install flash
+brew cask install font-ubuntu
+brew cask install vlc
+brew cask install slack
+brew cask install dropbox
+brew cask install google-chrome-canary
+brew cask install iterm2
+brew cask install openoffice
+
+echo '--> Clean Cask formulas'
+brew cask cleanup
+
+# slimzsh
+if [ -d "$HOME/.slimzsh" ]; then
+  echo '--> Updating slimzsh'
+  cd "$HOME/.slimzsh/"
+  git pull --prune
+  git submodule update --init --recursive
+  cd -
+else
+  echo '--> Installing slimzsh'
+  git clone --recursive https://github.com/changs/slimzsh.git "$HOME/.slimzsh"
+fi
+
+echo '--> Symlinking dot files'
+for dotfile in "${ZDOTDIR:-$HOME}"/.dotfiles/.{aliases,curlrc,gemrc,npmrc,gitconfig,gitignore_global,zprofile,zlogout,zshrc}; do
+  ln -sf "$dotfile" "${ZDOTDIR:-$HOME}/${dotfile:t}" 2> /dev/null
+done
+
+exec $SHELL
