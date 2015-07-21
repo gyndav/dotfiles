@@ -24,7 +24,7 @@ ulimit -n 1024
 #
 # PMD
 #
-export APP_ENV='DEV'
+export APP_ENV='dev'
 
 #
 # Languages
