@@ -110,7 +110,6 @@ brew cask install virtualbox
 brew cask install vagrant
 brew cask install iterm2
 brew cask install appcleaner
-brew cask install flash
 brew cask install font-ubuntu
 brew cask install vlc
 brew cask install slack
