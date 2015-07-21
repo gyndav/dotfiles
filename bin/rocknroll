@@ -43,8 +43,12 @@ brew install boot2docker
 brew install docker
 brew install docker-compose
 
+
+# Nginx
+brew install nginx --with-spdy
+
 # PHP
-brew install php56 --disable-opcache --with-homebrew-curl --with-homebrew-libxslt --with-homebrew-openssl --with-homebrew-libxml2 --with-imap --without-fpm --without-snmp
+brew install php56 --disable-opcache --with-homebrew-curl --with-homebrew-libxslt --with-homebrew-openssl --with-homebrew-libxml2 --with-imap --without-snmp
 brew install php56-mcrypt
 brew install php56-igbinary
 brew install php56-msgpack
