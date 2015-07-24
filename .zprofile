@@ -1,9 +1,11 @@
 #
 # Core
 #
-PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-export EDITOR='subl -w'
+# coreutils
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
 
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'

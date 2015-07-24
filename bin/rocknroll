@@ -19,7 +19,7 @@ echo '--> Upgrade installed formulas'
 brew upgrade --all
 
 echo '--> BREW ALL THE THINGS!'
-brew install git
+brew install git --with-brewed-curl --with-brewed-openssl
 brew install bash
 brew install zsh
 brew install coreutils
@@ -28,8 +28,7 @@ brew install wget
 brew install midnight-commander
 brew install mtr
 brew install htop-osx
-brew install gettext
-brew install make
+brew install homebrew/dupes/make --with-default-names
 brew install gnu-sed --with-default-names
 brew install gnu-tar --with-default-names
 brew install gnu-which --with-default-names
@@ -38,11 +37,12 @@ brew install mysql
 brew install pv
 brew install rsync
 brew install ssh-copy-id
-brew install openssl
+brew install gettext && brew link gettext --force
+brew install openssl && brew link openssl --force
 brew install boot2docker
 brew install docker
 brew install docker-compose
-
+brew install heroku-toolbelt
 
 # Nginx
 brew install nginx --with-spdy
