@@ -1,12 +1,20 @@
 #
 # Core
 #
+alias c='clear'
 alias reload='exec $SHELL'
+
 alias cp='cp -i'
 alias mv='mv -i'
-alias l='ls -1A'
-alias ll='ls -lh'
-alias la='ll -A'
+alias mkdir='mkdir -pv'
+
+alias l='ls -1A --color=auto'
+alias ll='ls -lh --color=auto'
+alias la='ll -A --color=auto'
+
+alias ..='cd ..'
+
+alias grep='grep --color=auto'
 
 #
 # Languages
