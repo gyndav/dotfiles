@@ -64,9 +64,7 @@ echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/5.6/php.ini
 echo "phar.readonly = Off" >> /usr/local/etc/php/5.6/php.ini
 
 if ! type 'composer' > /dev/null; then
-  curl -sS https://getcomposer.org/installer | php
-  mv composer.phar /usr/local/bin/composer
-  chmod +x /usr/local/bin/composer
+  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 else
   composer self-update --clean-backups
 fi
