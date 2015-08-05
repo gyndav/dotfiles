@@ -40,3 +40,9 @@ export PATH="$COMPOSER_HOME/vendor/bin:$PATH"
 
 export GOPATH=/usr/local/Cellar/go
 export PATH=$PATH:$GOPATH/bin
+
+#
+# Bindings
+#
+bindkey '^[[5D' beginning-of-line
+bindkey '^[[5C' end-of-line
