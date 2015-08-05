@@ -2,6 +2,7 @@
 # Core
 #
 alias c='clear'
+alias q='exit'
 alias reload='exec $SHELL'
 
 alias cp='cp -i'
@@ -41,5 +42,5 @@ alias gst='git status'
 #
 alias top_process='ps -eo pcpu,pid,user,args | sort -k 1 -r | head -5'
 alias whatsmyip='curl https://diagnostic.opendns.com/myip'
-alias flushcache='dscacheutil -flushcache'
+alias flushcache='dscacheutil -flushcache && killall -HUP mDNSResponder'
 alias flushterminal='sudo rm /var/log/asl/*.asl'
