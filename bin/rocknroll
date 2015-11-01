@@ -22,6 +22,7 @@ echo '--> BREW ALL THE THINGS!'
 brew install git --with-brewed-curl --with-brewed-openssl
 brew install bash
 brew install zsh
+brew install ack
 brew install coreutils
 brew install curl
 brew install wget
@@ -39,7 +40,6 @@ brew install rsync
 brew install ssh-copy-id
 brew install gettext && brew link gettext --force
 brew install openssl && brew link openssl --force
-brew install boot2docker
 brew install docker
 brew install docker-compose
 brew install heroku-toolbelt
@@ -48,20 +48,17 @@ brew install heroku-toolbelt
 brew install nginx --with-spdy
 
 # PHP
-brew install php56 --disable-opcache --with-homebrew-curl --with-homebrew-libxslt --with-homebrew-openssl --with-homebrew-libxml2 --with-imap --without-snmp
-brew install php56-mcrypt
-brew install php56-igbinary
-brew install php56-msgpack
-brew install php56-memcached --with-igbinary
-brew install php56-redis --with-igbinary
-brew install php56-xdebug
+brew install php70 --with-imap --with-homebrew-curl --with-homebrew-libressl --with-homebrew-libxml2 --with-homebrew-libxslt --without-apache --without-fpm --without-ldap;
+brew install php70-intl;
+brew install php70-mcrypt;
+brew install --HEAD php70-memcached;
+brew install --HEAD php70-redis;
+brew install php70-pdo-dblib;
+brew install --HEAD php70-yaml;
 
 # PHP Conf
-echo "memory_limit = 2048M" >> /usr/local/etc/php/5.6/php.ini
-echo "post_max_size = 16M" >> /usr/local/etc/php/5.6/php.ini
-echo "upload_max_filesize = 16M" >> /usr/local/etc/php/5.6/php.ini
-echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/5.6/php.ini
-echo "phar.readonly = Off" >> /usr/local/etc/php/5.6/php.ini
+echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.0/php.ini
+echo "phar.readonly = Off" >> /usr/local/etc/php/7.0/php.ini
 
 if ! type 'composer' > /dev/null; then
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -69,9 +66,11 @@ else
   composer self-update --clean-backups
 fi
 
+composer global require fabpot/php-cs-fixer
+
 # Python
 brew install python --with-brewed-openssl
-pip install -U setuptools pip fabric
+pip install -U setuptools pip fabric autopep8
 
 # Ruby
 brew install ruby
@@ -85,13 +84,6 @@ brew install go --with-cc-common
 brew install nodejs
 npm install -g npm@latest
 npm install -g gulp@latest
-npm install -g bower@latest
-
-echo '--> Clean Homebrew formulas'
-brew cleanup
-
-# Homebrew Cask (in `/Applications` instead of `~/Applications`)
-export HOMEBREW_CASK_OPTS=--appdir=/Applications
 
 echo '--> Installing Cask'
 brew install caskroom/cask/brew-cask
@@ -110,14 +102,14 @@ brew cask install iterm2
 brew cask install appcleaner
 brew cask install font-ubuntu
 brew cask install vlc
-brew cask install slack
-brew cask install dropbox
 brew cask install google-chrome-canary
+brew cask install firefox-nightly
 brew cask install iterm2
 brew cask install openoffice
 
-echo '--> Clean Cask formulas'
+echo '--> Cleanup both Homebrew and Cask formulas'
 brew cask cleanup
+brew cleanup
 
 # slimzsh
 if [ -d "$HOME/.slimzsh" ]; then

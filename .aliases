@@ -20,8 +20,8 @@ alias grep='grep --color=auto'
 #
 # Languages
 #
-alias rocknroll='brewroll && phproll && noderoll && pythonroll'
-alias brewroll='brew update && brew upgrade --all && brew cleanup && brew cask update && brew cask cleanup'
+alias rocknroll='$HOME/.dotfiles/bin/rocknroll'
+alias brewroll='brew update && brew upgrade --all && brew cask update && brew cask cleanup && brew cleanup'
 alias rubyroll='gem update --system && gem update && gem cleanup'
 alias phproll='composer self-update --clean-backups && composer update'
 alias noderoll='npm update -g'
@@ -36,6 +36,8 @@ alias composer='nocorrect composer'
 # Git
 #
 alias gst='git status'
+alias gpp='git pull --prune'
+alias gpf='git push --force'
 
 #
 # Useful
