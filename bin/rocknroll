@@ -103,9 +103,9 @@ brew cask install appcleaner
 brew cask install font-ubuntu
 brew cask install vlc
 brew cask install google-chrome-canary
-brew cask install firefox-nightly
+brew cask install firefoxdeveloperedition
 brew cask install iterm2
-brew cask install openoffice
+brew cask install libreoffice
 
 echo '--> Cleanup both Homebrew and Cask formulas'
 brew cask cleanup
