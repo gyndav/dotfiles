@@ -55,6 +55,7 @@ brew install --HEAD php70-memcached;
 brew install --HEAD php70-redis;
 brew install php70-pdo-dblib;
 brew install --HEAD php70-yaml;
+brew install php70-xdebug;
 
 # PHP Conf
 echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.0/php.ini
