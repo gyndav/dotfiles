@@ -9,7 +9,6 @@ fi
 
 echo '--> Add extras Homebrew formulas'
 brew tap homebrew/dupes
-brew tap homebrew/versions
 brew tap homebrew/homebrew-php
 
 echo '--> Make sure Homebrew is up to date'
@@ -91,7 +90,6 @@ brew install caskroom/cask/brew-cask
 
 echo '--> Add extras Cask formulas'
 brew tap caskroom/fonts
-brew tap caskroom/versions
 
 echo '--> Make sure Cask is up to date'
 brew cask update
