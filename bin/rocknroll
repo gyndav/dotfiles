@@ -21,7 +21,7 @@ echo '--> BREW ALL THE THINGS!'
 brew install git --with-brewed-curl --with-brewed-openssl
 brew install bash
 brew install zsh
-brew install ack
+brew install the_silver_searcher
 brew install coreutils
 brew install curl
 brew install wget
