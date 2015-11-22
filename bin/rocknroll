@@ -81,9 +81,10 @@ gem pristine --all --only-executables
 brew install go --with-cc-common
 
 # node.js
-brew install nodejs
-npm install -g npm@latest
+brew install node --with-openssl
+npm install -g npm@3.5.0
 npm install -g gulp@latest
+npm install -g speedtest@latest
 
 echo '--> Installing Cask'
 brew install caskroom/cask/brew-cask
@@ -95,6 +96,7 @@ echo '--> Make sure Cask is up to date'
 brew cask update
 
 echo '--> CASK ALL THE THINGS!'
+brew cask install xquartz
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install iterm2
@@ -105,6 +107,8 @@ brew cask install google-chrome-canary
 brew cask install firefoxdeveloperedition
 brew cask install iterm2
 brew cask install libreoffice
+brew cask install onyx
+brew cask install miro-video-converter
 
 echo '--> Cleanup both Homebrew and Cask formulas'
 brew cask cleanup
