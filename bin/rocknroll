@@ -82,7 +82,7 @@ brew install go --with-cc-common
 
 # node.js
 brew install node --with-openssl
-npm install -g npm@3.5.0
+npm install -g npm@3.5.1
 npm install -g gulp@latest
 npm install -g speedtest@latest
 
