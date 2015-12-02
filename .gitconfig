@@ -22,8 +22,9 @@ tags = tag -l
 last = log -1 HEAD
 lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 wip = !git add . && git commit -m 'WIP'
-sync = !git co master && git pull && git co - && git rebase master
+sync = !git co master && git pull --rebase && git co - && git rebase master
 rewrite = !git rebase -i $(git merge-base master HEAD)
+unmerged = branch --no-merged
 
 [gc]
 auto = 1
@@ -50,3 +51,7 @@ smudge = git media smudge %f
 
 [receive]
 fsckObjects = true
+[pull]
+	rebase = preserve
+[help]
+	autocorrect = 1
