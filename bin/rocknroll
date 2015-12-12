@@ -87,7 +87,7 @@ npm install -g gulp@latest
 npm install -g speedtest@latest
 
 echo '--> Installing Cask'
-brew install caskroom/cask/brew-cask
+brew tap Caskroom/cask
 
 echo '--> Add extras Cask formulas'
 brew tap caskroom/fonts
