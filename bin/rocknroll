@@ -90,6 +90,7 @@ echo '--> Installing Cask'
 brew tap Caskroom/cask
 
 echo '--> Add extras Cask formulas'
+brew tap caskroom/versions
 brew tap caskroom/fonts
 
 echo '--> Make sure Cask is up to date'
