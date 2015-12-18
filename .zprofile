@@ -31,12 +31,19 @@ export APP_ENV='dev'
 #
 # Languages
 #
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
 export PATH="$(brew --prefix python)/bin:$PATH"
 export PATH="$(brew --prefix ruby)/bin:$PATH"
 
 export COMPOSER_HOME=${ZDOTDIR:-$HOME}/.composer
 export PATH="$COMPOSER_HOME/vendor/bin:$PATH"
+
+export NPM_PACKAGES="${HOME}/.npm-packages"
+echo $NPM_PACKAGES
+export PATH="$NPM_PACKAGES/bin:$PATH"
+
+unset MANPATH
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 export GOPATH=/usr/local/Cellar/go
 export PATH=$PATH:$GOPATH/bin

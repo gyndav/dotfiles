@@ -54,14 +54,13 @@ brew install --HEAD php70-memcached;
 brew install --HEAD php70-redis;
 brew install php70-pdo-dblib;
 brew install --HEAD php70-yaml;
-brew install php70-xdebug;
 
 # PHP Conf
 echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.0/php.ini
 echo "phar.readonly = Off" >> /usr/local/etc/php/7.0/php.ini
 
 if ! type 'composer' > /dev/null; then
-  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  curl -sSL https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 else
   composer self-update --clean-backups
 fi
@@ -81,8 +80,14 @@ gem pristine --all --only-executables
 brew install go --with-cc-common
 
 # node.js
-brew install node --with-openssl
-npm install -g npm@3.5.1
+brew install node --with-openssl --without-npm
+mkdir -p "$HOME/.npm-packages"
+
+if ! type 'npm' > /dev/null; then
+    curl -sSL https://www.npmjs.com/install.sh | sh
+fi
+
+npm install -g npm@2
 npm install -g gulp@latest
 npm install -g speedtest@latest
 
