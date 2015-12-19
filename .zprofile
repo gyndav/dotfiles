@@ -39,7 +39,6 @@ export COMPOSER_HOME=${ZDOTDIR:-$HOME}/.composer
 export PATH="$COMPOSER_HOME/vendor/bin:$PATH"
 
 export NPM_PACKAGES="${HOME}/.npm-packages"
-echo $NPM_PACKAGES
 export PATH="$NPM_PACKAGES/bin:$PATH"
 
 unset MANPATH
