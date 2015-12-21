@@ -105,11 +105,12 @@ echo '--> CASK ALL THE THINGS!'
 brew cask install xquartz
 brew cask install virtualbox
 brew cask install vagrant
-brew cask install iterm2
 brew cask install appcleaner
 brew cask install font-ubuntu
 brew cask install vlc
+brew cask install google-chrome
 brew cask install google-chrome-canary
+brew cask install firefox
 brew cask install firefoxdeveloperedition
 brew cask install iterm2
 brew cask install libreoffice
