@@ -10,9 +10,12 @@ fi
 echo '--> Add extras Homebrew formulas'
 brew tap homebrew/dupes
 brew tap homebrew/homebrew-php
+brew tap caskroom/cask
+brew tap caskroom/versions
+brew tap caskroom/fonts
 
 echo '--> Make sure Homebrew is up to date'
-brew update
+brew update && brew cask update
 
 echo '--> Upgrade installed formulas'
 brew upgrade --all
@@ -43,9 +46,26 @@ brew install docker
 brew install docker-compose
 brew install heroku-toolbelt
 
-# Nginx
-brew install nginx --with-spdy
+echo '--> CASK ALL THE THINGS!'
+brew cask install font-ubuntu
+brew cask install font-hack
 
+brew cask install xquartz
+brew cask install virtualbox
+brew cask install vagrant
+brew cask install appcleaner
+brew cask install vlc
+brew cask install google-chrome
+brew cask install google-chrome-canary
+brew cask install firefox
+brew cask install firefoxdeveloperedition
+brew cask install iterm2-nightly
+brew cask install libreoffice
+brew cask install onyx
+brew cask install miro-video-converter
+brew cask install keepassx
+
+echo '--> LETS CODE!'
 # PHP
 brew install php70 --with-imap --with-homebrew-curl --with-homebrew-libressl --with-homebrew-libxml2 --with-homebrew-libxslt --without-apache --without-fpm --without-ldap;
 brew install php70-intl;
@@ -75,6 +95,7 @@ pip install -U setuptools pip fabric autopep8
 brew install ruby
 gem update --system
 gem pristine --all --only-executables
+gem install jekyll
 
 # Go
 brew install go --with-cc-common
@@ -87,39 +108,15 @@ if ! type 'npm' > /dev/null; then
     curl -sSL https://www.npmjs.com/install.sh | sh
 fi
 
-npm install -g npm@2
-npm install -g gulp@latest
-npm install -g speedtest@latest
+npm install --global npm@2
+npm install --global gulp@latest
+npm install --global speed-test@latest
 
-echo '--> Installing Cask'
-brew tap Caskroom/cask
+echo '--> Linking Homebrew to /Applications if any'
+brew linkapps
 
-echo '--> Add extras Cask formulas'
-brew tap caskroom/versions
-brew tap caskroom/fonts
-
-echo '--> Make sure Cask is up to date'
-brew cask update
-
-echo '--> CASK ALL THE THINGS!'
-brew cask install xquartz
-brew cask install virtualbox
-brew cask install vagrant
-brew cask install appcleaner
-brew cask install font-ubuntu
-brew cask install vlc
-brew cask install google-chrome
-brew cask install google-chrome-canary
-brew cask install firefox
-brew cask install firefoxdeveloperedition
-brew cask install iterm2
-brew cask install libreoffice
-brew cask install onyx
-brew cask install miro-video-converter
-
-echo '--> Cleanup both Homebrew and Cask formulas'
-brew cask cleanup
-brew cleanup
+echo '--> Cleanup Homebrew formulas'
+brew cleanup && brew cask cleanup
 
 # slimzsh
 if [ -d "$HOME/.slimzsh" ]; then
