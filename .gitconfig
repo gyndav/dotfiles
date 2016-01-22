@@ -14,9 +14,11 @@ ui = true
 
 [alias]
 co = checkout
+cob = checkout -b
+ci = commit
 hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 unstage = reset HEAD --
-branches = branch -avv
+branches = branch -av
 remotes = remote -v
 tags = tag -l
 last = log -1 HEAD
@@ -24,7 +26,11 @@ lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s
 wip = !git add . && git commit -m 'WIP'
 sync = !git co master && git pull --rebase && git co - && git rebase master
 rewrite = !git rebase -i $(git merge-base master HEAD)
+merged = branch --merged
 unmerged = branch --no-merged
+diffc = diff --cached
+del = branch -D
+st = status -sb
 
 [gc]
 auto = 1
