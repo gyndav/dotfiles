@@ -22,11 +22,12 @@ brew upgrade --all
 
 echo '--> BREW ALL THE THINGS!'
 brew install git --with-brewed-curl --with-brewed-openssl
+brew install lftp
 brew install bash
 brew install zsh
 brew install the_silver_searcher
 brew install coreutils
-brew install curl
+brew install curl --with-libssh2 --with-openssl --with-nghttp2
 brew install wget
 brew install midnight-commander
 brew install mtr
