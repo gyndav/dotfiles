@@ -69,13 +69,12 @@ brew cask install keepassx
 
 echo '--> LETS CODE!'
 # PHP
-brew install php70 --with-imap --with-homebrew-curl --with-homebrew-libressl --with-homebrew-libxml2 --with-homebrew-libxslt --without-apache --without-fpm --without-ldap;
+brew install php70 --with-imap --with-postgresql --with-homebrew-curl --with-homebrew-libxml2 --with-homebrew-libxslt --without-apache --without-ldap;
 brew install php70-intl;
 brew install php70-mcrypt;
+brew install php70-msgpack;
 brew install --HEAD php70-memcached;
 brew install --HEAD php70-redis;
-brew install php70-pdo-dblib;
-brew install --HEAD php70-yaml;
 
 # PHP Conf
 echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.0/php.ini
