@@ -30,7 +30,7 @@ brew install coreutils
 brew install curl --with-libssh2 --with-openssl --with-nghttp2
 brew install wget
 brew install midnight-commander
-brew install mtr
+brew install mtr --with-glib
 brew install htop-osx
 brew install homebrew/dupes/make --with-default-names
 brew install gnu-sed --with-default-names
