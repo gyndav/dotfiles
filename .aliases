@@ -44,5 +44,5 @@ alias gpf='git push --force'
 #
 alias top_process='ps -eo pcpu,pid,user,args | sort -k 1 -r | head -5'
 alias whatsmyip='curl https://api.ipify.org/'
-alias flushcache='dscacheutil -flushcache && killall -HUP mDNSResponder'
+alias flushcache='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias flushterminal='sudo rm /var/log/asl/*.asl'
