@@ -32,9 +32,6 @@ diffc = diff --cached
 del = branch -D
 st = status -sb
 
-[gc]
-auto = 1
-
 [push]
 default = simple
 

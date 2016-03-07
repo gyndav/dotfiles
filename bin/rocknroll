@@ -67,6 +67,7 @@ brew cask install onyx
 brew cask install miro-video-converter
 brew cask install keepassx
 brew cask install dropbox
+brew cask install brave
 
 echo '--> LETS CODE!'
 # PHP
@@ -113,6 +114,7 @@ fi
 npm install --global npm@2
 npm install --global gulp@latest
 npm install --global speed-test@latest
+npm install --global surge@latest
 
 echo '--> Linking Homebrew to /Applications if any'
 brew linkapps

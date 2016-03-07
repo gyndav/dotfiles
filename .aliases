@@ -4,6 +4,7 @@
 alias c='clear'
 alias q='exit'
 alias reload='exec $SHELL'
+alias refresh='source $HOME/.dotfiles/.zshrc'
 
 alias cp='cp -i'
 alias mv='mv -i'
