@@ -18,7 +18,7 @@ cob = checkout -b
 ci = commit
 hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 unstage = reset HEAD --
-branches = branch -av
+branches = branch -a
 remotes = remote -v
 tags = tag -l
 last = log -1 HEAD
