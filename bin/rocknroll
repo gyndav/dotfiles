@@ -61,7 +61,7 @@ brew cask install google-chrome
 brew cask install google-chrome-canary
 brew cask install firefox
 brew cask install firefoxdeveloperedition
-brew cask install iterm2-nightly
+brew cask install iterm2
 brew cask install libreoffice
 brew cask install onyx
 brew cask install miro-video-converter
@@ -111,13 +111,10 @@ if ! type 'npm' > /dev/null; then
     curl -sSL https://www.npmjs.com/install.sh | sh
 fi
 
-npm install --global npm@2
-npm install --global gulp@latest
-npm install --global speed-test@latest
-npm install --global surge@latest
-
-echo '--> Linking Homebrew to /Applications if any'
-brew linkapps
+npm update --global npm@2
+npm update --global gulp@latest
+npm update --global speed-test@latest
+npm update --global surge@latest
 
 echo '--> Cleanup Homebrew formulas'
 brew cleanup && brew cask cleanup

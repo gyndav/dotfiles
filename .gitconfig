@@ -1,60 +1,61 @@
 [user]
-email = david.guyon@playmedia.fr
-name = David Guyon
+	useconfigonly = true
 
 [core]
-excludesfile = ~/.gitignore_global
-editor = subl -n -w
-protectHFS = true
-protectNTFS = true
-preloadindex = true
+	excludesfile = ~/.gitignore_global
+	editor = subl -n -w
+	protectHFS = true
+	protectNTFS = true
+	preloadindex = true
 
 [color]
-ui = true
+	ui = true
 
 [alias]
-co = checkout
-cob = checkout -b
-ci = commit
-hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-unstage = reset HEAD --
-branches = branch -a
-remotes = remote -v
-tags = tag -l
-last = log -1 HEAD
-lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-wip = !git add . && git commit -m 'WIP'
-sync = !git co master && git pull --rebase && git co - && git rebase master
-rewrite = !git rebase -i $(git merge-base master HEAD)
-merged = branch --merged
-unmerged = branch --no-merged
-diffc = diff --cached
-del = branch -D
-st = status -sb
+	co = checkout
+	cob = checkout -b
+	ci = commit
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	unstage = reset HEAD --
+	branches = branch -a
+	remotes = remote -v
+	tags = tag -l
+	last = log -1 HEAD
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	wip = !git add . && git commit -m 'WIP'
+	sync = !git co master && git pull --rebase && git co - && git rebase master
+	rewrite = !git rebase -i $(git merge-base master HEAD)
+	merged = branch --merged
+	unmerged = branch --no-merged
+	diffc = diff --cached
+	del = branch -D
+	st = status -sb
 
 [push]
-default = simple
+	default = simple
 
 [grep]
-fullname = true
+	fullname = true
 
 [tag]
-sort = -version:refname
+	sort = -version:refname
 
 [status]
-showUntrackedFiles = all
+	showUntrackedFiles = all
 
 [credential]
-helper = /usr/local/bin/git-credential-osxkeychain
+	helper = /usr/local/bin/git-credential-osxkeychain
 
 [filter "media"]
-required = true
-clean = git media clean %f
-smudge = git media smudge %f
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
 
 [receive]
-fsckObjects = true
+	fsckObjects = true
+
 [pull]
 	rebase = preserve
+
 [help]
 	autocorrect = 1
