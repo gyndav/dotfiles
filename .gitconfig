@@ -16,20 +16,23 @@
 	cob = checkout -b
 	ci = commit
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-	unstage = reset HEAD --
 	branches = branch -a
 	remotes = remote -v
 	tags = tag -l
-	last = log -1 HEAD
+	stashes = stash list
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	wip = !git add . && git commit -m 'WIP'
 	sync = !git co master && git pull --rebase && git co - && git rebase master
 	rewrite = !git rebase -i $(git merge-base master HEAD)
 	merged = branch --merged
 	unmerged = branch --no-merged
-	diffc = diff --cached
 	del = branch -D
 	st = status -sb
+	precommit = diff --cached --diff-algorithm=minimal -w
+	nevermind = !git reset --hard HEAD && git clean -d -f
+	unstage = reset -q HEAD --
+	discard = checkout --
+	amend = commit --amend
 
 [push]
 	default = simple
