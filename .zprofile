@@ -20,6 +20,8 @@ export HISTIGNORE='ls:cd:cd -:pwd:exit:date:* --help'
 
 export PAGER='less'
 
+export HOMEBREW_NO_ANALYTICS=1
+
 # Change default ulimit to avoir errors
 ulimit -n 1024
 
