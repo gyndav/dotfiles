@@ -21,13 +21,13 @@ echo '--> Upgrade installed formulas'
 brew upgrade --all
 
 echo '--> BREW ALL THE THINGS!'
+brew install curl --with-libssh2 --with-openssl --with-nghttp2 && brew link --force
 brew install git --with-brewed-curl --with-brewed-openssl
 brew install lftp
 brew install bash
 brew install zsh
 brew install the_silver_searcher
 brew install coreutils
-brew install curl --with-libssh2 --with-openssl --with-nghttp2
 brew install wget
 brew install midnight-commander
 brew install mtr --with-glib
@@ -57,8 +57,8 @@ brew cask install virtualbox
 brew cask install vagrant
 brew cask install appcleaner
 brew cask install vlc
+brew cask install chromium
 brew cask install google-chrome
-brew cask install google-chrome-canary
 brew cask install firefox
 brew cask install firefoxdeveloperedition
 brew cask install iterm2
@@ -68,6 +68,7 @@ brew cask install miro-video-converter
 brew cask install keepassx
 brew cask install dropbox
 brew cask install brave
+brew cask install vivaldi
 
 echo '--> LETS CODE!'
 # PHP
@@ -91,19 +92,20 @@ fi
 composer global require fabpot/php-cs-fixer
 
 # Python
-brew install python --with-brewed-openssl
-pip install -U setuptools pip fabric autopep8
+brew install python
+pip install -U setuptools pip fabric autopep8 invoke
 
 # Ruby
 brew install ruby
 gem update --system
-gem pristine --all --only-executables
+# gem pristine --all --only-executables
 gem install jekyll
+gem install middleman
 
 # Go
-brew install go --with-cc-common
+brew install go
 
-# node.js
+# Node.js
 brew install node --with-openssl --without-npm
 mkdir -p "$HOME/.npm-packages"
 
@@ -111,10 +113,11 @@ if ! type 'npm' > /dev/null; then
     curl -sSL https://www.npmjs.com/install.sh | sh
 fi
 
-npm update --global npm@2
-npm update --global gulp@latest
-npm update --global speed-test@latest
-npm update --global surge@latest
+npm install --global npm@3
+npm install --global gulp@latest
+npm install --global speed-test@latest
+npm install --global surge@latest
+npm install --global webcoach@latest
 
 echo '--> Cleanup Homebrew formulas'
 brew cleanup && brew cask cleanup

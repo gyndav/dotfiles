@@ -23,7 +23,7 @@ export PAGER='less'
 export HOMEBREW_NO_ANALYTICS=1
 
 # Change default ulimit to avoir errors
-ulimit -n 1024
+ulimit -n 2048
 
 #
 # PMD
@@ -48,6 +48,8 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 export GOPATH=/usr/local/Cellar/go
 export PATH=$PATH:$GOPATH/bin
+
+export ANDROID_HOME=/usr/local/opt/android-sdk
 
 #
 # Bindings
