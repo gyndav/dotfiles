@@ -1,5 +1,9 @@
 [user]
 	useconfigonly = true
+	email = dguyon@gmail.com
+
+[include]
+    path = ~/.gitconfig_local
 
 [core]
 	excludesfile = ~/.gitignore_global
