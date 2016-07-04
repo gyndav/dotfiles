@@ -63,3 +63,5 @@
 
 [help]
 	autocorrect = 1
+[diff]
+	compactionHeuristic = true
