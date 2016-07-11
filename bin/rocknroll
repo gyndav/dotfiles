@@ -90,7 +90,8 @@ else
   composer self-update --clean-backups
 fi
 
-composer global require fabpot/php-cs-fixer
+composer global require friendsofphp/php-cs-fixer
+composer global require phpmetrics/phpmetrics
 
 # Python
 brew install python
