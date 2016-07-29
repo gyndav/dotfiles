@@ -69,7 +69,8 @@ brew cask install miro-video-converter
 brew cask install keepassx
 brew cask install dropbox
 brew cask install brave
-brew cask install vivaldi
+brew cask install whatsapp
+brew cask install android-file-transfer
 
 echo '--> LETS CODE!'
 # PHP
@@ -137,7 +138,7 @@ else
 fi
 
 echo '--> Symlinking dot files'
-for dotfile in "${ZDOTDIR:-$HOME}"/.dotfiles/.{aliases,curlrc,gemrc,npmrc,gitconfig,gitignore_global,zprofile,zlogout,zshrc}; do
+for dotfile in "${ZDOTDIR:-$HOME}"/.dotfiles/.{agignore,aliases,curlrc,gemrc,npmrc,gitconfig,gitignore_global,zprofile,zlogout,zshrc}; do
   ln -sf "$dotfile" "${ZDOTDIR:-$HOME}/${dotfile:t}" 2> /dev/null
 done
 
