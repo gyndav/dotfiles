@@ -48,6 +48,8 @@ brew install docker
 brew install docker-compose
 brew install heroku-toolbelt
 brew install shellcheck
+brew install imagemagick
+brew install zopfli
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
@@ -71,6 +73,7 @@ brew cask install dropbox
 brew cask install brave
 brew cask install whatsapp
 brew cask install android-file-transfer
+brew cask install imagealpha
 
 echo '--> LETS CODE!'
 # PHP
@@ -121,6 +124,7 @@ npm install --global gulp@latest
 npm install --global speed-test@latest
 npm install --global surge@latest
 npm install --global webcoach@latest
+npm install --global imageoptim-cli@latest
 
 echo '--> Cleanup Homebrew formulas'
 brew cleanup && brew cask cleanup
