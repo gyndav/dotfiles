@@ -57,7 +57,12 @@ brew cask install font-hack
 
 brew cask install xquartz
 brew cask install virtualbox
+
 brew cask install vagrant
+vagrant plugin install vagrant-hostsupdater
+vagrant plugin install vagrant-triggers
+vagrant plugin install vagrant-bindfs
+
 brew cask install appcleaner
 brew cask install vlc
 brew cask install chromium
