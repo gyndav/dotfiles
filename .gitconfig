@@ -34,6 +34,7 @@
 	unstage = reset -q HEAD --
 	discard = checkout --
 	amend = commit --amend
+	untrackd = clean -f -d
 
 [push]
 	default = simple
