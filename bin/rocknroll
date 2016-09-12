@@ -104,7 +104,7 @@ composer global require phpmetrics/phpmetrics
 
 # Python
 brew install python
-pip install -U setuptools pip fabric autopep8 invoke
+pip install -U setuptools pip fabric autopep8 invoke glances
 
 # Ruby
 brew install ruby
