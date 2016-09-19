@@ -21,9 +21,9 @@ echo '--> Upgrade installed formulas'
 brew upgrade --all
 
 echo '--> BREW ALL THE THINGS!'
-brew install curl --with-libssh2 --with-openssl --with-nghttp2 && brew link curl --force
-brew install gettext && brew link gettext --force
-brew install openssl && brew link openssl --force
+brew install curl --with-libssh2 --with-openssl --with-nghttp2 && brew unlink curl && brew link curl --force
+brew install gettext && brew unlink gettext && brew link gettext --force
+brew install openssl
 brew install homebrew/dupes/make --with-default-names
 brew install gnu-sed --with-default-names
 brew install gnu-tar --with-default-names
@@ -44,8 +44,6 @@ brew install mysql
 brew install pv
 brew install rsync
 brew install ssh-copy-id
-brew install docker
-brew install docker-compose
 brew install heroku-toolbelt
 brew install shellcheck
 brew install imagemagick
@@ -63,6 +61,8 @@ vagrant plugin install vagrant-hostsupdater
 vagrant plugin install vagrant-triggers
 vagrant plugin install vagrant-bindfs
 
+brew cask install docker # Docker for Mac
+
 brew cask install appcleaner
 brew cask install vlc
 brew cask install chromium
@@ -72,13 +72,14 @@ brew cask install firefoxdeveloperedition
 brew cask install iterm2
 brew cask install libreoffice
 brew cask install onyx
-brew cask install miro-video-converter
 brew cask install keepassx
 brew cask install dropbox
 brew cask install brave
 brew cask install whatsapp
 brew cask install android-file-transfer
 brew cask install imagealpha
+brew cask install anatine
+brew cask install gimp
 
 echo '--> LETS CODE!'
 # PHP
