@@ -3,6 +3,9 @@ if [[ -f "${ZDOTDIR:-$HOME}/.slimzsh/slim.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.slimzsh/slim.zsh"
 fi
 
+# zsh completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # Aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 

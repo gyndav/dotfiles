@@ -33,6 +33,7 @@ brew install git --with-brewed-curl --with-brewed-openssl
 brew install lftp
 brew install bash
 brew install zsh
+brew install zsh-completions
 brew install the_silver_searcher
 brew install coreutils
 brew install wget
