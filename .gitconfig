@@ -35,6 +35,8 @@
 	discard = checkout --
 	amend = commit --amend
 	untracked = clean -f -d
+	please = push --force-with-lease
+	commend = commit --amend --no-edit
 
 [push]
 	default = simple
