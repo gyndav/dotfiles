@@ -1,6 +1,7 @@
 [user]
 	email = dguyon@gmail.com
 	name = David Guyon
+	signingkey = 98B00466FA5F4289
 
 [core]
 	excludesfile = ~/.gitignore_global
@@ -74,3 +75,5 @@
 	required = true
 [fetch]
 	recurseSubmodules = false
+[commit]
+	gpgsign = true
