@@ -124,11 +124,14 @@ brew install node --with-openssl --without-npm
 mkdir -p "$HOME/.npm-packages"
 
 if ! type 'npm' > /dev/null; then
-    curl -sSL https://www.npmjs.com/install.sh | sh
+  curl -sSL https://www.npmjs.com/install.sh | sh
+fi
+
+if ! type 'yarn' > /dev/null; then
+  curl -o- -ssL https://yarnpkg.com/install.sh | bash
 fi
 
 npm install --global npm@3
-npm install --global gulp@latest
 npm install --global speed-test@latest
 npm install --global surge@latest
 npm install --global webcoach@latest

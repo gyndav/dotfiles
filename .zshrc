@@ -13,3 +13,5 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
+
+export PATH="$HOME/.yarn/bin:$PATH"
