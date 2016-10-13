@@ -50,6 +50,7 @@ brew install heroku-toolbelt
 brew install shellcheck
 brew install imagemagick
 brew install zopfli
+brew install ghostscript
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
@@ -153,7 +154,7 @@ else
 fi
 
 echo '--> Symlinking dot files'
-for dotfile in "${ZDOTDIR:-$HOME}"/.dotfiles/.{agignore,aliases,curlrc,gemrc,npmrc,gitconfig,gitignore_global,zprofile,zlogout,zshrc}; do
+for dotfile in "${ZDOTDIR:-$HOME}"/.dotfiles/.{agignore,aliases,functions,gemrc,npmrc,gitconfig,gitignore_global,zprofile,zlogout,zshrc}; do
   ln -sf "$dotfile" "${ZDOTDIR:-$HOME}/${dotfile:t}" 2> /dev/null
 done
 

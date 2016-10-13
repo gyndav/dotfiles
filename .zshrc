@@ -6,8 +6,11 @@ fi
 # zsh completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-# Aliases
+# aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+# functions
+[[ -f ~/.functions ]] && source ~/.functions
 
 # Bin
 if [ -d "$HOME/bin" ] ; then

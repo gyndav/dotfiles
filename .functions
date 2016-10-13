@@ -1,0 +1,4 @@
+compresspdf()
+{
+	/usr/local/bin/gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/"${3:-'screen'}" -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$1 $2"
+}
