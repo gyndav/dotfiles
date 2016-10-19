@@ -127,9 +127,8 @@ if ! type 'npm' > /dev/null; then
   curl -sSL https://www.npmjs.com/install.sh | sh
 fi
 
-if ! type 'yarn' > /dev/null; then
-  curl -o- -ssL https://yarnpkg.com/install.sh | bash
-fi
+# yarn
+brew install yarn
 
 npm install --global npm@3
 npm install --global speed-test@latest
@@ -138,7 +137,8 @@ npm install --global webcoach@latest
 npm install --global imageoptim-cli@latest
 
 echo '--> Cleanup Homebrew formulas'
-brew cleanup && brew cask cleanup
+brew cleanup
+brew cask cleanup
 
 # slimzsh
 if [ -d "$HOME/.slimzsh" ]; then
