@@ -7,14 +7,24 @@ fi
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # aliases
-[[ -f ~/.aliases ]] && source ~/.aliases
-
-# functions
-[[ -f ~/.functions ]] && source ~/.functions
-
-# Bin
-if [ -d "$HOME/bin" ] ; then
-  PATH="$HOME/bin:$PATH"
+if [[ -f "$HOME/.aliases" ]]
+then
+	source "$HOME/.aliases"
 fi
 
-export PATH="$HOME/.yarn/bin:$PATH"
+# functions
+if [[ -f "$HOME/.functions" ]]
+then
+	source "$HOME/.functions"
+fi
+
+# local, not versionned
+
+if [ -d "$HOME/bin" ]
+then
+  PATH="$HOME/bin:$PATH"
+fi
+if [[ -f "$HOME/.localrc" ]]
+then
+	source "$HOME/.localrc"
+fi

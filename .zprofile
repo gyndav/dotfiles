@@ -43,6 +43,8 @@ export PATH="$COMPOSER_HOME/vendor/bin:$PATH"
 export NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$NPM_PACKAGES/bin:$PATH"
 
+export PATH="$HOME/.yarn/bin:$PATH"
+
 unset MANPATH
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
