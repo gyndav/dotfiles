@@ -130,7 +130,7 @@ fi
 # yarn
 brew install yarn
 
-npm install --global npm@3
+npm install --global npm@4
 npm install --global speed-test@latest
 npm install --global surge@latest
 npm install --global webcoach@latest
