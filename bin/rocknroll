@@ -51,6 +51,7 @@ brew install shellcheck
 brew install imagemagick
 brew install zopfli
 brew install ghostscript
+brew install mas
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
