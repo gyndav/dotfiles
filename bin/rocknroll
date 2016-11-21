@@ -69,11 +69,10 @@ brew cask install docker # Docker for Mac
 
 brew cask install appcleaner
 brew cask install vlc
-brew cask install chromium
 brew cask install google-chrome
+brew cask install google-chrome-canary
 brew cask install firefox
 brew cask install iterm2
-brew cask install libreoffice
 brew cask install onyx
 brew cask install keepassx
 brew cask install dropbox
@@ -83,6 +82,7 @@ brew cask install android-file-transfer
 brew cask install imagealpha
 brew cask install anatine
 brew cask install gimp
+brew cask install slack
 
 echo '--> LETS CODE!'
 # PHP
