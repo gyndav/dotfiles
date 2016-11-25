@@ -10,7 +10,6 @@ fi
 echo '--> Add extras Homebrew formulas'
 brew tap homebrew/dupes
 brew tap homebrew/homebrew-php
-# brew tap caskroom/cask
 brew tap caskroom/versions
 brew tap caskroom/fonts
 
@@ -28,9 +27,7 @@ brew install homebrew/dupes/make --with-default-names
 brew install gnu-sed --with-default-names
 brew install gnu-tar --with-default-names
 brew install gnu-which --with-default-names
-
 brew install git --with-brewed-curl --with-brewed-openssl
-brew install lftp
 brew install bash
 brew install zsh
 brew install zsh-completions
@@ -42,7 +39,6 @@ brew install midnight-commander
 brew install mtr --with-glib
 brew install htop
 brew install md5sha1sum
-brew install mysql
 brew install pv
 brew install rsync
 brew install ssh-copy-id
@@ -67,55 +63,31 @@ vagrant plugin install vagrant-bindfs
 
 brew cask install docker # Docker for Mac
 
-brew cask install appcleaner
 brew cask install vlc
 brew cask install google-chrome
-brew cask install google-chrome-canary
 brew cask install firefox
 brew cask install iterm2
 brew cask install onyx
 brew cask install keepassx
 brew cask install dropbox
-brew cask install brave
 brew cask install whatsapp
 brew cask install android-file-transfer
 brew cask install imagealpha
 brew cask install anatine
-brew cask install gimp
-brew cask install slack
 
 echo '--> LETS CODE!'
-# PHP
-brew install php70 --with-imap --with-postgresql --with-homebrew-curl --with-homebrew-libxml2 --with-homebrew-libxslt --without-apache --without-ldap;
-brew install php70-intl;
-brew install php70-mcrypt;
-brew install --HEAD php70-msgpack;
-brew install --HEAD php70-memcached;
-brew install --HEAD php70-redis;
 
-# PHP Conf
-echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.0/php.ini
-echo "phar.readonly = Off" >> /usr/local/etc/php/7.0/php.ini
-
-if ! type 'composer' > /dev/null; then
-  curl -sSL https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-else
-  composer self-update --clean-backups
-fi
-
-composer global require friendsofphp/php-cs-fixer
-composer global require phpmetrics/phpmetrics
 
 # Python
 brew install python
-pip install -U setuptools pip fabric autopep8 invoke glances
+pip install -U setuptools
+pip install -U pip
+pip install -U autopep8 
 
 # Ruby
 brew install ruby
 gem update --system
 # gem pristine --all --only-executables
-gem install jekyll
-gem install middleman
 
 # Go
 brew install go
@@ -133,9 +105,26 @@ brew install yarn
 
 npm install --global npm@4
 npm install --global speed-test@latest
-npm install --global surge@latest
-npm install --global webcoach@latest
-npm install --global imageoptim-cli@latest
+
+# local files
+if [ ! -f ~/.localrc ]; then
+  touch ~/.localrc
+  
+  echo "Configure a profile \`PROFILE\` in \`~/.zshrc_local\`:"
+  read -r PROFILE
+  
+  echo "export PROFILE=$PROFILE" > ~/.localrc
+  source ~/.localrc
+fi
+
+if [ ! -f ~/.gitconfig_local ]; then
+  echo "[github]\n  user = USERNAME\n[user]\n  name = FIRSTNAME LASTNAME\n  email = EMAIL" > ~/.gitconfig_local
+  read "Configure now your git informations in \`~/.gitconfig_local\` and press [Enter] when done..."
+fi
+
+if [[ -z $PROFILE && -f $HOME/.dotfiles/profiles/$PROFILE ]]; then
+  source $HOME/.dotfiles/profiles/$PROFILE
+fi
 
 echo '--> Cleanup Homebrew formulas'
 brew cleanup

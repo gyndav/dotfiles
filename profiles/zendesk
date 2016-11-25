@@ -1,0 +1,53 @@
+#!/usr/bin/env zsh
+
+#
+# exports
+#
+export BIMEIO=~/dev/bimeio
+export DEVENV=~/dev/dev-env
+
+export _JAVA_OPTIONS='-Xss10m -Xmx1g -Xms1g -DdejaVuSAC=vLs6FUqx9335TUO+jT6iUUDW1dk5zmaeKzOt3nJn -DmagicToken=5739cd13b6fcb94a2a2a12d8b4d527a3d1445f11'
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+#
+# functions
+#
+bime_copy_config() {
+	cd $DEVENV && stow -R . -t $BIMEIO
+}
+bime_start_mysql() {
+	mysql.server start
+}
+bime_start_redis() {
+	redis-server
+}
+
+#
+# dependencies
+#
+brew install stow
+brew install tmux
+
+brew cask install java
+brew install sbt
+
+brew install mysql
+brew install redis
+
+brew install elixir
+mix local.hex --force
+mix local.rebar --force
+
+brew install slimerjs
+
+yarn global add gulp
+
+#
+# apps
+#
+brew cask install 1password
+brew cask install slack
+brew cask install google-chrome-canary

@@ -1,7 +1,5 @@
 [user]
-	email = dguyon@gmail.com
 	name = David Guyon
-	signingkey = 98B00466FA5F4289
 
 [core]
 	excludesfile = ~/.gitignore_global
@@ -38,6 +36,7 @@
 	untracked = clean -f -d
 	please = push --force-with-lease
 	commend = commit --amend --no-edit
+	prlog = "log --pretty=oneline --abbrev-commit --graph --decorate --first-parent"
 
 [push]
 	default = simple
@@ -65,15 +64,19 @@
 [pull]
 	rebase = preserve
 
+[include]
+	path = ~/.gitconfig_local
+
 [help]
 	autocorrect = 1
+
 [diff]
 	compactionHeuristic = true
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
+
 [fetch]
 	recurseSubmodules = false
-[commit]
-	gpgsign = true

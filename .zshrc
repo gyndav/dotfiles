@@ -28,3 +28,5 @@ if [[ -f "$HOME/.localrc" ]]
 then
 	source "$HOME/.localrc"
 fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
