@@ -63,6 +63,7 @@ vagrant plugin install vagrant-bindfs
 
 brew cask install docker # Docker for Mac
 
+brew cask install gpgtools
 brew cask install vlc
 brew cask install google-chrome
 brew cask install firefox
