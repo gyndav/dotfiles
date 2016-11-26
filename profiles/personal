@@ -11,11 +11,6 @@
 
 # PHP
 brew install php70 --with-imap --with-postgresql --with-homebrew-curl --with-homebrew-libxml2 --with-homebrew-libxslt --without-apache --without-ldap;
-brew install php70-intl;
-brew install php70-mcrypt;
-brew install php70-msgpack;
-brew install php70-memcached;
-brew install php70-redis;
 
 # PHP Conf
 echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.0/php.ini
@@ -47,3 +42,5 @@ npm install --global imageoptim-cli@latest
 brew cask install appcleaner
 brew cask install brave
 brew cask install gimp
+brew cask install mkchromecast
+

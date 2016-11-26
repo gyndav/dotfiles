@@ -3,7 +3,7 @@
 #
 alias c='clear'
 alias q='exit'
-alias reload='exec $SHELL'
+alias reload='exec $SHELL -l' # invoke with login
 alias refresh='source $HOME/.dotfiles/.zshrc'
 
 alias cp='cp -i'
@@ -45,5 +45,8 @@ alias gpf='git push --force'
 #
 alias top_process='ps -eo pcpu,pid,user,args | sort -k 1 -r | head -5'
 alias whatsmyip='curl https://api.ipify.org/'
-alias flushcache='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
-alias flushterminal='sudo rm /var/log/asl/*.asl'
+alias flush-cache='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
+alias flush-terminal='sudo rm /var/log/asl/*.asl'
+alias flush-launchservices='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder'
+alias dot-pull="git --git-dir="$HOME/.dotfiles/.git" --work-tree="$HOME/.dotfiles/" pull"
+

@@ -78,7 +78,6 @@ brew cask install anatine
 
 echo '--> LETS CODE!'
 
-
 # Python
 brew install python
 pip install -U setuptools
@@ -123,7 +122,7 @@ if [ ! -f ~/.gitconfig_local ]; then
   read "Configure now your git informations in \`~/.gitconfig_local\` and press [Enter] when done..."
 fi
 
-if [[ -z $PROFILE && -f $HOME/.dotfiles/profiles/$PROFILE ]]; then
+if [ -f $HOME/.dotfiles/profiles/$PROFILE ]; then
   source $HOME/.dotfiles/profiles/$PROFILE
 fi
 

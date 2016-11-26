@@ -23,7 +23,7 @@ export PAGER='less'
 export HOMEBREW_NO_ANALYTICS=1
 
 # Change default ulimit to avoir errors
-ulimit -n 2048
+ulimit -n 1024
 
 #
 # PMD
