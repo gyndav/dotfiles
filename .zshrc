@@ -20,12 +20,6 @@ then
 	source "$HOME/.functions"
 fi
 
-# profiles
-if [ -f "$HOME/.dotfiles/profiles/${PROFILE:-personal}/init.zsh" ]
-then
-	source "$HOME/.dotfiles/profiles/${PROFILE:-personal}/init.zsh"
-fi
-
 # local, not versionned
 if [ -d "$HOME/bin" ]
 then
@@ -34,6 +28,12 @@ fi
 if [[ -f "$HOME/.localrc" ]]
 then
 	source "$HOME/.localrc"
+fi
+
+# profiles based on local
+if [ -f "$HOME/.dotfiles/profiles/${PROFILE:-personal}/init.zsh" ]
+then
+	source "$HOME/.dotfiles/profiles/${PROFILE:-personal}/init.zsh"
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
