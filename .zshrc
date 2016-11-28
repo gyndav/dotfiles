@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # slimzsh
 if [[ -f "${ZDOTDIR:-$HOME}/.slimzsh/slim.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.slimzsh/slim.zsh"
@@ -18,8 +20,13 @@ then
 	source "$HOME/.functions"
 fi
 
-# local, not versionned
+# profiles
+if [ -f "$HOME/.dotfiles/profiles/${PROFILE:-personal}/init.zsh" ]
+then
+	source "$HOME/.dotfiles/profiles/${PROFILE:-personal}/init.zsh"
+fi
 
+# local, not versionned
 if [ -d "$HOME/bin" ]
 then
   PATH="$HOME/bin:$PATH"

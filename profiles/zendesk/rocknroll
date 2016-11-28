@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+
+#
+# dependencies
+#
+brew install stow
+brew install tmux
+
+brew cask install java
+brew install sbt
+
+brew install mysql
+brew install redis
+
+brew install elixir
+mix local.hex --force
+mix local.rebar --force
+
+brew install slimerjs
+
+yarn global add gulp
+
+#
+# apps
+#
+brew cask install 1password
+brew cask install slack
+brew cask install google-chrome-canary

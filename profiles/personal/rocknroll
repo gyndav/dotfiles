@@ -1,14 +1,5 @@
 #!/usr/bin/env zsh
 
-#
-# exports
-#
-
-
-#
-# dependencies
-#
-
 # PHP
 brew install php70 --with-imap --with-postgresql --with-homebrew-curl --with-homebrew-libxml2 --with-homebrew-libxslt --without-apache --without-ldap;
 

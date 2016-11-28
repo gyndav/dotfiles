@@ -122,8 +122,8 @@ if [ ! -f ~/.gitconfig_local ]; then
   read "Configure now your git informations in \`~/.gitconfig_local\` and press [Enter] when done..."
 fi
 
-if [ -f $HOME/.dotfiles/profiles/$PROFILE ]; then
-  source $HOME/.dotfiles/profiles/$PROFILE
+if [ -f $HOME/.dotfiles/profiles/$PROFILE/rocknroll ]; then
+  source $HOME/.dotfiles/profiles/$PROFILE/rocknroll
 fi
 
 echo '--> Cleanup Homebrew formulas'
