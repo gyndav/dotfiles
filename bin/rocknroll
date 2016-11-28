@@ -110,10 +110,10 @@ npm install --global speed-test@latest
 if [ ! -f ~/.localrc ]; then
   touch ~/.localrc
   
-  echo "Configure a profile \`PROFILE\` in \`~/.zshrc_local\`:"
-  read -r PROFILE
+  echo "Configure a profile \`DOTPROFILE\` in \`~/.zshrc_local\`:"
+  read -r DOTPROFILE
   
-  echo "export PROFILE=$PROFILE" > ~/.localrc
+  echo "export DOTPROFILE=$DOTPROFILE" > ~/.localrc
   source ~/.localrc
 fi
 
@@ -122,8 +122,8 @@ if [ ! -f ~/.gitconfig_local ]; then
   read "Configure now your git informations in \`~/.gitconfig_local\` and press [Enter] when done..."
 fi
 
-if [ -f $HOME/.dotfiles/profiles/$PROFILE/rocknroll ]; then
-  source $HOME/.dotfiles/profiles/$PROFILE/rocknroll
+if [ -f $HOME/.dotfiles/profiles/$DOTPROFILE/rocknroll ]; then
+  source $HOME/.dotfiles/profiles/$DOTPROFILE/rocknroll
 fi
 
 echo '--> Cleanup Homebrew formulas'

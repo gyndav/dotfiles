@@ -31,9 +31,9 @@ then
 fi
 
 # profiles based on local
-if [ -f "$HOME/.dotfiles/profiles/${PROFILE:-personal}/init.zsh" ]
+if [ -f "$HOME/.dotfiles/profiles/${DOTPROFILE:-personal}/init.zsh" ]
 then
-	source "$HOME/.dotfiles/profiles/${PROFILE:-personal}/init.zsh"
+	source "$HOME/.dotfiles/profiles/${DOTPROFILE:-personal}/init.zsh"
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
