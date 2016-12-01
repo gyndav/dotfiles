@@ -27,7 +27,7 @@ brew install homebrew/dupes/make --with-default-names
 brew install gnu-sed --with-default-names
 brew install gnu-tar --with-default-names
 brew install gnu-which --with-default-names
-brew install git --with-brewed-curl --with-brewed-openssl
+brew install git --with-brewed-curl --with-brewed-openssl --with-blk-sha1
 brew install bash
 brew install zsh
 brew install zsh-completions
@@ -48,6 +48,7 @@ brew install imagemagick
 brew install zopfli
 brew install ghostscript
 brew install mas
+brew install tree
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
