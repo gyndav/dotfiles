@@ -5,9 +5,12 @@
 #
 brew install stow
 brew install tmux
+brew install jq
+brew install awscli
 
 brew cask install java
 brew install sbt
+brew install typesafe-activator
 
 brew install mysql
 brew install redis
