@@ -49,10 +49,12 @@ brew install zopfli
 brew install ghostscript
 brew install mas
 brew install tree
+brew install homebrew/dupes/nano
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
 brew cask install font-hack
+brew cask install font-fira-code
 
 brew cask install xquartz
 brew cask install virtualbox
@@ -75,7 +77,7 @@ brew cask install dropbox
 brew cask install whatsapp
 brew cask install android-file-transfer
 brew cask install imagealpha
-brew cask install anatine
+brew cask install hyper
 
 echo '--> LETS CODE!'
 
