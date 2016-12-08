@@ -70,7 +70,6 @@ brew cask install gpgtools
 brew cask install vlc
 brew cask install google-chrome
 brew cask install firefox
-brew cask install iterm2
 brew cask install onyx
 brew cask install keepassx
 brew cask install dropbox
@@ -78,6 +77,7 @@ brew cask install whatsapp
 brew cask install android-file-transfer
 brew cask install imagealpha
 brew cask install hyper
+brew cask install atom
 
 echo '--> LETS CODE!'
 
