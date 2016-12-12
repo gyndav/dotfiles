@@ -80,3 +80,5 @@
 
 [fetch]
 	recurseSubmodules = false
+[rerere]
+	enabled = true
