@@ -1,11 +1,19 @@
 #!/usr/bin/env zsh
 
 # PHP
-brew install php70 --with-imap --with-postgresql --with-homebrew-curl --with-homebrew-libxml2 --with-homebrew-libxslt --without-apache --without-ldap;
+brew install php71 \
+	--with-homebrew-curl \
+	--with-homebrew-libressl \
+	--with-homebrew-libxml2 \
+	--with-homebrew-libxslt \
+	--without-apache \
+	--without-fpm \
+	--without-ldap \
+	--without-legacy-mysql;
 
 # PHP Conf
-echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.0/php.ini
-echo "phar.readonly = Off" >> /usr/local/etc/php/7.0/php.ini
+echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.1/php.ini
+echo "phar.readonly = Off" >> /usr/local/etc/php/7.1/php.ini
 
 if ! type 'composer' > /dev/null; then
   curl -sSL https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -31,7 +39,6 @@ npm install --global imageoptim-cli@latest
 
 # apps
 brew cask install appcleaner
-brew cask install brave
 brew cask install gimp
 brew cask install mkchromecast
 
