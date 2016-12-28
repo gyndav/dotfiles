@@ -10,6 +10,7 @@ brew install awscli
 brew install consul-template
 
 brew cask install java
+brew install scala
 brew install sbt
 brew install typesafe-activator
 
@@ -17,12 +18,10 @@ brew install mysql
 brew install redis
 
 brew install elixir
-mix local.hex --force
-mix local.rebar --force
 
 brew install slimerjs
 
-yarn global add gulp
+yarn global add tslint
 
 #
 # apps
