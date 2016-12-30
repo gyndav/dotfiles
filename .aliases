@@ -32,6 +32,8 @@ alias pythonroll='pip install -U setuptools pip fabric'
 # Fixes
 #
 alias composer='nocorrect composer'
+alias compile='nocorrect compile'
+alias rspec='nocorrect rspec'
 
 #
 # Git
@@ -39,6 +41,12 @@ alias composer='nocorrect composer'
 alias gst='git status -sb'
 alias gpp='git pull --prune'
 alias gpf='git push --force'
+alias gca='git commit --amend --no-edit'
+
+#
+# Ruby
+#
+alias be='bundle exec'
 
 #
 # Useful
