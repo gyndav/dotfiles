@@ -14,7 +14,7 @@ brew tap caskroom/versions
 brew tap caskroom/fonts
 
 echo '--> Make sure Homebrew is up to date'
-brew update && brew cask update
+brew update
 
 echo '--> Upgrade installed formulas'
 brew upgrade
@@ -70,14 +70,13 @@ brew cask install gpgtools
 brew cask install vlc
 brew cask install google-chrome
 brew cask install firefox
-brew cask install onyx
 brew cask install keepassx
 brew cask install dropbox
 brew cask install whatsapp
 brew cask install android-file-transfer
 brew cask install imagealpha
 brew cask install hyper
-brew cask install atom
+brew cask install visual-studio-code
 
 echo '--> LETS CODE!'
 

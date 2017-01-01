@@ -38,6 +38,7 @@ npm install --global webcoach@latest
 npm install --global imageoptim-cli@latest
 
 # apps
+brew cask install onyx
 brew cask install appcleaner
 brew cask install gimp
 brew cask install mkchromecast

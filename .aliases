@@ -17,6 +17,7 @@ alias la='ll -A --color=auto'
 alias ..='cd ..'
 
 alias grep='grep --color=auto'
+alias vscode='code'
 
 #
 # Languages
