@@ -24,7 +24,6 @@ brew install curl --with-libssh2 --with-openssl --with-nghttp2 && brew unlink cu
 brew install gettext && brew unlink gettext && brew link gettext --force
 brew install openssl
 brew install homebrew/dupes/make --with-default-names
-brew install gnu-sed --with-default-names
 brew install gnu-tar --with-default-names
 brew install gnu-which --with-default-names
 brew install git --with-brewed-curl --with-brewed-openssl --with-blk-sha1

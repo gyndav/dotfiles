@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# system
+brew install gnu-sed --with-default-names
+
 # PHP
 brew install php71 \
 	--with-homebrew-curl \
