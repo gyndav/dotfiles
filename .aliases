@@ -18,6 +18,7 @@ alias ..='cd ..'
 
 alias grep='grep --color=auto'
 alias vscode='code'
+alias dk='docker'
 
 #
 # Languages
