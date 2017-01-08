@@ -45,4 +45,5 @@ brew cask install onyx
 brew cask install appcleaner
 brew cask install gimp
 brew cask install mkchromecast
+brew cask install tunnelbear
 
