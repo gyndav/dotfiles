@@ -36,9 +36,9 @@ gem install jekyll
 gem install middleman
 
 # Node.js
-npm install --global surge@latest
-npm install --global webcoach@latest
-npm install --global imageoptim-cli@latest
+yarn global add surge@latest
+yarn global add webcoach@latest
+yarn global add imageoptim-cli@latest
 
 # apps
 brew cask install onyx
@@ -46,4 +46,4 @@ brew cask install appcleaner
 brew cask install gimp
 brew cask install mkchromecast
 brew cask install tunnelbear
-
+brew cask install google-drive
