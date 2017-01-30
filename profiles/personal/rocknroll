@@ -5,14 +5,14 @@ brew install gnu-sed --with-default-names
 
 # PHP
 brew install php71 \
-	--with-homebrew-curl \
-	--with-homebrew-libressl \
-	--with-homebrew-libxml2 \
-	--with-homebrew-libxslt \
-	--without-apache \
-	--without-fpm \
-	--without-ldap \
-	--without-legacy-mysql;
+  --with-homebrew-curl \
+  --with-homebrew-libressl \
+  --with-homebrew-libxml2 \
+  --with-homebrew-libxslt \
+  --without-apache \
+  --without-fpm \
+  --without-ldap \
+  --without-legacy-mysql;
 
 # PHP Conf
 echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.1/php.ini
@@ -47,3 +47,8 @@ brew cask install gimp
 brew cask install mkchromecast
 brew cask install tunnelbear
 brew cask install google-drive
+brew cask install virtualbox
+brew cask install vagrant
+vagrant plugin install vagrant-hostsupdater
+vagrant plugin install vagrant-triggers
+vagrant plugin install vagrant-bindfs

@@ -56,13 +56,6 @@ brew cask install font-hack
 brew cask install font-fira-code
 
 brew cask install xquartz
-brew cask install virtualbox
-
-brew cask install vagrant
-vagrant plugin install vagrant-hostsupdater
-vagrant plugin install vagrant-triggers
-vagrant plugin install vagrant-bindfs
-
 brew cask install docker # Docker for Mac
 
 brew cask install gpgtools
@@ -84,7 +77,7 @@ echo '--> LETS CODE!'
 brew install python
 pip install -U setuptools
 pip install -U pip
-pip install -U autopep8 
+pip install -U autopep8
 
 # Ruby
 brew install ruby
@@ -111,10 +104,10 @@ npm install --global speed-test@latest
 # local files
 if [ ! -f ~/.localrc ]; then
   touch ~/.localrc
-  
+
   echo "Configure a profile \`DOTPROFILE\` in \`~/.zshrc_local\`:"
   read -r DOTPROFILE
-  
+
   echo "export DOTPROFILE=$DOTPROFILE" > ~/.localrc
   source ~/.localrc
 fi
