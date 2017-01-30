@@ -56,7 +56,6 @@ brew cask install font-hack
 brew cask install font-fira-code
 
 brew cask install xquartz
-brew cask install docker # Docker for Mac
 
 brew cask install gpgtools
 brew cask install vlc

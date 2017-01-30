@@ -26,9 +26,13 @@ brew install slimerjs
 yarn global add tslint
 yarn global add imagemin-cli
 
+brew install docker
+
 #
 # apps
 #
+brew cask install virtualbox
+brew cask install vagrant
 brew cask install 1password
 brew cask install slack
 brew cask install google-chrome-canary

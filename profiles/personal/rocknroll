@@ -52,3 +52,4 @@ brew cask install vagrant
 vagrant plugin install vagrant-hostsupdater
 vagrant plugin install vagrant-triggers
 vagrant plugin install vagrant-bindfs
+brew cask install docker
