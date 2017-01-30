@@ -18,7 +18,6 @@ alias ..='cd ..'
 
 alias grep='grep --color=auto'
 alias vscode='code'
-alias dk='docker'
 
 #
 # Languages
@@ -49,6 +48,12 @@ alias gca='git commit --amend --no-edit'
 # Ruby
 #
 alias be='bundle exec'
+
+#
+# Docker
+#
+alias dk='docker'
+alias dk-rmi='docker rmi $(docker images -f dangling=true -q)'
 
 #
 # Useful
