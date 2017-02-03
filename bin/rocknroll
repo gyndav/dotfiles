@@ -57,6 +57,7 @@ brew cask install font-fira-code
 
 brew cask install xquartz
 
+brew cask install hyper
 brew cask install gpgtools
 brew cask install vlc
 brew cask install google-chrome
@@ -66,7 +67,6 @@ brew cask install dropbox
 brew cask install whatsapp
 brew cask install android-file-transfer
 brew cask install imagealpha
-brew cask install hyper
 brew cask install visual-studio-code
 brew cask install keybase
 
