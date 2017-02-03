@@ -137,7 +137,7 @@ else
 fi
 
 echo '--> Symlinking dot files'
-for dotfile in "${ZDOTDIR:-$HOME}"/.dotfiles/.{agignore,aliases,functions,gemrc,npmrc,gitconfig,gitignore_global,zprofile,zlogout,zshrc}; do
+for dotfile in "${ZDOTDIR:-$HOME}"/.dotfiles/.{aliases,functions,gemrc,npmrc,gitconfig,gitignore_global,zprofile,zlogout,zshrc}; do
   ln -sf "$dotfile" "${ZDOTDIR:-$HOME}/${dotfile:t}" 2> /dev/null
 done
 
