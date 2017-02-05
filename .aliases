@@ -4,7 +4,7 @@
 alias c='clear'
 alias q='exit'
 alias reload='exec $SHELL -l' # invoke with login
-alias refresh='source $HOME/.dotfiles/.zshrc'
+alias refresh='source $HOME/.zshrc'
 
 alias cp='cp -i'
 alias mv='mv -i'
@@ -20,7 +20,7 @@ alias grep='grep --color=auto'
 alias vscode='code'
 
 alias dot-pull='git --git-dir="$HOME/.dotfiles/.git" --work-tree="$HOME/.dotfiles/" pull; source "$HOME/.zshrc"'
-alias dotfiles="pushd "$HOME/.dotfiles" > /dev/null 2>&1; git pull && ./sync.py && source "$HOME/.zshrc"; popd > /dev/null 2>&1; nyan"
+alias dotfiles="pushd "$HOME/.dotfiles" > /dev/null 2>&1; git pull --prune; git submodule update --init --recursive; symlink-dotfiles && source "$HOME/.zshrc"; popd > /dev/null 2>&1;"
 
 #
 # Languages
@@ -31,13 +31,6 @@ alias rubyroll='gem update --system && gem update && gem cleanup'
 alias phproll='composer self-update --clean-backups && composer update'
 alias noderoll='npm update -g'
 alias pythonroll='pip install -U setuptools pip fabric'
-
-#
-# Fixes
-#
-alias composer='nocorrect composer'
-alias compile='nocorrect compile'
-alias rspec='nocorrect rspec'
 
 #
 # Git
@@ -67,5 +60,5 @@ alias whatsmyip='curl https://api.ipify.org/'
 alias flush-cache='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias flush-terminal='sudo rm /var/log/asl/*.asl'
 alias flush-launchservices='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder'
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv $HOME/.Trash;"
+alias empty-trash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv $HOME/.Trash;"
 

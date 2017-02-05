@@ -10,7 +10,6 @@ fi
 echo '--> Add extras Homebrew formulas'
 brew tap homebrew/dupes
 brew tap homebrew/homebrew-php
-brew tap caskroom/versions
 brew tap caskroom/fonts
 
 echo '--> Make sure Homebrew is up to date'
@@ -29,8 +28,6 @@ brew install gnu-which --with-default-names
 brew install git --with-brewed-curl --with-brewed-openssl --with-blk-sha1
 brew install bash
 brew install zsh
-brew install zsh-completions
-brew install the_silver_searcher
 brew install ripgrep
 brew install coreutils
 brew install wget
@@ -124,21 +121,7 @@ echo '--> Cleanup Homebrew formulas'
 brew cleanup
 brew cask cleanup
 
-# slimzsh
-if [ -d "$HOME/.slimzsh" ]; then
-  echo '--> Updating slimzsh'
-  cd "$HOME/.slimzsh/"
-  git pull --prune
-  git submodule update --init --recursive
-  cd -
-else
-  echo '--> Installing slimzsh'
-  git clone --recursive https://github.com/changs/slimzsh.git "$HOME/.slimzsh"
-fi
+brew prune
 
-echo '--> Symlinking dot files'
-for dotfile in "${ZDOTDIR:-$HOME}"/.dotfiles/.{hyper.js,aliases,functions,gemrc,npmrc,gitconfig,gitignore_global,zprofile,zlogout,zshrc}; do
-  ln -sf "$dotfile" "${ZDOTDIR:-$HOME}/${dotfile:t}" 2> /dev/null
-done
-
-exec $SHELL -l
+echo '--> Updating dotfiles and refresh terminal'
+dotfiles

@@ -1,12 +1,38 @@
 #!/usr/bin/env zsh
 
-# slimzsh
-if [[ -f "${ZDOTDIR:-$HOME}/.slimzsh/slim.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.slimzsh/slim.zsh"
-fi
+# pure
+fpath=("$HOME/.dotfiles" $fpath)
+autoload -Uz promptinit && promptinit
+prompt pure
 
 # zsh completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=("$HOME/.dotfiles/zsh-completions/src" $fpath)
+autoload -Uz compinit && compinit
+
+# zsh colors
+autoload -Uz colors && colors # Colors
+
+# zsh options
+setopt autocd
+setopt extendedglob
+setopt NO_NOMATCH
+
+unsetopt correct_all # no autocorrect
+
+if [ -z $HISTFILE ]; then
+    HISTFILE=$HOME/.zsh_history
+fi
+HISTSIZE=100000
+SAVEHIST=100000
+HISTCONTROL=ignoredups
+
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups # ignore duplication command history list
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
 
 # aliases
 if [[ -f "$HOME/.aliases" ]]
@@ -21,10 +47,6 @@ then
 fi
 
 # local, not versionned
-if [ -d "$HOME/bin" ]
-then
-  PATH="$HOME/bin:$PATH"
-fi
 if [[ -f "$HOME/.localrc" ]]
 then
 	source "$HOME/.localrc"
@@ -39,3 +61,6 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# zsh syntax highlighting
+source "$HOME/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

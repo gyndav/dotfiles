@@ -12,23 +12,12 @@ export LC_ALL='en_US.UTF-8'
 
 export EDITOR='subl -w'
 
-export HISTFILE=~/.zsh_history
-export HISTSIZE=32768
-export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL='ignoreboth'
-export HISTIGNORE='ls:cd:cd -:pwd:exit:date:* --help'
-
 export PAGER='less'
 
 export HOMEBREW_NO_ANALYTICS=1
 
 # Change default ulimit to avoir errors
 ulimit -n 1024
-
-#
-# PMD
-#
-export APP_ENV='dev'
 
 #
 # Languages
@@ -50,11 +39,3 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 export GOPATH=/usr/local/Cellar/go
 export PATH=$PATH:$GOPATH/bin
-
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
-#
-# Bindings
-#
-bindkey '^[[5D' beginning-of-line
-bindkey '^[[5C' end-of-line

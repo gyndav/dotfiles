@@ -1,4 +1,13 @@
-compresspdf()
-{
+#!/usr/bin/env sh
+
+symlink-dotfiles() {
+  echo '--> Symlinking dot files'
+  for dotfile in "${HOME}"/.dotfiles/.{hyper.js,aliases,functions,gemrc,npmrc,gitconfig,gitignore_global,zprofile,zlogout,zshrc}; do
+    ln -sf "$dotfile" "${HOME}/${dotfile:t}" 2> /dev/null
+  done
+}
+
+compresspdf() {
+  echo '--> Compressing PDF'
 	/usr/local/bin/gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/"${3:-'screen'}" -dNOPAUSE -dQUIET -dBATCH -sOutputFile="$1 $2"
 }
