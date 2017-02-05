@@ -19,6 +19,9 @@ alias ..='cd ..'
 alias grep='grep --color=auto'
 alias vscode='code'
 
+alias dot-pull='git --git-dir="$HOME/.dotfiles/.git" --work-tree="$HOME/.dotfiles/" pull; source "$HOME/.zshrc"'
+alias dotfiles="pushd "$HOME/.dotfiles" > /dev/null 2>&1; git pull && ./sync.py && source "$HOME/.zshrc"; popd > /dev/null 2>&1; nyan"
+
 #
 # Languages
 #
@@ -39,7 +42,8 @@ alias rspec='nocorrect rspec'
 #
 # Git
 #
-alias gst='git status -sb'
+alias gs='git status -sb'
+alias gd='git diff --minimal'
 alias gpp='git pull --prune'
 alias gpf='git push --force'
 alias gca='git commit --amend --no-edit'
@@ -63,5 +67,5 @@ alias whatsmyip='curl https://api.ipify.org/'
 alias flush-cache='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias flush-terminal='sudo rm /var/log/asl/*.asl'
 alias flush-launchservices='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder'
-alias dot-pull="git --git-dir="$HOME/.dotfiles/.git" --work-tree="$HOME/.dotfiles/" pull"
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv $HOME/.Trash;"
 
