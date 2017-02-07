@@ -98,8 +98,7 @@ module.exports = {
   plugins: [
     'hyper-snazzy',
     'hyperterm-subpixel-antialiased',
-    'hyperlinks',
-    'hyperterm-tabs'
+    'hyperlinks'
   ],
 
   // in development, you can create a directory under
