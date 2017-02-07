@@ -50,7 +50,8 @@ alias be='bundle exec'
 # Docker
 #
 alias dk='docker'
-alias dk-rmi='docker rmi $(docker images -f dangling=true -q)'
+alias dk-rmi='docker rmi $(docker images -f -q dangling=true)'
+alias dk-rmc='docker rm -v $(docker ps -a -q -f status=exited)'
 
 #
 # Useful
