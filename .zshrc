@@ -16,11 +16,15 @@ autoload -Uz colors && colors # Colors
 setopt autocd
 setopt extendedglob
 setopt NO_NOMATCH
-
 unsetopt correct_all # no autocorrect
+unsetopt menu_complete # do not autoselect the first completion entry
+unsetopt flowcontrol
+setopt auto_menu # show completion menu on succesive tab press
+setopt complete_in_word
+setopt always_to_end
 
 if [ -z $HISTFILE ]; then
-    HISTFILE=$HOME/.zsh_history
+  HISTFILE=$HOME/.zsh_history
 fi
 HISTSIZE=100000
 SAVEHIST=100000
@@ -37,25 +41,25 @@ setopt inc_append_history
 # aliases
 if [[ -f "$HOME/.aliases" ]]
 then
-	source "$HOME/.aliases"
+  source "$HOME/.aliases"
 fi
 
 # functions
 if [[ -f "$HOME/.functions" ]]
 then
-	source "$HOME/.functions"
+  source "$HOME/.functions"
 fi
 
 # local, not versionned
 if [[ -f "$HOME/.localrc" ]]
 then
-	source "$HOME/.localrc"
+  source "$HOME/.localrc"
 fi
 
 # profiles based on local
 if [ -f "$HOME/.dotfiles/profiles/${DOTPROFILE:-personal}/init.zsh" ]
 then
-	source "$HOME/.dotfiles/profiles/${DOTPROFILE:-personal}/init.zsh"
+  source "$HOME/.dotfiles/profiles/${DOTPROFILE:-personal}/init.zsh"
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
