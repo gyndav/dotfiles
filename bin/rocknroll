@@ -46,6 +46,8 @@ brew install ghostscript
 brew install mas
 brew install tree
 brew install homebrew/dupes/nano
+brew install jq
+brew install watch
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
