@@ -51,9 +51,9 @@ alias be='bundle exec'
 #
 alias dk='docker'
 alias dk-info='docker info --format "{{json .}}" | jq .'
-alias dk-rmc='docker rm $(docker ps -q -f “status=exited”)'
-alias dk-rmi='docker rmi $(docker images -q -f “dangling=true”)'
-alias dk-rmv='docker volume rm $(docker volume ls -q -f “dangling=true”)'
+alias dk-rmc='docker rm $(docker ps -q -f "status=exited")'
+alias dk-rmi='docker rmi $(docker images -q -f "dangling=true")'
+alias dk-rmv='docker volume rm $(docker volume ls -q -f "dangling=true")'
 alias dk-prune='docker system prune'
 dk-tail() {
   watch -n 2 'docker ps --format "table {{.ID}}\t {{.Image}}\t {{.Status}}"'
