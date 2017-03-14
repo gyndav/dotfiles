@@ -85,6 +85,10 @@ gem update --system
 # Go
 brew install go
 
+go get -u github.com/codesenberg/bombardier
+go get -u github.com/tj/mmake/cmd/mmake
+alias make=mmake
+
 # Node.js
 brew install node --with-openssl --without-npm
 mkdir -p "$HOME/.npm-packages"
