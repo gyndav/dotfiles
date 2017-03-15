@@ -23,6 +23,7 @@ brew install elixir
 
 brew install slimerjs
 
+yarn global add typescript
 yarn global add tslint
 yarn global add imagemin-cli
 
