@@ -97,7 +97,7 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     'hyper-snazzy',
-    'hyperterm-subpixel-antialiased',
+    'hyper-font-smoothing',
     'hyperlinks'
   ],
 
