@@ -37,6 +37,7 @@
   please = push --force-with-lease
   prlog = "log --pretty=oneline --abbrev-commit --graph --decorate --first-parent"
   ls = log --oneline
+  last = log -1 HEAD
 
 [push]
   default = simple
@@ -91,7 +92,7 @@
   fetchJobs = 4
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
