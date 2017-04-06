@@ -38,9 +38,14 @@
   prlog = "log --pretty=oneline --abbrev-commit --graph --decorate --first-parent"
   ls = log --oneline
   last = log -1 HEAD
+  prune = fetch --prune
 
 [push]
   default = simple
+  followTags = true
+
+[merge]
+  ff = only
 
 [grep]
   fullname = true
@@ -50,6 +55,9 @@
 
 [status]
   showUntrackedFiles = all
+
+[transfer]
+  fsckobjects = true
 
 [credential]
   helper = /usr/local/bin/git-credential-osxkeychain
@@ -90,9 +98,11 @@
 
 [submodule]
   fetchJobs = 4
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
+
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
