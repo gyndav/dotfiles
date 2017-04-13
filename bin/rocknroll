@@ -68,7 +68,6 @@ brew cask install whatsapp
 brew cask install android-file-transfer
 brew cask install imagealpha
 brew cask install visual-studio-code
-brew cask install keybase
 brew cask install iterm2
 
 echo '--> LETS CODE!'

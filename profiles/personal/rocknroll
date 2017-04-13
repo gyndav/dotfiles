@@ -37,7 +37,6 @@ gem install middleman
 
 # Node.js
 yarn global add surge@latest
-yarn global add webcoach@latest
 yarn global add imageoptim-cli@latest
 
 # apps
