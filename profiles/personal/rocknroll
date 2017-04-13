@@ -44,7 +44,6 @@ yarn global add imageoptim-cli@latest
 brew cask install onyx
 brew cask install appcleaner
 brew cask install gimp
-brew cask install mkchromecast
 brew cask install tunnelbear
 brew cask install google-drive
 brew cask install virtualbox
