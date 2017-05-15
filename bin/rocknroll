@@ -19,13 +19,12 @@ echo '--> Upgrade installed formulas'
 brew upgrade
 
 echo '--> BREW ALL THE THINGS!'
-brew install curl --force --with-libssh2 --with-openssl --with-nghttp2 && brew unlink curl && brew link curl --force
-brew install gettext --force && brew unlink gettext && brew link gettext --force
+brew install curl --force --with-libssh2 --with-openssl --with-nghttp2
 brew install openssl
 brew install homebrew/dupes/make --with-default-names
 brew install gnu-tar --with-default-names
 brew install gnu-which --with-default-names
-brew install git --with-brewed-curl --with-brewed-openssl --with-blk-sha1 --with-persistent-https
+brew install git --with-curl --with-openssl --with-blk-sha1 --with-persistent-https
 brew install bash
 brew install zsh
 brew install ripgrep

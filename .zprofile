@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 #
 # Core
 #
@@ -35,9 +37,3 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 export GOPATH=/usr/local/Cellar/go
 export PATH=$PATH:$GOPATH/bin
-
-#
-# keg-only
-#
-export PATH="/usr/local/opt/curl/bin:$PATH"
-
