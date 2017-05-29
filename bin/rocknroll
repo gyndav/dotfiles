@@ -8,9 +8,9 @@ if ! type 'brew' > /dev/null; then
 fi
 
 echo '--> Add extras Homebrew formulas'
-brew tap homebrew/dupes
 brew tap homebrew/homebrew-php
 brew tap caskroom/fonts
+brew tap caskroom/versions
 
 echo '--> Make sure Homebrew is up to date'
 brew update
