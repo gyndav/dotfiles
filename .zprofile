@@ -12,7 +12,7 @@ export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
-export EDITOR='subl -w'
+export EDITOR='nano'
 
 export PAGER='less'
 
