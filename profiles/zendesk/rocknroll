@@ -3,6 +3,9 @@
 #
 # dependencies
 #
+brew tap olafurpg/scalafmt
+brew install olafurpg/scalafmt/scalafmt
+
 brew install stow
 brew install tmux
 brew install jq
@@ -10,6 +13,10 @@ brew install awscli
 brew install terraform
 brew install consul-template
 brew install vault
+brew install nvm
+brew install rbenv
+
+brew install python3
 
 brew cask install java
 brew install scala
@@ -21,6 +28,8 @@ brew install redis
 
 brew install elixir
 
+brew install selenium-server-standalone
+brew install chromedriver
 brew install slimerjs
 
 yarn global add typescript
@@ -37,7 +46,11 @@ brew cask install vagrant
 brew cask install 1password
 brew cask install slack
 brew cask install google-chrome-canary
+brew cask install firefoxdeveloperedition
 brew cask install chromium
 brew cask install imageoptim
 brew cask install aws-vault
 brew cask install zoomus
+brew cask install sequel-pro
+brew cask install intellij-idea-ce
+brew cask install sourcetree

@@ -8,7 +8,7 @@ if ! type 'brew' > /dev/null; then
 fi
 
 echo '--> Add extras Homebrew formulas'
-brew tap homebrew/homebrew-php
+brew tap homebrew/dupes
 brew tap caskroom/fonts
 brew tap caskroom/versions
 
@@ -37,7 +37,6 @@ brew install md5sha1sum
 brew install pv
 brew install rsync
 brew install ssh-copy-id
-brew install heroku
 brew install shellcheck
 brew install imagemagick
 brew install zopfli
@@ -48,6 +47,11 @@ brew install homebrew/dupes/nano
 brew install jq
 brew install watch
 brew install ctop
+brew install tig
+brew install tmate
+brew install docker-machine-driver-xhyve
+brew install shfmt
+brew install editorconfig
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
@@ -131,4 +135,5 @@ brew cleanup
 brew cask cleanup
 
 echo '--> Updating dotfiles and refresh terminal'
+source $HOME/.dotfiles/.functions
 dotfiles

@@ -2,8 +2,10 @@
 
 # system
 brew install gnu-sed --with-default-names
+brew install heroku
 
 # PHP
+brew tap homebrew/homebrew-php
 brew install php71 \
   --with-homebrew-curl \
   --with-homebrew-libressl \
