@@ -61,7 +61,6 @@ brew cask install font-fira-code
 brew cask install xquartz
 
 brew cask install hyper
-brew cask install gpgtools
 brew cask install vlc
 brew cask install google-chrome
 brew cask install firefox
@@ -73,6 +72,9 @@ brew cask install imagealpha
 brew cask install visual-studio-code
 brew cask install sublime-text
 brew cask install iterm2
+
+brew install gpg
+brew cask install gpgtools
 
 echo '--> LETS CODE!'
 
