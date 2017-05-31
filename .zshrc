@@ -68,3 +68,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # zsh syntax highlighting
 source "$HOME/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# rbenv
+eval "$(rbenv init -)"

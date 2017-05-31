@@ -37,6 +37,7 @@ yarn global add tslint
 yarn global add imagemin-cli
 
 brew install docker
+brew install dnsmasq
 
 #
 # apps
