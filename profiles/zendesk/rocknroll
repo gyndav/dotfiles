@@ -4,7 +4,7 @@
 # dependencies
 #
 brew tap olafurpg/scalafmt
-brew install olafurpg/scalafmt/scalafmt
+brew install --HEAD olafurpg/scalafmt/scalafmt
 
 brew install stow
 brew install tmux
