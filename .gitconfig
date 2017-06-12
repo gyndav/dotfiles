@@ -2,7 +2,7 @@
   name = David Guyon
 
 [core]
-  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/dguyon/.gitignore_global
   editor = subl -n -w
   protectHFS = true
   protectNTFS = true
@@ -24,6 +24,7 @@
   wip = !git add . && git commit -m 'WIP'
   sync = !git co master && git pull --rebase && git co - && git rebase master
   rewrite = !git rebase -i $(git merge-base master HEAD)
+  rewrite-soc2 = !git rebase -i $(git merge-base master-soc2 HEAD)
   merged = branch --merged
   unmerged = branch --no-merged
   del = branch -D
