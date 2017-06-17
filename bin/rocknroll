@@ -8,7 +8,6 @@ if ! type 'brew' > /dev/null; then
 fi
 
 echo '--> Add extras Homebrew formulas'
-brew tap homebrew/dupes
 brew tap caskroom/fonts
 brew tap caskroom/versions
 
