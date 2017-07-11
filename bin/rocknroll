@@ -96,17 +96,12 @@ go get -u github.com/tj/mmake/cmd/mmake
 alias make=mmake
 
 # Node.js
-brew install node --with-openssl --without-npm
-mkdir -p "$HOME/.npm-packages"
-
-if ! type 'npm' > /dev/null; then
-  curl -sSL https://www.npmjs.com/install.sh | sh
-fi
+brew install node --with-openssl
 
 # yarn
 brew install yarn
 
-npm install --global npm@4
+npm install --global npm@latest
 npm install --global speed-test@latest
 
 # local files
