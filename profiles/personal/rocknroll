@@ -2,19 +2,11 @@
 
 # system
 brew install gnu-sed --with-default-names
-brew install heroku
 
 # PHP
 brew tap homebrew/homebrew-php
 brew install php71 \
-  --with-homebrew-curl \
-  --with-homebrew-libressl \
-  --with-homebrew-libxml2 \
-  --with-homebrew-libxslt \
-  --without-apache \
-  --without-fpm \
-  --without-ldap \
-  --without-legacy-mysql;
+  --with-homebrew-curl;
 
 # PHP Conf
 echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.1/php.ini
@@ -27,7 +19,6 @@ else
 fi
 
 composer global require friendsofphp/php-cs-fixer
-composer global require phpmetrics/phpmetrics
 
 # Python
 pip install -U glances
@@ -38,8 +29,8 @@ gem install jekyll
 gem install middleman
 
 # Node.js
-yarn global add surge@latest
-yarn global add imageoptim-cli@latest
+npm i -g surge@latest
+npm i -g imageoptim-cli@latest
 
 # apps
 brew cask install onyx

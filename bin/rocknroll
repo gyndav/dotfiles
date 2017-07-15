@@ -96,13 +96,13 @@ go get -u github.com/tj/mmake/cmd/mmake
 alias make=mmake
 
 # Node.js
-brew install node --with-openssl
+brew install node --with-openssl --without-icu4c
 
 # yarn
 brew install yarn
 
-npm install --global npm@latest
-npm install --global speed-test@latest
+npm i -g npm@latest
+npm i -g speed-test@latest
 
 # local files
 if [ ! -f ~/.localrc ]; then

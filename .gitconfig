@@ -23,6 +23,7 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   wip = !git add . && git commit -m 'WIP'
   sync = !git co master && git pull --rebase && git co - && git rebase master
+  sync-soc2 = !git co master-soc2 && git pull --rebase && git co - && git rebase master-soc2
   rewrite = !git rebase -i $(git merge-base master HEAD)
   rewrite-soc2 = !git rebase -i $(git merge-base master-soc2 HEAD)
   merged = branch --merged
@@ -103,7 +104,7 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
