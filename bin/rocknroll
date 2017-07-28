@@ -79,9 +79,8 @@ echo '--> LETS CODE!'
 
 # Python
 brew install python
-pip install -U setuptools
-pip install -U pip
-pip install -U autopep8
+pip2 install -U setuptools pip autopep8
+pip3 install -U setuptools pip autopep8
 
 # Ruby
 brew install ruby
