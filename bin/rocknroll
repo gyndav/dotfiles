@@ -37,8 +37,6 @@ brew install pv
 brew install rsync
 brew install ssh-copy-id
 brew install shellcheck
-brew install imagemagick
-brew install zopfli
 brew install ghostscript
 brew install mas
 brew install tree
@@ -104,6 +102,15 @@ brew install yarn
 npm i -g npm@latest
 npm i -g speed-test@latest
 
+# image manipulation, compression
+brew install imagemagick
+brew install zopfli
+brew install guetzli
+brew install mozjpeg
+
+npm i -g imageoptim-cli@latest
+npm i -g imagemin-cli@latest
+
 # local files
 if [ ! -f ~/.localrc ]; then
   touch ~/.localrc
@@ -130,6 +137,5 @@ brew prune
 brew cleanup
 brew cask cleanup
 
-echo '--> Updating dotfiles and refresh terminal'
-source $HOME/.dotfiles/.functions
-dotfiles
+echo '--> Refreshing terminal'
+exec $SHELL --login

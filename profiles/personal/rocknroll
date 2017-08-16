@@ -30,7 +30,6 @@ gem install middleman
 
 # Node.js
 npm i -g surge@latest
-npm i -g imageoptim-cli@latest
 
 # apps
 brew cask install onyx
