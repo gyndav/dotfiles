@@ -21,15 +21,15 @@ fi
 composer global require friendsofphp/php-cs-fixer
 
 # Python
-pip install -U glances
-pip install -U invoke
+pip2 install -U glances
+pip2 install -U invoke
 
 # Ruby
 gem install jekyll
 gem install middleman
 
 # Node.js
-npm i -g surge@latest
+npm i -g --silent surge@latest
 
 # apps
 brew cask install onyx
