@@ -19,7 +19,6 @@ alias la='ll -A --color=auto'
 alias ..='cd ..'
 
 alias grep='grep --color=auto'
-alias vscode='code'
 
 alias dot-pull='git --git-dir="$HOME/.dotfiles/.git" --work-tree="$HOME/.dotfiles/" pull; source "$HOME/.zshrc"'
 alias dotfiles="pushd "$HOME/.dotfiles" > /dev/null 2>&1; git pull --prune; git submodule update --init --recursive; symlink-dotfiles && source "$HOME/.zshrc"; popd > /dev/null 2>&1;"

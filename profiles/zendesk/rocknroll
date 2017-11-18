@@ -16,7 +16,7 @@ brew install tig
 
 brew install python3
 
-brew cask install java
+brew cask install java8
 brew install scala
 brew install sbt
 
@@ -46,13 +46,12 @@ brew install dnsmasq
 #
 # apps
 #
-brew cask install virtualbox
-brew cask install vagrant
+# brew cask install virtualbox
+# brew cask install vagrant
 brew cask install 1password
 brew cask install slack
 brew cask install google-chrome-canary
 brew cask install firefoxdeveloperedition
-brew cask install firefoxnightly
 brew cask install chromium
 brew cask install imageoptim
 brew cask install aws-vault
