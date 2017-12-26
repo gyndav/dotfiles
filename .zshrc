@@ -62,8 +62,6 @@ then
   source "$HOME/.dotfiles/profiles/${DOTPROFILE:-personal}/init.zsh"
 fi
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # zsh syntax highlighting
