@@ -11,9 +11,6 @@ echo '--> Add extras Homebrew formulas'
 brew tap caskroom/fonts
 brew tap caskroom/versions
 
-echo '--> Make sure Homebrew is up to date'
-brew update
-
 echo '--> Upgrade installed formulas'
 brew upgrade
 
@@ -23,7 +20,7 @@ brew install openssl
 brew install homebrew/dupes/make --with-default-names
 brew install gnu-tar --with-default-names
 brew install gnu-which --with-default-names
-brew install git --with-curl --with-openssl --with-blk-sha1 --with-persistent-https
+brew install git --with-curl --with-openssl --with-blk-sha1 --with-persistent-https --with-persistent-https
 brew install bash
 brew install zsh
 brew install ripgrep
