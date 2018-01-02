@@ -59,6 +59,7 @@ alias dk-prune='docker system prune'
 dk-tail() {
   watch -n 2 'docker ps --format "table {{.ID}}\t {{.Image}}\t {{.Status}}"'
 }
+alias dcp='docker-compose'
 
 #
 # Useful

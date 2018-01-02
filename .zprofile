@@ -29,3 +29,5 @@ export PATH="$COMPOSER_HOME/vendor/bin:$PATH"
 
 export GOPATH=/usr/local/Cellar/go
 export PATH=$PATH:$GOPATH/bin
+
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"

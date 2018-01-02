@@ -10,7 +10,6 @@ brew install awscli
 # brew install terraform
 # brew install consul-template
 # brew install vault
-brew install nvm
 brew install rbenv
 brew install tig
 
