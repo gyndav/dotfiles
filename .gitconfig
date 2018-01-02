@@ -57,6 +57,7 @@
 
 [status]
   showUntrackedFiles = all
+	submoduleSummary = true
 
 [transfer]
   fsckobjects = true
