@@ -28,10 +28,10 @@ gem install middleman
 npm i -g --silent surge@latest
 
 # apps
+brew cask install nordvpn
 brew cask install onyx
 brew cask install appcleaner
 brew cask install gimp
-brew cask install tunnelbear
 brew cask install google-drive
 brew cask install virtualbox
 brew cask install vagrant
