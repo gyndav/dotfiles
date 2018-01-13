@@ -46,6 +46,7 @@ brew install tmate
 brew install docker-machine-driver-xhyve
 brew install shfmt
 brew install editorconfig
+brew install iperf
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
@@ -65,6 +66,7 @@ brew cask install imagealpha
 brew cask install sublime-text
 brew cask install iterm2
 brew cask install recordit
+brew cask install authy
 
 brew install gpg
 brew cask install gpgtools
