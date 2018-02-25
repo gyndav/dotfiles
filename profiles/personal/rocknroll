@@ -5,8 +5,11 @@ brew install gnu-sed --with-default-names
 
 # PHP
 brew tap homebrew/homebrew-php
-brew install php71 \
-  --with-homebrew-curl;
+brew install php72 \
+  --with-homebrew-curl \
+  --with-homebrew-libressl \
+  --with-homebrew-libxml2 \
+  --with-homebrew-libxslt
 
 # PHP Conf
 echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.1/php.ini
@@ -22,8 +25,28 @@ fi
 gem install jekyll
 gem install middleman
 
+# image manipulation, compression
+brew install imagemagick
+brew install zopfli
+brew install guetzli
+brew install mozjpeg
+
+# Python
+brew install python
+
 # Node.js
-npm i -g --silent surge@latest
+brew install node@8
+brew install yarn
+npm install --global npm@5.7.1
+
+npm install --global surge@latest
+npm install --global speed-test@latest
+npm install --global imageoptim-cli@latest
+npm install --global imagemin-cli@latest
+npm install --global fast-cli@latest
+
+# Java
+brew cask install java8
 
 # apps
 brew cask install nordvpn
@@ -36,4 +59,9 @@ brew cask install vagrant
 vagrant plugin install vagrant-hostsupdater
 vagrant plugin install vagrant-triggers
 vagrant plugin install vagrant-bindfs
+
 brew cask install docker
+brew install docker-machine-driver-xhyve
+
+brew install gpg
+brew cask install gpgtools

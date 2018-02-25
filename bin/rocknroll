@@ -35,7 +35,6 @@ brew install rsync
 brew install ssh-copy-id
 brew install shellcheck
 brew install ghostscript
-brew install mas
 brew install tree
 brew install homebrew/dupes/nano
 brew install jq
@@ -43,10 +42,10 @@ brew install watch
 brew install ctop
 brew install tig
 brew install tmate
-brew install docker-machine-driver-xhyve
 brew install shfmt
 brew install editorconfig
 brew install iperf
+brew install gitlab-runner
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
@@ -64,19 +63,12 @@ brew cask install whatsapp
 brew cask install android-file-transfer
 brew cask install imagealpha
 brew cask install sublime-text
+brew cask install visual-studio-code
 brew cask install iterm2
 brew cask install recordit
 brew cask install authy
 
-brew install gpg
-brew cask install gpgtools
-
 echo '--> LETS CODE!'
-
-# Python
-brew install python
-pip2 install -U setuptools pip autopep8
-pip3 install -U setuptools pip autopep8
 
 # Ruby
 brew install ruby
@@ -89,24 +81,6 @@ brew install go
 go get -u github.com/codesenberg/bombardier
 go get -u github.com/tj/mmake/cmd/mmake
 alias make=mmake
-
-# Node.js
-brew install node --with-openssl --without-icu4c
-
-# yarn
-brew install yarn
-
-npm i -g npm@latest
-npm i -g speed-test@latest
-
-# image manipulation, compression
-brew install imagemagick
-brew install zopfli
-brew install guetzli
-brew install mozjpeg
-
-npm i -g imageoptim-cli@latest
-npm i -g imagemin-cli@latest
 
 # local files
 if [ ! -f ~/.localrc ]; then
@@ -131,7 +105,7 @@ fi
 echo '--> Cleanup Homebrew formulas'
 brew prune
 
-brew cleanup
+brew cleanup -s
 brew cask cleanup
 
 echo '--> Refreshing terminal'

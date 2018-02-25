@@ -1,24 +1,26 @@
 #!/usr/bin/env zsh
 
 #
-# dependencies
+# tooling
 #
 brew install stow
 brew install tmux
 brew install jq
-brew install awscli
-# brew install terraform
-# brew install consul-template
-# brew install vault
 brew install rbenv
-brew install tig
 
+# languages
+brew install python
 brew install python3
+
+brew install node
+brew install yarn
+npm install --global npm@5.6
 
 brew cask install java8
 brew install scala
 brew install sbt
 
+# addons
 brew install mysql
 brew install mycli
 
@@ -29,8 +31,6 @@ brew install pgcli
 
 brew install elixir
 
-brew install clojurescript
-
 brew install selenium-server-standalone
 brew install chromedriver
 brew install slimerjs
@@ -39,24 +39,29 @@ yarn global add typescript
 yarn global add tslint
 yarn global add imagemin-cli
 
-brew install docker
 brew install dnsmasq
 
 #
 # apps
 #
-# brew cask install virtualbox
-# brew cask install vagrant
+brew cask install docker-edge
 brew cask install 1password
 brew cask install slack
 brew cask install google-chrome-canary
 brew cask install firefoxdeveloperedition
 brew cask install chromium
 brew cask install imageoptim
-brew cask install aws-vault
 brew cask install zoomus
 brew cask install sequel-pro
 brew cask install postgres
 brew cask install intellij-idea-ce
+
+#
+# Cloud
+#
+brew install awscli
+brew install awslogs
+brew cask install aws-vault
+
 brew cask install google-cloud-sdk
 gcloud components install docker-credential-gcr --quiet
