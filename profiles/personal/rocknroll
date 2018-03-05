@@ -53,9 +53,9 @@ brew cask install nordvpn
 brew cask install onyx
 brew cask install appcleaner
 brew cask install gimp
-brew cask install google-drive-file-stream
 brew cask install docker
 brew install docker-machine-driver-xhyve
+brew cask install google-photos-backup-and-sync
 
 brew install gpg
 brew cask install gpgtools
