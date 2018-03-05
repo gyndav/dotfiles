@@ -53,13 +53,7 @@ brew cask install nordvpn
 brew cask install onyx
 brew cask install appcleaner
 brew cask install gimp
-brew cask install google-drive
-brew cask install virtualbox
-brew cask install vagrant
-vagrant plugin install vagrant-hostsupdater
-vagrant plugin install vagrant-triggers
-vagrant plugin install vagrant-bindfs
-
+brew cask install google-drive-file-stream
 brew cask install docker
 brew install docker-machine-driver-xhyve
 
