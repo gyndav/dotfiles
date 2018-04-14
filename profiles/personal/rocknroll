@@ -35,8 +35,8 @@ brew install python
 
 # Node.js
 brew install node@8
-brew install yarn
 npm install --global npm@5.7.1
+npm install --global yarn@lastest
 
 npm install --global surge@latest
 npm install --global speed-test@latest
