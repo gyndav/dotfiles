@@ -4,7 +4,6 @@
 brew install gnu-sed --with-default-names
 
 # PHP
-brew tap homebrew/homebrew-php
 brew install php72 \
   --with-homebrew-curl \
   --with-homebrew-libressl \
@@ -12,8 +11,8 @@ brew install php72 \
   --with-homebrew-libxslt
 
 # PHP Conf
-echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.1/php.ini
-echo "phar.readonly = Off" >> /usr/local/etc/php/7.1/php.ini
+echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.2/php.ini
+echo "phar.readonly = Off" >> /usr/local/etc/php/7.2/php.ini
 
 if ! type 'composer' > /dev/null; then
   curl -sSL https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
