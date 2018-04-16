@@ -10,11 +10,11 @@ brew install rbenv
 
 # languages
 brew install python
-brew install python3
+brew install python@2
 
-brew install node
-brew install yarn
-npm install --global npm@5.6
+brew install --with-openssl --without-icu4c node8
+npm install --global npm@5.8
+npm install --global yarn
 
 brew cask install java8
 brew install scala
@@ -53,12 +53,13 @@ brew cask install chromium
 brew cask install imageoptim
 brew cask install zoomus
 brew cask install sequel-pro
-brew cask install postgres
 brew cask install intellij-idea-ce
+brew cask install psequel
 
 #
 # Cloud
 #
+brew install kubectl
 brew install awscli
 brew install awslogs
 brew cask install aws-vault
