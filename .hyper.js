@@ -25,11 +25,7 @@ module.exports = {
     css: '',
 
     // custom css to embed in the terminal window
-    termCSS: `
-        x-screen x-row {
-            font-variant-ligatures: initial;
-        }
-    `,
+    termCSS: '',
 
     // set to `true` if you're using a Linux set up
     // that doesn't shows native menus
