@@ -27,7 +27,6 @@ ulimit -n 1024
 export COMPOSER_HOME=${ZDOTDIR:-$HOME}/.composer
 export PATH="$COMPOSER_HOME/vendor/bin:$PATH"
 
-export GOPATH=/usr/local/Cellar/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/go/bin
 
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
