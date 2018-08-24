@@ -106,7 +106,6 @@ echo '--> Cleanup Homebrew formulas'
 brew prune
 
 brew cleanup -s
-brew cask cleanup
 
 echo '--> Refreshing terminal'
 exec $SHELL --login
