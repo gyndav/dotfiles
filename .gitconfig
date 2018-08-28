@@ -41,6 +41,12 @@
   ls = log --oneline
   last = log -1 HEAD
   prune = fetch --prune
+  aliases = config --get-regexp alias
+  ra = rebase --abort
+  rc = rebase --continue
+  psu = push --set-upstream
+  unstash = stash pop
+  purge = clean -fdx
 
 [push]
   default = simple
