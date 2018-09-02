@@ -46,6 +46,7 @@ brew install shfmt
 brew install editorconfig
 brew install iperf
 brew install gitlab-runner
+brew install bat
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
