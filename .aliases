@@ -24,6 +24,9 @@ alias dot-pull='git --git-dir="$HOME/.dotfiles/.git" --work-tree="$HOME/.dotfile
 alias dotfiles="pushd "$HOME/.dotfiles" > /dev/null 2>&1; git pull --prune; git submodule update --init --recursive; symlink-dotfiles && source "$HOME/.zshrc"; popd > /dev/null 2>&1;"
 
 alias cat='bat'
+alias ping='prettyping --nolegend'
+alias find='fd'
+alias du='ncdu --color dark -rr -x'
 
 #
 # Languages

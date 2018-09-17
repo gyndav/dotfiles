@@ -47,6 +47,9 @@ brew install editorconfig
 brew install iperf
 brew install gitlab-runner
 brew install bat
+brew install prettyping
+brew install fd
+brew install ncdu
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
