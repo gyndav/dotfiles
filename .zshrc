@@ -50,14 +50,14 @@ then
   source "$HOME/.functions"
 fi
 
-# local, not versionned
+# local, not versioned
 if [[ -f "$HOME/.localrc" ]]
 then
   source "$HOME/.localrc"
 fi
 
 # profiles based on local
-if [ -f "$HOME/.dotfiles/profiles/${DOTPROFILE:-personal}/init.zsh" ]
+if [[ -f "$HOME/.dotfiles/profiles/${DOTPROFILE:-personal}/init.zsh" ]]
 then
   source "$HOME/.dotfiles/profiles/${DOTPROFILE:-personal}/init.zsh"
 fi

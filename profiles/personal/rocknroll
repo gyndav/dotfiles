@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # system
-brew install gnu-sed --with-default-names
+brew install gnu-sed
 
 # PHP
 brew install php72 \

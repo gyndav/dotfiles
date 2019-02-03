@@ -1,33 +1,27 @@
-#!/usr/bin/env zsh
-
-setopt extendedglob
+#!/usr/bin/env sh
 
 if ! type 'brew' > /dev/null; then
   echo '--> Installing Homebrew'
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-echo '--> Add extras Homebrew formulas'
-brew tap caskroom/fonts
-brew tap caskroom/versions
-
-echo '--> Upgrade installed formulas'
-brew upgrade
+# echo '--> Upgrade installed formulas'
+# brew upgrade
 
 echo '--> BREW ALL THE THINGS!'
-brew install curl --force --with-libssh2 --with-openssl --with-nghttp2
+brew install curl --force
 brew install openssl
-brew install homebrew/dupes/make --with-default-names
-brew install gnu-tar --with-default-names
-brew install gnu-which --with-default-names
-brew install git --with-curl --with-openssl --with-blk-sha1 --with-persistent-https --with-persistent-https
+brew install make
+brew install gnu-tar
+brew install gnu-which
+brew install git
 brew install bash
 brew install zsh
 brew install ripgrep
 brew install coreutils
 brew install wget
 brew install midnight-commander
-brew install mtr --with-glib
+brew install mtr
 brew install htop
 brew install md5sha1sum
 brew install pv
@@ -36,7 +30,7 @@ brew install ssh-copy-id
 brew install shellcheck
 brew install ghostscript
 brew install tree
-brew install homebrew/dupes/nano
+brew install nano
 brew install jq
 brew install watch
 brew install ctop
@@ -50,6 +44,7 @@ brew install bat
 brew install prettyping
 brew install fd
 brew install ncdu
+brew install fzf
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
@@ -58,33 +53,30 @@ brew cask install font-fira-code
 
 brew cask install xquartz
 
-brew cask install hyper
 brew cask install vlc
 brew cask install google-chrome
 brew cask install firefox
 brew cask install dropbox
 brew cask install whatsapp
-brew cask install android-file-transfer
 brew cask install imagealpha
 brew cask install sublime-text
 brew cask install visual-studio-code
 brew cask install iterm2
-brew cask install recordit
 brew cask install authy
 
 echo '--> LETS CODE!'
 
 # Ruby
-brew install ruby
-gem update --system
+# brew install ruby
+# gem update --system
 # gem pristine --all --only-executables
 
 # Go
-brew install go
+# brew install go
 
-go get -u github.com/codesenberg/bombardier
-go get -u github.com/tj/mmake/cmd/mmake
-alias make=mmake
+# go get -u github.com/codesenberg/bombardier
+# go get -u github.com/tj/mmake/cmd/mmake
+# alias make=mmake
 
 # local files
 if [ ! -f ~/.localrc ]; then
@@ -107,8 +99,6 @@ if [ -f $HOME/.dotfiles/profiles/$DOTPROFILE/rocknroll ]; then
 fi
 
 echo '--> Cleanup Homebrew formulas'
-brew prune
-
 brew cleanup -s
 
 echo '--> Refreshing terminal'

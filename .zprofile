@@ -5,10 +5,6 @@
 #
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-# coreutils
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
-
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
@@ -20,6 +16,12 @@ export HOMEBREW_NO_ANALYTICS=1
 
 # Change default ulimit to avoir errors
 ulimit -n 1024
+
+# GNU
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix make)/libexec/gnubin:$PATH"
+
+export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
 
 #
 # Languages

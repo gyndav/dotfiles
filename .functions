@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 symlink-dotfiles() {
   echo '--> Symlinking dot files'
-  for dotfile in "${HOME}"/.dotfiles/.{hyper.js,aliases,functions,gemrc,gitconfig,gitignore_global,zprofile,zlogout,zshrc}; do
+  for dotfile in "${HOME}"/.dotfiles/.{aliases,functions,gemrc,gitconfig,gitignore_global,zprofile,zlogout,zshrc}; do
     ln -sf "$dotfile" "${HOME}/${dotfile:t}" 2> /dev/null
   done
 }
