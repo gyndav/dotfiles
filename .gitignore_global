@@ -6,6 +6,9 @@
 *.exe
 *.o
 *.so
+.elixir_ls/
+
+
 
 # Packages #
 ############
@@ -28,6 +31,7 @@
 
 # OS generated files #
 ######################
+.DS_Store
 *.DS_Store
 *.DS_Store?
 ._*

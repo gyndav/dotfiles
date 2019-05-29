@@ -2,7 +2,7 @@
   name = David Guyon
 
 [core]
-	excludesfile = /Users/dguyon/.gitignore_global
+  excludesfile = /Users/gyndav/.gitignore_global
   editor = subl -n -w
   protectHFS = true
   protectNTFS = true
@@ -63,13 +63,13 @@
 
 [status]
   showUntrackedFiles = all
-	submoduleSummary = true
+  submoduleSummary = true
 
 [transfer]
   fsckobjects = true
 
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 
 [filter "media"]
   required = true
@@ -93,9 +93,9 @@
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+  smudge = git-lfs smudge -- %f
   required = true
-	process = git-lfs filter-process
+  process = git-lfs filter-process
 
 [fetch]
   recurseSubmodules = false
@@ -110,11 +110,11 @@
   fetchJobs = 4
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [protocol]
-	version = 2
+  version = 2

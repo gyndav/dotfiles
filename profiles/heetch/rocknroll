@@ -15,9 +15,14 @@ brew install awscli
 brew install aws-okta
 brew install ffmpeg
 brew install dnsmasq
+brew install kubectl
 
 brew install pgcli
 brew install postgresql # gem install pg
+
+brew install httpstat
+brew install httpie
+brew install grpcurl
 
 #
 # universe
@@ -36,10 +41,10 @@ brew install richgo
 #
 brew cask install slack
 brew cask install docker-edge
-brew cask install google-chrome-canary
-brew cask install firefox-developer-edition
 brew cask install zoomus
 brew cask install viscosity
 brew cask install 1password
 brew cask install spotify
+brew cask install aircall
 brew cask install appcleaner
+brew cask install nslogger
