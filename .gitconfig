@@ -23,9 +23,7 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   wip = !git add . && git commit -m 'WIP'
   sync = !git co master && git pull --rebase && git co - && git rebase master
-  sync-soc2 = !git co master-soc2 && git pull --rebase && git co - && git rebase master-soc2
   rewrite = !git rebase -i $(git merge-base master HEAD)
-  rewrite-soc2 = !git rebase -i $(git merge-base master-soc2 HEAD)
   merged = branch --merged
   unmerged = branch --no-merged
   del = branch -D
@@ -65,8 +63,8 @@
   showUntrackedFiles = all
   submoduleSummary = true
 
-[transfer]
-  fsckobjects = true
+# [transfer]
+#   fsckobjects = true
 
 [credential]
   helper = osxkeychain
@@ -76,11 +74,11 @@
   clean = git media clean %f
   smudge = git media smudge %f
 
-[receive]
-  fsckObjects = true
+# [receive]
+#   fsckObjects = true
 
 [pull]
-  rebase = preserve
+  rebase = merges
 
 [include]
   path = ~/.gitconfig_local
@@ -99,6 +97,7 @@
 
 [fetch]
   recurseSubmodules = false
+	prune = true
 
 [rerere]
   enabled = true
@@ -113,8 +112,5 @@
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
 
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
 [protocol]
-  version = 2
+	version = 2
