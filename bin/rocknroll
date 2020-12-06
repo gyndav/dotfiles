@@ -15,6 +15,7 @@ brew install make
 brew install gnu-tar
 brew install gnu-which
 brew install git
+brew install bit # alternative git cli
 brew install bash
 brew install zsh
 brew install ripgrep
@@ -45,6 +46,8 @@ brew install prettyping
 brew install fd
 brew install ncdu
 brew install fzf
+brew install dog
+brew install ffmpeg
 
 echo '--> CASK ALL THE THINGS!'
 brew cask install font-ubuntu
@@ -63,6 +66,7 @@ brew cask install sublime-text
 brew cask install visual-studio-code
 brew cask install iterm2
 brew cask install authy
+brew cask install appcleaner
 
 echo '--> LETS CODE!'
 

@@ -6,6 +6,10 @@ function heetch() {
   cd $HEETCH_DIR
 }
 
+function univeerse() {
+  cd "$HEETCH_DIR/universe"
+}
+
 function customer-care_run-deps() {
   gravity run -n legacy-coupon,product,city,coupon,driver-state
 }
@@ -13,32 +17,20 @@ function customer-care_run-deps() {
 # yarn global
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# Golang
+export GOPROXY="https://proxy.golang.org,direct"
+export GONOPROXY="github.com/heetch"
+export GONOSUMDB="github.com/heetch"
+export GOPRIVATE="github.com/heetch"
+
 # keg-only
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/libxml2/lib"
-export CPPFLAGS="-I/usr/local/opt/libxml2/include"
-export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
-
 export PATH="/usr/local/opt/libxslt/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/libxslt/lib"
-export CPPFLAGS="-I/usr/local/opt/libxslt/include"
-export PKG_CONFIG_PATH="/usr/local/opt/libxslt/lib/pkgconfig"
-
 export PATH="/usr/local/opt/curl/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/curl/lib"
-export CPPFLAGS="-I/usr/local/opt/curl/include"
-export PKG_CONFIG_PATH="/usr/local/opt/curl/lib/pkgconfig"
-
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
 export PATH="/usr/local/opt/protobuf@3.1/bin:$PATH"
-
-export LDFLAGS="-L/usr/local/opt/readline/lib"
-export CPPFLAGS="-I/usr/local/opt/readline/include"
-
-export LDFLAGS="-L/usr/local/opt/zlib/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include"
-export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 alias unibe='uni exec bundle exec --'
 
