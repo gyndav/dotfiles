@@ -3,58 +3,22 @@
 # system
 brew install gnu-sed
 
-# PHP
-brew install php72 \
-  --with-homebrew-curl \
-  --with-homebrew-libressl \
-  --with-homebrew-libxml2 \
-  --with-homebrew-libxslt
-
-# PHP Conf
-echo "date.timezone = 'Europe/Paris'" >> /usr/local/etc/php/7.2/php.ini
-echo "phar.readonly = Off" >> /usr/local/etc/php/7.2/php.ini
-
-if ! type 'composer' > /dev/null; then
-  curl -sSL https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-else
-  composer self-update --clean-backups
-fi
-
-# Ruby
-gem install jekyll
-gem install middleman
-
 # image manipulation, compression
 brew install imagemagick
 brew install zopfli
 brew install guetzli
 brew install mozjpeg
 
-# Python
-brew install python
-
-# Node.js
-brew install node@8
-npm install --global npm@5.7.1
-npm install --global yarn@lastest
-
-npm install --global surge@latest
-npm install --global speed-test@latest
-npm install --global imageoptim-cli@latest
-npm install --global imagemin-cli@latest
-npm install --global fast-cli@latest
-
 # Java
-brew cask install java8
+brew install --cask java8
 
 # apps
-brew cask install nordvpn
-brew cask install onyx
-brew cask install appcleaner
-brew cask install gimp
-brew cask install docker
+# brew install --cask nordvpn
+brew install --cask onyx
+brew install --cask appcleaner
+brew install --cask gimp
+brew install --cask docker
 brew install docker-machine-driver-xhyve
-brew cask install google-photos-backup-and-sync
 
 brew install gpg
-brew cask install gpgtools
+brew install --cask gpgtools

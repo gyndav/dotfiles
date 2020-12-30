@@ -6,10 +6,6 @@ function heetch() {
   cd $HEETCH_DIR
 }
 
-function univeerse() {
-  cd "$HEETCH_DIR/universe"
-}
-
 function customer-care_run-deps() {
   gravity run -n legacy-coupon,product,city,coupon,driver-state
 }

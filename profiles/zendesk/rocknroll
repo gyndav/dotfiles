@@ -16,7 +16,7 @@ brew install --with-openssl --without-icu4c node8
 npm install --global npm@5.8
 npm install --global yarn
 
-brew cask install java8
+brew install --cask java8
 brew install scala
 brew install sbt
 
@@ -44,17 +44,17 @@ brew install dnsmasq
 #
 # apps
 #
-brew cask install docker-edge
-brew cask install 1password
-brew cask install slack
-brew cask install google-chrome-canary
-brew cask install firefoxdeveloperedition
-brew cask install chromium
-brew cask install imageoptim
-brew cask install zoomus
-brew cask install sequel-pro
-brew cask install intellij-idea-ce
-brew cask install psequel
+brew install --cask docker-edge
+brew install --cask 1password
+brew install --cask slack
+brew install --cask google-chrome-canary
+brew install --cask firefoxdeveloperedition
+brew install --cask chromium
+brew install --cask imageoptim
+brew install --cask zoomus
+brew install --cask sequel-pro
+brew install --cask intellij-idea-ce
+brew install --cask psequel
 
 #
 # Cloud
@@ -62,7 +62,7 @@ brew cask install psequel
 brew install kubectl
 brew install awscli
 brew install awslogs
-brew cask install aws-vault
+brew install --cask aws-vault
 
-brew cask install google-cloud-sdk
+brew install --cask google-cloud-sdk
 gcloud components install docker-credential-gcr --quiet

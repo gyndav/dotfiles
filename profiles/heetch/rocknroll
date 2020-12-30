@@ -13,6 +13,7 @@ brew install yq
 brew install asdf
 brew install awscli
 brew install aws-okta
+brew install ffmpeg
 brew install dnsmasq
 brew install kubectl
 
@@ -36,11 +37,11 @@ brew install richgo
 #
 # apps
 #
-brew cask install slack
-brew cask install docker-edge
-brew cask install zoomus
-brew cask install viscosity
-brew cask install 1password
-brew cask install spotify
-brew cask install aircall
-brew cask install nslogger
+brew install --cask slack
+brew install --cask docker-edge
+brew install --cask zoomus
+brew install --cask viscosity
+brew install --cask 1password
+brew install --cask spotify
+brew install --cask appcleaner
+brew install --cask nslogger

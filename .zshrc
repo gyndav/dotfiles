@@ -1,16 +1,26 @@
 #!/usr/bin/env zsh
 
-# pure
-fpath=("$HOME/.dotfiles" $fpath)
-autoload -Uz promptinit && promptinit
-prompt pure
+zmodload zsh/zprof
 
-# zsh completions
-fpath=("$HOME/.dotfiles/zsh-completions/src" $fpath)
-autoload -Uz compinit && compinit
+# shell
+fpath+=/usr/local/share/zsh/site-functions
+fpath+="$HOME/.dotfiles/zsh-completions/src"
+
+autoload -Uz compinit
+
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit;
+else
+  compinit -C;
+fi;
 
 # zsh colors
-autoload -Uz colors && colors # Colors
+autoload -Uz colors; colors # Colors
+
+# prompt
+fpath+=$HOME/.dotfiles/pure
+autoload -Uz promptinit; promptinit
+prompt pure
 
 # zsh options
 setopt autocd
@@ -38,6 +48,10 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 
+# various sourcing
+source /usr/local/opt/asdf/asdf.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # aliases
 if [[ -f "$HOME/.aliases" ]]
 then
@@ -62,7 +76,5 @@ then
   source "$HOME/.dotfiles/profiles/${DOTPROFILE:-personal}/init.zsh"
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# zsh syntax highlighting
+# https://github.com/zsh-users/zsh-syntax-highlighting#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
 source "$HOME/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

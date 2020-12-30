@@ -1,116 +1,110 @@
 [user]
-  name = David Guyon
+	name = David Guyon
 
 [core]
-  excludesfile = /Users/gyndav/.gitignore_global
-  editor = subl -n -w
-  protectHFS = true
-  protectNTFS = true
-  preloadindex = true
+	excludesfile = /Users/gyndav/.gitignore_global
+	editor = subl -n -w
+	protectHFS = true
+	protectNTFS = true
+	preloadindex = true
 
 [color]
-  ui = true
+	ui = true
 
 [alias]
-  co = checkout
-  cob = checkout -b
-  ci = commit
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  branches = branch -a
-  remotes = remote -v
-  tags = tag -l
-  stashes = stash list
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  wip = !git add . && git commit -m 'WIP'
-  sync = !git co master && git pull --rebase && git co - && git rebase master
-  rewrite = !git rebase -i $(git merge-base master HEAD)
-  merged = branch --merged
-  unmerged = branch --no-merged
-  del = branch -D
-  st = status -sb
-  precommit = diff --cached --diff-algorithm=minimal -w
-  nevermind = !git reset --hard HEAD && git clean -d -f
-  unstage = reset -q HEAD --
-  discard = checkout --
-  amend = commit --amend --no-edit
-  untracked = clean -f -d
-  please = push --force-with-lease
-  prlog = "log --pretty=oneline --abbrev-commit --graph --decorate --first-parent"
-  ls = log --oneline
-  last = log -1 HEAD
-  prune = fetch --prune
-  aliases = config --get-regexp alias
-  ra = rebase --abort
-  rc = rebase --continue
-  psu = push --set-upstream
-  unstash = stash pop
-  purge = clean -fdx
+	co = checkout
+	cob = checkout -b
+	ci = commit
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	branches = branch -a
+	remotes = remote -v
+	tags = tag -l
+	stashes = stash list
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	wip = !git add . && git commit -m 'WIP'
+	sync = !git co master && git pull --rebase && git co - && git rebase master
+	rewrite = !git rebase -i $(git merge-base master HEAD)
+	merged = branch --merged
+	unmerged = branch --no-merged
+	del = branch -D
+	st = status -sb
+	precommit = diff --cached --diff-algorithm=minimal -w
+	nevermind = !git reset --hard HEAD && git clean -d -f
+	unstage = reset -q HEAD --
+	discard = checkout --
+	amend = commit --amend --no-edit
+	untracked = clean -f -d
+	please = push --force-with-lease
+	prlog = "log --pretty=oneline --abbrev-commit --graph --decorate --first-parent"
+	ls = log --oneline
+	last = log -1 HEAD
+	prune = fetch --prune
+	aliases = config --get-regexp alias
+	ra = rebase --abort
+	rc = rebase --continue
+	psu = push --set-upstream
+	unstash = stash pop
+	purge = clean -fdx
 
 [push]
-  default = simple
-  followTags = true
+	default = simple
+	followTags = true
 
 [merge]
-  ff = only
+	ff = only
 
 [grep]
-  fullname = true
+	fullname = true
 
 [tag]
-  sort = -version:refname
+	sort = -version:refname
 
 [status]
-  showUntrackedFiles = all
-  submoduleSummary = true
+	showUntrackedFiles = all
+	submoduleSummary = true
 
-# [transfer]
-#   fsckobjects = true
+[transfer]
+	fsckobjects = true
 
 [credential]
-  helper = osxkeychain
+	helper = osxkeychain
 
 [filter "media"]
-  required = true
-  clean = git media clean %f
-  smudge = git media smudge %f
-
-# [receive]
-#   fsckObjects = true
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
 
 [pull]
-  rebase = merges
+	rebase = true
 
 [include]
-  path = ~/.gitconfig_local
+	path = ~/.gitconfig_local
 
 [help]
-  autocorrect = 1
+	autocorrect = 1
 
 [diff]
-  indentHeuristic = true
+	indentHeuristic = true
+	colorMoved = zebra
 
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  required = true
-  process = git-lfs filter-process
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
 
 [fetch]
-  recurseSubmodules = false
+	recurseSubmodules = false
 	prune = true
 
 [rerere]
-  enabled = true
+	enabled = true
 
 [commit]
-  verbose = true
+	verbose = true
 
 [submodule]
-  fetchJobs = 4
-
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
+	fetchJobs = 4
 
 [protocol]
 	version = 2
