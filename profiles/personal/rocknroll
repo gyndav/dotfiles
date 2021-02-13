@@ -13,7 +13,6 @@ brew install mozjpeg
 brew install --cask java8
 
 # apps
-# brew install --cask nordvpn
 brew install --cask onyx
 brew install --cask appcleaner
 brew install --cask gimp

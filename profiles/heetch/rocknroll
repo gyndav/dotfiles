@@ -45,3 +45,6 @@ brew install --cask 1password
 brew install --cask spotify
 brew install --cask appcleaner
 brew install --cask nslogger
+brew install --cask postico
+brew install --cask stoplight-studio
+brew install --cask notion

@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 # shell
 fpath+=/usr/local/share/zsh/site-functions
