@@ -51,7 +51,7 @@ brew install --cask google-chrome-canary
 brew install --cask firefoxdeveloperedition
 brew install --cask chromium
 brew install --cask imageoptim
-brew install --cask zoomus
+brew install --cask zoom
 brew install --cask sequel-pro
 brew install --cask intellij-idea-ce
 brew install --cask psequel

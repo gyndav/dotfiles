@@ -39,7 +39,7 @@ brew install richgo
 #
 brew install --cask slack
 brew install --cask docker-edge
-brew install --cask zoomus
+brew install --cask zoom
 brew install --cask viscosity
 brew install --cask 1password
 brew install --cask spotify
