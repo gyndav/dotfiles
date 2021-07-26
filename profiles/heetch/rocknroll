@@ -12,9 +12,7 @@ brew install jq
 brew install yq
 brew install asdf
 brew install awscli
-brew install aws-okta
 brew install ffmpeg
-brew install dnsmasq
 brew install kubectl
 
 brew install pgcli
