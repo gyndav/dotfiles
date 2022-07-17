@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
 #
-# extra
-#
-brew tap kyoh86/tap
-#
 # tooling
 #
+brew install homebrew/cask-versions/sublime-text-dev
+
 brew install tmux
 brew install awscli
 brew install ffmpeg
@@ -14,31 +12,53 @@ brew install kubectl
 brew install kubectx
 
 brew install pgcli
-brew install postgresql@11 # gem install pg
+brew install libpq
+brew install postgresql@13
 
 brew install httpstat
 brew install httpie
 brew install grpcurl
+brew install hadolint
+
+brew install gh
 
 #
 # universe
 #
-brew install protobuf@3.1
-brew install protobuf-c
-brew install geos
+asdf plugin add golang
+asdf global golang 1.18.3
+
+asdf plugin add nodejs
+asdf install nodejs 14.17.5
+asdf install nodejs 16.11.1
+asdf global nodejs 16.11.1
+
+npm i -g npm@latest
+npm i -g yarn@latest
+
+asdf plugin add ruby
+brew install libffi libyaml zlib readline
+export RUBY_CONFIGURE_OPTS="--with-zlib-dir=/opt/homebrew/opt/zlib --with-openssl-dir=/opt/homebrew/opt/openssl@1.1 --with-readline-dir=/opt/homebrew/opt/readline --with-libyaml-dir=/opt/homebrew/opt/libyaml"
+export RUBY_CFLAGS="-Wno-error=implicit-function-declaration"
+export CONFIGURE_OPTS="--build aarch64-apple-darwin20"
+asdf install ruby 2.6.6
+asdf global ruby 2.6.6
 
 brew tap kyoh86/tap
-brew install richgo
+brew install pre-commit
+
+brew tap drone/drone
+brew install drone
+
+brew install dagger/tap/dagger
 
 #
 # apps
 #
-brew install --cask slack
-brew install --cask docker-edge
-brew install --cask zoom
-brew install --cask viscosity
-brew install --cask 1password
-brew install --cask spotify
-brew install --cask nslogger
-brew install --cask stoplight-studio
-brew install --cask notion
+brew install homebrew/cask-versions/sublime-text-dev
+brew install homebrew/cask/docker
+brew install spotify
+brew install nslogger
+brew install stoplight-studio
+brew install notion
+brew install gpg-suite

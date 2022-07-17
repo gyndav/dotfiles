@@ -1,10 +1,11 @@
 #!/usr/bin/env zsh
 
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && . "$HOME/.fig/shell/zprofile.pre.zsh"
+
 #
 # Core
 #
-# export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
@@ -30,6 +31,10 @@ typeset -gU cdpath fpath path
 
 # Zsh search path for executable
 path=(
-	/usr/local/{bin,sbin}
-	$path
+  /opt/homebrew/{bin,sbin}
+  /usr/local/{bin,sbin}
+  $path
 )
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && . "$HOME/.fig/shell/zprofile.post.zsh"

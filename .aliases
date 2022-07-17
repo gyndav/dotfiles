@@ -40,6 +40,7 @@ alias pythonroll='pip install -U setuptools pip'
 #
 # Git
 #
+alias g='git'
 alias gs='git status -sb'
 alias gd='git diff --minimal'
 alias gpp='git pull --prune'

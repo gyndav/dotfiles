@@ -6,10 +6,6 @@ function heetch() {
   cd $HEETCH_DIR
 }
 
-function customer-care_run-deps() {
-  gravity run -n legacy-coupon,product,city,coupon,driver-state
-}
-
 # yarn global
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -20,13 +16,11 @@ export GONOSUMDB="github.com/heetch"
 export GOPRIVATE="github.com/heetch"
 
 # keg-only
-export PATH="/usr/local/opt/libxml2/bin:$PATH"
-export PATH="/usr/local/opt/libxslt/bin:$PATH"
-export PATH="/usr/local/opt/curl/bin:$PATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/protobuf@3.1/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
-export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+export PATH="/opt/homebrew/opt/ssh-copy-id/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
 
 alias unibe='uni exec bundle exec --'
 

@@ -2,7 +2,7 @@
 
 if ! type 'brew' > /dev/null; then
   echo '--> Installing Homebrew'
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # echo '--> Upgrade installed formulas'
@@ -15,6 +15,7 @@ brew install make
 brew install gnu-tar
 brew install gnu-which
 brew install git
+brew install svn
 brew install bash
 brew install zsh
 brew install ripgrep
@@ -47,23 +48,26 @@ brew install fzf
 brew install asdf
 
 echo '--> CASK ALL THE THINGS!'
-brew install --cask font-ubuntu
-brew install --cask font-hack
-brew install --cask font-fira-code
-brew install --cask appcleaner
-brew install --cask xquartz
-brew install --cask vlc
-brew install --cask firefox
-brew install --cask dropbox
-brew install --cask imagealpha
-brew install --cask sublime-text-dev
-brew install --cask visual-studio-code
-brew install --cask iterm2
-brew install --cask authy
-brew install --cask telegram
-brew install --cask signal
-brew install --cask rocket
-brew install --cask surfshark
+brew tap homebrew/cask-fonts
+
+brew install font-ubuntu
+brew install font-hack
+brew install font-fira-code
+
+brew install appcleaner
+brew install xquartz
+brew install vlc
+brew install firefox
+brew install dropbox
+brew install imagealpha
+brew install sublime-text
+brew install visual-studio-code
+brew install iterm2
+brew install authy
+brew install telegram
+brew install signal
+brew install rocket
+brew install surfshark
 
 echo '--> LETS CODE!'
 
