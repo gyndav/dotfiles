@@ -21,3 +21,5 @@ brew install docker-machine-driver-xhyve
 
 brew install gpg
 brew install --cask gpgtools
+
+brew install dropbox

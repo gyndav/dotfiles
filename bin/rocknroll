@@ -58,7 +58,7 @@ brew install appcleaner
 brew install xquartz
 brew install vlc
 brew install firefox
-brew install dropbox
+
 brew install imagealpha
 brew install sublime-text
 brew install visual-studio-code

@@ -1,8 +1,9 @@
 [user]
 	name = David Guyon
+	email = davidg@heetch.com
 
 [core]
-	excludesfile = /Users/gyndav/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = subl -n -w
 	protectHFS = true
 	protectNTFS = true
@@ -49,6 +50,7 @@
 [push]
 	default = simple
 	followTags = true
+	autoSetupRemote = true
 
 [merge]
 	ff = only
@@ -108,3 +110,6 @@
 
 [protocol]
 	version = 2
+
+[url "git@github.com:"]
+       insteadOf = https://github.com/
