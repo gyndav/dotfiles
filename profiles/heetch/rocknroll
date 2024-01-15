@@ -21,6 +21,7 @@ brew install grpcurl
 brew install hadolint
 
 brew install gh
+brew install homeport/tap/dyff
 
 #
 # universe

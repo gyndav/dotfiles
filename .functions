@@ -3,6 +3,6 @@
 symlink-dotfiles() {
   echo '--> Symlinking dot files'
   for dotfile in "${HOME}"/.dotfiles/.{aliases,functions,gemrc,gitconfig,gitignore_global,zprofile,zlogout,zshrc}; do
-    ln -sf "$dotfile" "${HOME}/${dotfile:t}" 2> /dev/null
+    ln -sf "$dotfile" "${HOME}/${dotfile:t}" 2>/dev/null
   done
 }

@@ -4,10 +4,11 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = subl -n -w
+	editor = code --wait
 	protectHFS = true
 	protectNTFS = true
 	preloadindex = true
+	ignorecase = false
 
 [color]
 	ui = true
@@ -25,6 +26,8 @@
 	wip = !git add . && git commit -m 'WIP'
 	sync = !git co master && git pull --rebase && git co - && git rebase master
 	rewrite = !git rebase -i $(git merge-base master HEAD)
+	sync-main = !git co master && git pull --rebase && git co - && git rebase main
+	rewrite-main = !git rebase -i $(git merge-base main HEAD)
 	merged = branch --merged
 	unmerged = branch --no-merged
 	del = branch -D
@@ -46,6 +49,7 @@
 	psu = push --set-upstream
 	unstash = stash pop
 	purge = clean -fdx
+	root = rev-parse --show-toplevel
 
 [push]
 	default = simple
@@ -104,6 +108,7 @@
 
 [commit]
 	verbose = true
+	gpgsign = true
 
 [submodule]
 	fetchJobs = 4

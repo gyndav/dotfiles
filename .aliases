@@ -31,7 +31,7 @@ alias du='ncdu --color dark -rr -x'
 # Languages
 #
 alias rocknroll='$HOME/.dotfiles/bin/rocknroll'
-alias brewroll='brew update && brew upgrade --all && brew cask update && brew cask cleanup && brew cleanup'
+alias brewroll='brew update && brew upgrade --greedy && brew cask update && brew cask cleanup && brew cleanup'
 alias rubyroll='gem update --system && gem update && gem cleanup'
 alias phproll='composer self-update --clean-backups && composer update'
 alias noderoll='npm update -g'

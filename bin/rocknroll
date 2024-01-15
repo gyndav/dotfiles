@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-if ! type 'brew' > /dev/null; then
+if ! type 'brew' >/dev/null; then
   echo '--> Installing Homebrew'
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
@@ -56,7 +56,6 @@ brew install font-fira-code
 
 brew install appcleaner
 brew install xquartz
-brew install vlc
 brew install firefox
 
 brew install imagealpha
@@ -65,7 +64,6 @@ brew install visual-studio-code
 brew install iterm2
 brew install authy
 brew install telegram
-brew install signal
 brew install rocket
 brew install surfshark
 
@@ -78,12 +76,12 @@ if [ ! -f ~/.localrc ]; then
   echo "Configure a profile \`DOTPROFILE\` in \`~/.zshrc_local\`:"
   read -r DOTPROFILE
 
-  echo "export DOTPROFILE=$DOTPROFILE" > ~/.localrc
+  echo "export DOTPROFILE=$DOTPROFILE" >~/.localrc
   source ~/.localrc
 fi
 
 if [ ! -f ~/.gitconfig_local ]; then
-  echo "[github]\n  user = USERNAME\n[user]\n  name = FIRSTNAME LASTNAME\n  email = EMAIL" > ~/.gitconfig_local
+  echo "[github]\n  user = USERNAME\n[user]\n  name = FIRSTNAME LASTNAME\n  email = EMAIL" >~/.gitconfig_local
   read "Configure now your git informations in \`~/.gitconfig_local\` and press [Enter] when done..."
 fi
 

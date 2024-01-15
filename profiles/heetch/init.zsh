@@ -22,6 +22,8 @@ export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 export PATH="/opt/homebrew/opt/ssh-copy-id/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
 
+export PATH="$HOME/.docker/bin:$PATH"
+
 alias unibe='uni exec bundle exec --'
 
 HTTPSTAT_SAVE_BODY="false"

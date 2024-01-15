@@ -25,6 +25,7 @@ export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export GOPATH="${HOME}/go"
+export GOBIN="${HOME}/.bin"
 
 # eliminates duplicates in *paths
 typeset -gU cdpath fpath path
