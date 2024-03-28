@@ -92,6 +92,16 @@
 [diff]
 	indentHeuristic = true
 	colorMoved = zebra
+	tool = difftastic
+
+[difftool]
+	prompt = false
+
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+	difftool = true
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
