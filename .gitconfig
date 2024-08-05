@@ -73,7 +73,7 @@
 	fsckobjects = true
 
 [credential]
-	helper = osxkeychain
+	helper = store
 
 [filter "media"]
 	required = true
@@ -125,6 +125,3 @@
 
 [protocol]
 	version = 2
-
-[url "git@github.com:"]
-       insteadOf = https://github.com/
