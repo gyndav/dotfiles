@@ -27,6 +27,9 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export GOPATH="${HOME}/go"
 export GOBIN="${HOME}/.bin"
 
+# Needed to prevent https://gist.github.com/repodevs/a18c7bb42b2ab293155aca889d447f1b
+export GPG_TTY=$(tty)
+
 # eliminates duplicates in *paths
 typeset -gU cdpath fpath path
 
