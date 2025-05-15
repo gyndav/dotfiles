@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 #!/usr/bin/env zsh
 
 # zmodload zsh/zprof
@@ -7,6 +5,7 @@
 # shell
 fpath+=/usr/local/share/zsh/site-functions
 fpath+="$HOME/.dotfiles/zsh-completions/src"
+fpath+=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 
 autoload -Uz compinit
 
@@ -51,7 +50,8 @@ setopt hist_verify
 setopt inc_append_history
 
 # various sourcing
-source $(brew --prefix asdf)/libexec/asdf.sh
+# source $(brew --prefix asdf)/libexec/asdf.sh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # aliases
@@ -81,10 +81,3 @@ fi
 # https://github.com/zsh-users/zsh-syntax-highlighting#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
 source "$HOME/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
-export PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/davidg/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
