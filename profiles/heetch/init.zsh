@@ -6,8 +6,10 @@ function heetch() {
   cd $HEETCH_DIR
 }
 
-# yarn global
-export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+function sweetch() {
+  cd "$HOME/go/src/github.com/sweetch"
+}
+
 
 # Golang
 export GOPROXY="https://proxy.golang.org,direct"
@@ -18,9 +20,7 @@ export GOPRIVATE="github.com/heetch"
 # keg-only
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 export PATH="/opt/homebrew/opt/ssh-copy-id/bin:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
 
 export PATH="$HOME/.docker/bin:$PATH"
 
