@@ -90,7 +90,7 @@ if [ -f $HOME/.dotfiles/profiles/$DOTPROFILE/rocknroll ]; then
 fi
 
 echo '--> Cleanup Homebrew formulas'
-brew cleanup -s
+brew cleanup
 
 echo '--> Refreshing terminal'
 exec $SHELL --login

@@ -6,4 +6,4 @@ gem: --no-document
 :backtrace: false
 :benchmark: false
 :sources:
-- https://rubygems.org/
+  - https://rubygems.org/
