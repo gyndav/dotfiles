@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+DOTFILES="$HOME/.dotfiles"
+
+echo '--> Symlinking dot files'
+for dotfile in editorconfig gemrc gitconfig gitignore_global tool-versions; do
+  ln -sf "$DOTFILES/.$dotfile" "$HOME/.$dotfile"
+done
+
+echo '--> Symlinking fish config'
+mkdir -p "$HOME/.config/fish/conf.d" "$HOME/.config/fish/functions"
+
+ln -sf "$DOTFILES/fish/config.fish" "$HOME/.config/fish/config.fish"
+
+for subdir in conf.d functions; do
+  for f in "$DOTFILES/fish/$subdir/"*.fish; do
+    ln -sf "$f" "$HOME/.config/fish/$subdir/$(basename "$f")"
+  done
+done

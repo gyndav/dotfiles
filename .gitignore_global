@@ -42,3 +42,7 @@ Thumbs.db
 # IDEs #
 ############
 .vscode/
+
+# LLMs #
+########
+.claude/settings.local.json
