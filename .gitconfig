@@ -9,6 +9,9 @@
 	protectNTFS = true
 	preloadindex = true
 	ignorecase = false
+	fsmonitor = true
+	untrackedCache = true
+	multiPackIndex = true
 
 [color]
 	ui = true
@@ -112,6 +115,10 @@
 [fetch]
 	recurseSubmodules = false
 	prune = true
+	writeCommitGraph = true
+
+[index]
+	version = 4
 
 [rerere]
 	enabled = true
@@ -121,9 +128,11 @@
 	gpgsign = true
 
 [submodule]
-	fetchJobs = 4
+	fetchJobs = 8
 
 [protocol]
 	version = 2
 [init]
 	defaultBranch = main
+[maintenance]
+	repo = /Users/davidg/.dotfiles
