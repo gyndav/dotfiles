@@ -1,0 +1,7 @@
+[tools]
+node = "24.14"
+ruby = "3.4"
+go = "1.26"
+python = "3.14"
+java = "openjdk-17"
+uv = "latest"

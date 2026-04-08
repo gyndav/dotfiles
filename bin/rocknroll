@@ -60,7 +60,7 @@ brew install wrk
 brew install act
 
 # --- Languages / Runtimes ---
-brew install asdf
+brew install mise
 brew install uv
 brew install composer
 brew install maven
