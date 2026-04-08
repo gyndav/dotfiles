@@ -5,3 +5,8 @@ go = "1.26"
 python = "3.14"
 java = "openjdk-17"
 uv = "latest"
+
+[settings]
+
+[settings.ruby]
+compile = false
