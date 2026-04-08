@@ -3,9 +3,13 @@
 DOTFILES="$HOME/.dotfiles"
 
 echo '--> Symlinking dot files'
-for dotfile in editorconfig gemrc gitconfig gitignore_global tool-versions; do
+for dotfile in editorconfig gemrc gitconfig gitignore_global; do
   ln -sf "$DOTFILES/.$dotfile" "$HOME/.$dotfile"
 done
+
+echo '--> Symlinking mise config'
+mkdir -p "$HOME/.config/mise"
+ln -sf "$DOTFILES/mise/config.toml" "$HOME/.config/mise/config.toml"
 
 echo '--> Symlinking fish config'
 mkdir -p "$HOME/.config/fish/conf.d" "$HOME/.config/fish/functions"

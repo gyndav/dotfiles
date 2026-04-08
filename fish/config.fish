@@ -28,12 +28,8 @@ fish_add_path /usr/local/opt/coreutils/libexec/gnubin
 fish_add_path /usr/local/opt/make/libexec/gnubin
 fish_add_path $HOME/.local/bin
 
-# asdf — shims-in-PATH approach
-if set -q ASDF_DATA_DIR
-    fish_add_path $ASDF_DATA_DIR/shims
-else
-    fish_add_path $HOME/.asdf/shims
-end
+# mise — shims-in-PATH approach
+fish_add_path $HOME/.local/share/mise/shims
 
 # Change default ulimit
 ulimit -n 1024
