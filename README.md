@@ -56,7 +56,9 @@ Migrating from another Mac:
 │   │   └── aliases.fish    # abbreviations and aliases
 │   └── functions/
 │       ├── fish_prompt.fish # Pure-inspired prompt with git status
-│       └── dk-tail.fish     # Docker container watcher
+│       ├── dk-tail.fish     # Docker container watcher
+│       ├── cct.fish         # Claude Code token/cost report (ccusage)
+│       └── cclive.fish      # Live Claude Code billing-block monitor
 ├── .gitconfig              # aliases, diff tool, signing, performance tuning
 ├── .editorconfig           # project-wide formatting rules
 ├── .gitignore_global       # global gitignore
@@ -93,6 +95,20 @@ Rebase-by-default, GPG signing on every commit, rerere, and fsmonitor + protocol
 | `du` | `ncdu` |
 | `find` | `fd` |
 | `diff` | `difftastic` |
+
+### Claude Code token monitoring
+
+Two wrappers around [`ccusage`](https://www.npmjs.com/package/ccusage) for tracking Claude Code token usage and cost. Everything is computed locally from the logs in `~/.claude/projects/` — nothing is uploaded.
+
+| Command | What it does |
+|---------|-------------|
+| `cclive` | Live full-screen monitor of the current 5-hour billing block — cost, burn rate, % of token limit, time remaining. `Ctrl-C` to exit. |
+| `cct` | Daily token/cost report |
+| `cct monthly` | Monthly rollup |
+| `cct session` | Per-session breakdown |
+| `cct blocks` | All 5-hour blocks (non-live) |
+
+Extra flags pass straight through, e.g. `cct --since 20260601` or `cct session --since 20260601`.
 
 ## Credits
 
