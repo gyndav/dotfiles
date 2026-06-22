@@ -27,12 +27,18 @@ fish_add_path /usr/local/sbin
 fish_add_path /usr/local/opt/coreutils/libexec/gnubin
 fish_add_path /usr/local/opt/make/libexec/gnubin
 fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/.bun/bin
 
 # mise — shims-in-PATH approach
 fish_add_path $HOME/.local/share/mise/shims
+fish_add_path $HOME/.maestro/bin
 
 # Change default ulimit
-ulimit -n 1024
+set -l hard_limit (ulimit -Hn)
+if test "$hard_limit" = unlimited; or test "$hard_limit" -ge 65536
+    ulimit -n 65536
+end
 
 #
 # Google Cloud SDK
