@@ -22,39 +22,63 @@ function fish_prompt
     set -g fish_prompt_pwd_dir_length 0
     set -a preprompt (set_color blue)(prompt_pwd)(set_color normal)
 
-    # git info
-    if command git rev-parse --is-inside-work-tree &>/dev/null
-        set -l branch (command git symbolic-ref --short HEAD 2>/dev/null; or command git describe --tags --exact-match HEAD 2>/dev/null; or command git rev-parse --short HEAD 2>/dev/null)
+    # git info — single subprocess for branch, dirty, and ahead/behind
+    set -l git_status (command git status --porcelain=2 --branch 2>/dev/null)
+    if test -n "$git_status"
+        set -l branch ""
+        set -l oid ""
+        set -l ahead 0
+        set -l behind 0
+        set -l dirty 0
 
-        set -l git_info (set_color 6c6c6c)$branch(set_color normal)
-
-        # dirty — check for uncommitted or untracked changes
-        set -l dirty (command git status --porcelain 2>/dev/null)
-        if test -n "$dirty"
-            set git_info $git_info(set_color ffafd7)"*"(set_color normal)
+        for line in $git_status
+            switch $line
+                case "# branch.head *"
+                    set branch (string replace "# branch.head " "" $line)
+                case "# branch.oid *"
+                    set oid (string replace "# branch.oid " "" $line)
+                case "# branch.ab *"
+                    set -l ab (string replace "# branch.ab " "" $line)
+                    set ahead (string replace -r ' -\d+' "" $ab | string replace "+" "")
+                    set behind (string replace -r '^\+\d+ -' "" $ab)
+                case "? *" "1 *" "2 *" "u *"
+                    set dirty 1
+            end
         end
 
-        # ahead/behind arrows (single command)
-        set -l counts (command git rev-list --left-right --count HEAD...@{upstream} 2>/dev/null | string split \t)
-        if test (count $counts) -eq 2
+        set -l preprompt_count_before (count $preprompt)
+
+        if test -n "$branch"; and test "$branch" != "(detached)"
+            set -l git_info (set_color 6c6c6c)$branch(set_color normal)
+
+            if test $dirty -eq 1
+                set git_info $git_info(set_color ffafd7)"*"(set_color normal)
+            end
+
             set -l arrows ""
-            if test "$counts[1]" -gt 0
+            if test "$ahead" -gt 0
                 set arrows "⇡"
             end
-            if test "$counts[2]" -gt 0
+            if test "$behind" -gt 0
                 set arrows $arrows"⇣"
             end
             if test -n "$arrows"
                 set git_info $git_info" "(set_color cyan)$arrows(set_color normal)
             end
+
+            set -a preprompt $git_info
+        else if test -n "$branch"
+            # detached HEAD — short sha from already-captured branch.oid, no extra subprocess
+            set -a preprompt (set_color 6c6c6c)(string sub -l 7 $oid)(set_color normal)
         end
 
-        # stash
-        if command git rev-parse --verify --quiet refs/stash &>/dev/null
-            set git_info $git_info" "(set_color cyan)"≡"(set_color normal)
+        # stash — guard against appending to a non-git preprompt element
+        if test (count $preprompt) -gt $preprompt_count_before
+            if command git rev-parse --verify --quiet refs/stash &>/dev/null
+                set -l last (count $preprompt)
+                set preprompt[$last] $preprompt[$last](set_color cyan)"≡"(set_color normal)
+            end
         end
-
-        set -a preprompt $git_info
     end
 
     # execution time — show if last command took > 5s
