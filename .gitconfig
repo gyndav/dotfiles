@@ -32,15 +32,14 @@
 	st = status -sb
 	precommit = diff --cached --diff-algorithm=minimal -w
 	nevermind = !git reset --hard HEAD && git clean -d -f
-	unstage = reset -q HEAD --
-	discard = checkout --
+	unstage = restore --staged
+	discard = restore
 	amend = commit --amend --no-edit
 	untracked = clean -f -d
 	please = push --force-with-lease
 	prlog = "log --pretty=oneline --abbrev-commit --graph --decorate --first-parent"
 	ls = log --oneline
 	last = log -1 HEAD
-	prune = fetch --prune
 	aliases = config --get-regexp alias
 	ra = rebase --abort
 	rc = rebase --continue
@@ -50,7 +49,6 @@
 	root = rev-parse --show-toplevel
 
 [push]
-	default = simple
 	followTags = true
 	autoSetupRemote = true
 
@@ -71,11 +69,24 @@
 [transfer]
 	fsckobjects = true
 
-[credential]
-	helper = store
+# GitHub auth via gh (macOS keychain) — no plaintext ~/.git-credentials
+[credential "https://github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential
 
 [pull]
 	rebase = true
+
+[rebase]
+	autoStash = true
+	updateRefs = true
+
+[branch]
+	sort = -committerdate
 
 [include]
 	path = ~/.gitconfig_local
@@ -84,6 +95,7 @@
 	autocorrect = prompt
 
 [diff]
+	algorithm = histogram
 	colorMoved = zebra
 	tool = difftastic
 
@@ -134,7 +146,9 @@
 
 [protocol]
 	version = 2
+
 [init]
 	defaultBranch = main
+
 [maintenance]
 	repo = /Users/davidg/.dotfiles

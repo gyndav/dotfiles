@@ -19,6 +19,7 @@
 *.gz
 *.iso
 *.jar
+!gradle-wrapper.jar
 *.rar
 *.tar
 *.zip
@@ -31,8 +32,6 @@
 # OS generated files #
 ######################
 .DS_Store
-*.DS_Store
-*.DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
@@ -45,6 +44,5 @@ Thumbs.db
 
 # LLMs #
 ########
-.claude/settings.local.json
-
 **/.claude/settings.local.json
+.serena/
