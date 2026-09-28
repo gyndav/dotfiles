@@ -1,10 +1,11 @@
 [tools]
-node = "24.14"
+node = "24.21"
 ruby = "3.4"
-go = "1.26"
+go = "1.27"
 python = "3.14"
 java = "openjdk-17"
 uv = "latest"
+bun = "1.4"
 yarn = "1.22.22"
 
 [settings]
