@@ -10,11 +10,11 @@ insert_final_newline = true
 quote_type = double # unsupported at this point
 
 [Makefile]
-indent_style = tabs
+indent_style = tab
 indent_size = 4
 
 [.gitconfig]
-indent_style = tabs
+indent_style = tab
 indent_size = 2
 
 [*.md]
@@ -23,3 +23,8 @@ trim_trailing_whitespace = false
 [*.sh]
 indent_style = space
 indent_size = 2
+
+# fish_indent (the fish formatter) uses 4 spaces
+[*.fish]
+indent_style = space
+indent_size = 4
