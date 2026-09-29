@@ -1,0 +1,8 @@
+# Lint tools for this repo, pinned so git hooks and CI run identical versions.
+# (mise/config.toml is the global tool config that gets symlinked into $HOME.)
+[tools]
+lefthook = "2.1.14"
+shellcheck = "0.11.0"
+shfmt = "3.14.1"
+editorconfig-checker = "4.0.2"
+actionlint = "1.7.12"

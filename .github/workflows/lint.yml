@@ -1,0 +1,47 @@
+name: lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lefthook:
+    # macOS to match the machines these dotfiles target (and fish_indent's version)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Install fish
+        run: brew install fish
+
+      - uses: jdx/mise-action@9149ea85001c7435d5a66bb127d6a1b6227cb0a5 # v5.0.0
+        with:
+          # Only the lint tools pinned in mise.toml, not the global toolchain in mise/config.toml
+          install_args: lefthook shellcheck shfmt editorconfig-checker actionlint
+
+      - name: Run pre-commit hooks on all files
+        run: lefthook run pre-commit --all-files
+
+      - name: Check commit messages
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          status=0
+          for sha in $(git rev-list --no-merges "$BASE_SHA..$HEAD_SHA"); do
+            git log -1 --format=%B "$sha" | .lefthook/check-commit-msg - || status=1
+          done
+          exit "$status"
+
+      - name: Check PR title (used as the squash-merge subject)
+        if: github.event_name == 'pull_request'
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: printf '%s\n' "$PR_TITLE" | .lefthook/check-commit-msg -

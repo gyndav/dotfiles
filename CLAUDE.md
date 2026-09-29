@@ -22,13 +22,19 @@ Not symlinked: `.gitignore` and `.prettierrc` (repo-local), `limit.maxfiles.plis
 ## Commands
 
 ```sh
+lefthook run pre-commit --all-files      # every lint check, same as CI
+lefthook run pre-commit --all-files --job shellcheck    # a single check
+fish_indent -w <file>                    # fix fish formatting
+shfmt -w <file>                          # fix shell formatting
 bin/symlink-dotfiles                     # re-link after adding/renaming files
 exec fish                                # reload shell (abbr: reload)
-fish -n fish/config.fish                 # syntax-check a fish file
-fish_indent --check fish/*.fish fish/*/*.fish   # formatting check (fish_indent -w <file> to fix)
-shellcheck bin/rocknroll bin/osx bin/symlink-dotfiles mac_migration.sh
-shfmt -i 2 -d bin/ mac_migration.sh      # 2-space indent per .editorconfig
 ```
+
+## Linting and CI
+
+`lefthook.yml` defines the checks: `fish_indent --check` and `fish -n` on fish files, `shellcheck` + `shfmt` on shell scripts (`bin/*`, `*.sh`, `.lefthook/*`), `editorconfig-checker` on everything, `actionlint` on workflows, and a `commit-msg` hook (`.lefthook/check-commit-msg`) enforcing Conventional Commits. Lint tool versions are pinned in the root `mise.toml` (separate from `mise/config.toml`, which is the global toolchain symlinked into `$HOME`); `fish` itself comes from Homebrew. `bin/rocknroll` installs the hooks.
+
+`.github/workflows/lint.yml` runs the same pre-commit jobs on macOS, plus the commit-message check on every PR commit and on the PR title (the squash-merge subject). When adding a new kind of file, add its check to `lefthook.yml` rather than to the workflow.
 
 ## Conventions
 
