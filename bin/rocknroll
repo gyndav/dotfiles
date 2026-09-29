@@ -79,6 +79,7 @@ brew install tailscale
 
 # --- Database ---
 brew install postgresql@15
+brew install libpq # keg-only client tools (psql, pg_dump); added to PATH in fish/config.fish
 brew install pgcli
 
 # --- Networking ---
