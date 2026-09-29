@@ -6,8 +6,8 @@
 set -gx LANG 'en_US.UTF-8'
 set -gx LC_ALL 'en_US.UTF-8'
 
-set -gx EDITOR 'nano'
-set -gx PAGER 'less'
+set -gx EDITOR nano
+set -gx PAGER less
 
 # Don't clear the screen after quitting a manual page
 set -gx MANPAGER 'less -X'
