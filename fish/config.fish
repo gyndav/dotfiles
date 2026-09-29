@@ -37,6 +37,10 @@ fish_add_path --global --move \
 # Lowest priority: global installs that must not shadow mise/Homebrew
 fish_add_path --global --append $HOME/.bun/bin $HOME/.docker/bin
 
+# Keg-only libpq (psql, pg_dump…) — kept off /opt/homebrew/bin so a full
+# postgresql@* formula never conflicts with it
+fish_add_path --global --append /opt/homebrew/opt/libpq/bin
+
 # Change default ulimit
 set -l hard_limit (ulimit -Hn)
 if test "$hard_limit" = unlimited; or test "$hard_limit" -ge 65536
