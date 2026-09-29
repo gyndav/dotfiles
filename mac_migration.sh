@@ -39,9 +39,11 @@ safe_copy() {
 
   if [[ -e "$src" ]]; then
     mkdir -p "$(dirname "$dest_path")"
-    cp -R "$src" "$dest_path" 2>/dev/null &&
-      log_info "Copied: $src" ||
+    if cp -R "$src" "$dest_path" 2>/dev/null; then
+      log_info "Copied: $src"
+    else
       log_warn "Failed to copy: $src"
+    fi
   else
     log_warn "Not found: $src"
   fi
@@ -134,7 +136,7 @@ for proj_dir in "$HOME/Projects" "$HOME/Code" "$HOME/Development" "$HOME/repos" 
   if [[ -d "$proj_dir" ]]; then
     log_info "Scanning $proj_dir for .env files..."
     find "$proj_dir" -maxdepth 3 -name ".env*" -type f 2>/dev/null | while read -r env_file; do
-      rel_path="${env_file#$HOME/}"
+      rel_path="${env_file#"$HOME"/}"
       dest_file="$BACKUP_DIR/env_files/${rel_path//\//_}"
       cp "$env_file" "$dest_file" 2>/dev/null &&
         log_info "Found: $env_file"
@@ -158,13 +160,16 @@ compress_directory() {
     log_info "Compressing $(basename "$src_dir")... (this may take a while)"
 
     # Count files for progress indication
-    local file_count=$(find "$src_dir" -type f 2>/dev/null | wc -l | tr -d ' ')
+    local file_count
+    file_count=$(find "$src_dir" -type f 2>/dev/null | wc -l | tr -d ' ')
     log_info "Found $file_count files in $(basename "$src_dir")"
 
     # Create tar.gz archive
-    tar -czf "$dest_archive" -C "$(dirname "$src_dir")" "$(basename "$src_dir")" 2>/dev/null &&
-      log_info "Successfully compressed: $archive_name ($(du -h "$dest_archive" | cut -f1))" ||
+    if tar -czf "$dest_archive" -C "$(dirname "$src_dir")" "$(basename "$src_dir")" 2>/dev/null; then
+      log_info "Successfully compressed: $archive_name ($(du -h "$dest_archive" | cut -f1))"
+    else
       log_error "Failed to compress: $src_dir"
+    fi
   else
     log_warn "Directory not found: $src_dir"
   fi
