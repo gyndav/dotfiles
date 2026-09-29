@@ -79,6 +79,7 @@ brew install tailscale
 
 # --- Database ---
 brew install postgresql@15
+brew install libpq # keg-only client tools (psql, pg_dump); added to PATH in fish/config.fish
 brew install pgcli
 
 # --- Networking ---
@@ -167,6 +168,9 @@ echo '--> LETS CODE!'
 
 echo '--> Symlinking dotfiles'
 "$(dirname "$0")/symlink-dotfiles"
+
+echo '--> Installing git hooks'
+(cd "$(dirname "$0")/.." && mise trust && mise install && mise exec -- lefthook install)
 
 echo '--> Setting fish as default shell'
 if ! grep -q '/opt/homebrew/bin/fish' /etc/shells; then

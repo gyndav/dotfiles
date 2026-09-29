@@ -1,0 +1,32 @@
+# Git hooks. Install with `lefthook install`; CI runs the same jobs with
+# `lefthook run pre-commit --all-files` (see .github/workflows/lint.yml).
+pre-commit:
+  parallel: true
+  jobs:
+    - name: fish-indent
+      glob: "*.fish"
+      run: fish_indent --check {staged_files}
+
+    - name: fish-syntax
+      glob: "*.fish"
+      run: for f in {staged_files}; do fish -n "$f" || exit 1; done
+
+    - name: shellcheck
+      glob: ["bin/*", "*.sh", ".lefthook/*"]
+      run: shellcheck {staged_files}
+
+    - name: shfmt
+      glob: ["bin/*", "*.sh", ".lefthook/*"]
+      run: shfmt -d {staged_files}
+
+    - name: editorconfig
+      run: editorconfig-checker {staged_files}
+
+    - name: actionlint
+      glob: ".github/workflows/*.{yml,yaml}"
+      run: actionlint {staged_files}
+
+commit-msg:
+  jobs:
+    - name: conventional-commit
+      run: .lefthook/check-commit-msg {1}

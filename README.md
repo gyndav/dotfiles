@@ -56,6 +56,8 @@ Migrating from another Mac:
 │   │   └── aliases.fish    # abbreviations and aliases
 │   └── functions/
 │       ├── fish_prompt.fish # Pure-inspired prompt with git status
+│       ├── fish_mode_prompt.fish # hides the vi-mode indicator
+│       ├── ssh.fish         # ssh wrapper forcing TERM=xterm-256color for remote hosts
 │       ├── dk-tail.fish     # Docker container watcher
 │       ├── cct.fish         # Claude Code token/cost report (ccusage)
 │       └── cclive.fish      # Live Claude Code billing-block monitor

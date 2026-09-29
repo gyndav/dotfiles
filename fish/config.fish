@@ -6,8 +6,8 @@
 set -gx LANG 'en_US.UTF-8'
 set -gx LC_ALL 'en_US.UTF-8'
 
-set -gx EDITOR 'nano'
-set -gx PAGER 'less'
+set -gx EDITOR nano
+set -gx PAGER less
 
 # Don't clear the screen after quitting a manual page
 set -gx MANPAGER 'less -X'
@@ -36,6 +36,10 @@ fish_add_path --global --move \
 
 # Lowest priority: global installs that must not shadow mise/Homebrew
 fish_add_path --global --append $HOME/.bun/bin $HOME/.docker/bin
+
+# Keg-only libpq (psql, pg_dump…) — kept off /opt/homebrew/bin so a full
+# postgresql@* formula never conflicts with it
+fish_add_path --global --append /opt/homebrew/opt/libpq/bin
 
 # Change default ulimit
 set -l hard_limit (ulimit -Hn)

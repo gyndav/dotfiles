@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+# Check that a commit subject follows Conventional Commits.
+# Usage: check-commit-msg <message-file>   (or `-` to read stdin)
+
+set -eu
+
+if [ "${1:--}" = - ]; then
+  subject=$(head -n 1)
+else
+  subject=$(head -n 1 "$1")
+fi
+
+# Messages git generates itself
+case "$subject" in
+"Merge "* | "Revert "* | "fixup! "* | "squash! "* | "amend! "*) exit 0 ;;
+esac
+
+types='build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test'
+if printf '%s\n' "$subject" | grep -Eq "^($types)(\([a-z0-9._/-]+\))?!?: [^ ]"; then
+  exit 0
+fi
+
+echo "Commit subject is not a Conventional Commit:" >&2
+echo "  $subject" >&2
+echo "Expected <type>(<scope>): <description>, e.g. 'fix(fish): quote PATH entries'." >&2
+echo "Types: $types" | tr '|' ' ' >&2
+exit 1
