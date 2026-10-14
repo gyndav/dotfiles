@@ -21,3 +21,6 @@ for subdir in conf.d functions; do
     ln -sf "$f" "$HOME/.config/fish/$subdir/$(basename "$f")"
   done
 done
+
+echo '--> Removing broken fish symlinks'
+find -L "$HOME/.config/fish/conf.d" "$HOME/.config/fish/functions" -type l -exec rm {} +

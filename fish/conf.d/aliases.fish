@@ -22,9 +22,10 @@ abbr -a .. 'cd ..'
 
 alias grep 'grep --color=auto'
 
-alias cat bat
-alias ping 'prettyping --nolegend'
-alias du 'ncdu --color dark -rr -x'
+# Only shadow core commands when the replacement is installed
+type -q bat; and alias cat bat
+type -q prettyping; and alias ping 'prettyping --nolegend'
+type -q ncdu; and alias du 'ncdu --color dark -rr -x'
 
 #
 # Languages
@@ -62,4 +63,4 @@ abbr -a dcp 'docker compose'
 abbr -a whatsmyip 'curl https://api.ipify.org/'
 alias flush-cache 'sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias flush-launchservices '/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder'
-alias empty-trash "sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv \$HOME/.Trash;"
+alias empty-trash 'osascript -e \'tell application "Finder" to empty trash\''
