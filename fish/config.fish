@@ -6,7 +6,7 @@
 set -gx LANG 'en_US.UTF-8'
 set -gx LC_ALL 'en_US.UTF-8'
 
-set -gx EDITOR nano
+set -gx EDITOR 'subl --wait'
 set -gx PAGER less
 
 # Don't clear the screen after quitting a manual page
