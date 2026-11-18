@@ -1,24 +1,40 @@
 #!/usr/bin/env sh
+# Symlink the versioned config files into $HOME. Safe to re-run: existing
+# symlinks are replaced, and a real file or directory in the way is moved
+# aside to <name>.backup-<timestamp> instead of being overwritten.
+
+set -eu
 
 DOTFILES="$HOME/.dotfiles"
+STAMP="$(date +%Y%m%d%H%M%S)"
+
+# link <source> <target>
+link() {
+  if [ -e "$2" ] && [ ! -L "$2" ]; then
+    echo "    backing up $2 -> $2.backup-$STAMP"
+    mv "$2" "$2.backup-$STAMP"
+  fi
+  # -n: replace a symlink to a directory instead of linking inside it
+  ln -sfn "$1" "$2"
+}
 
 echo '--> Symlinking dot files'
 for dotfile in editorconfig gemrc gitconfig gitignore_global; do
-  ln -sf "$DOTFILES/.$dotfile" "$HOME/.$dotfile"
+  link "$DOTFILES/.$dotfile" "$HOME/.$dotfile"
 done
 
 echo '--> Symlinking mise config'
 mkdir -p "$HOME/.config/mise"
-ln -sf "$DOTFILES/mise/config.toml" "$HOME/.config/mise/config.toml"
+link "$DOTFILES/mise/config.toml" "$HOME/.config/mise/config.toml"
 
 echo '--> Symlinking fish config'
 mkdir -p "$HOME/.config/fish/conf.d" "$HOME/.config/fish/functions"
 
-ln -sf "$DOTFILES/fish/config.fish" "$HOME/.config/fish/config.fish"
+link "$DOTFILES/fish/config.fish" "$HOME/.config/fish/config.fish"
 
 for subdir in conf.d functions; do
   for f in "$DOTFILES/fish/$subdir/"*.fish; do
-    ln -sf "$f" "$HOME/.config/fish/$subdir/$(basename "$f")"
+    link "$f" "$HOME/.config/fish/$subdir/$(basename "$f")"
   done
 done
 
