@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Personal macOS dotfiles (Fish shell, Git, mise, Homebrew, macOS defaults). The repo is expected to live at `~/.dotfiles` — scripts hard-code that path. There is no build or test suite.
+Personal macOS dotfiles (Fish shell, Git, mise, Homebrew, macOS defaults). The repo is expected to live at `~/.dotfiles` (git `maintenance.repo` in `.gitconfig` points there); the `bin/` scripts locate the repo from their own path. There is no build or test suite.
 
 ## How files reach the system
 

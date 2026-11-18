@@ -98,11 +98,15 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 #
 
 # Raise the maxfiles hard limit at boot, which `ulimit -n 65536` in
-# fish/config.fish depends on. Reinstalled only when the plist changed.
+# fish/config.fish depends on. Copied only when the plist changed; loaded
+# whenever launchd doesn't have it (so a failed bootstrap is retried).
 PLIST=/Library/LaunchDaemons/limit.maxfiles.plist
 if ! cmp -s "$(dirname "$0")/../limit.maxfiles.plist" "$PLIST"; then
   sudo launchctl bootout system "$PLIST" 2>/dev/null || true
   sudo install -m 644 -o root -g wheel "$(dirname "$0")/../limit.maxfiles.plist" "$PLIST"
+fi
+sudo launchctl enable system/limit.maxfiles
+if ! sudo launchctl print system/limit.maxfiles >/dev/null 2>&1; then
   sudo launchctl bootstrap system "$PLIST"
 fi
 

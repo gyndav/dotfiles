@@ -31,12 +31,16 @@ echo '--> Installing git hooks'
 (cd "$DOTFILES" && mise trust && mise install && mise exec -- lefthook install)
 
 echo '--> Setting fish as default shell'
-FISH="$(brew --prefix)/bin/fish"
-if ! grep -qx "$FISH" /etc/shells; then
-  echo "$FISH" | sudo tee -a /etc/shells
-fi
-if [ "$(dscl . -read "/Users/$USER" UserShell | awk '{print $2}')" != "$FISH" ]; then
-  chsh -s "$FISH"
+FISH="$(brew --prefix 2>/dev/null)/bin/fish"
+if [ -x "$FISH" ]; then
+  if ! grep -qxF "$FISH" /etc/shells; then
+    echo "$FISH" | sudo tee -a /etc/shells
+  fi
+  if [ "$(dscl . -read "/Users/$USER" UserShell | awk '{print $2}')" != "$FISH" ]; then
+    chsh -s "$FISH"
+  fi
+else
+  echo "!!! fish not found at $FISH; login shell left unchanged." >&2
 fi
 
 # local files
@@ -47,5 +51,7 @@ fi
 echo '--> Cleanup Homebrew formulas'
 brew cleanup
 
-echo '--> Refreshing terminal'
-exec "$FISH"
+if [ -x "$FISH" ]; then
+  echo '--> Refreshing terminal'
+  exec "$FISH"
+fi

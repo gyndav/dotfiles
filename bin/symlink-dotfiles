@@ -5,7 +5,8 @@
 
 set -eu
 
-DOTFILES="$HOME/.dotfiles"
+# The repo this script lives in (expected to be ~/.dotfiles, see CLAUDE.md)
+DOTFILES="$(cd "$(dirname "$0")/.." && pwd -P)"
 STAMP="$(date +%Y%m%d%H%M%S)"
 
 # link <source> <target>
