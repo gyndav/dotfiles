@@ -1,0 +1,15 @@
+# Keeps the SHA-pinned actions in .github/workflows current. Tool versions in
+# mise.toml / mise/config.toml are bumped by hand (`mise outdated`).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
+    commit-message:
+      # Conventional Commits, enforced by .github/workflows/lint.yml
+      prefix: ci
+      include: scope

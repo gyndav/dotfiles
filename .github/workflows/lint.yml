@@ -20,7 +20,7 @@ jobs:
       - name: Install fish
         run: brew install fish
 
-      - uses: jdx/mise-action@9149ea85001c7435d5a66bb127d6a1b6227cb0a5 # v5.0.0
+      - uses: jdx/mise-action@236a21c3b91f5db6d4e174b348674a0f0caac06d # v5.2.9
         with:
           # Only the lint tools pinned in mise.toml, not the global toolchain in mise/config.toml
           install_args: lefthook shellcheck shfmt editorconfig-checker actionlint
