@@ -6,6 +6,9 @@
 #
 # Language runtimes (node, ruby, go, python, java, uv, bun) are managed by mise
 # (mise/config.toml), not here. Add new packages under the matching section.
+#
+# Third-party taps may need trusting on a new machine before their packages
+# load: `brew trust --tap <tap>` for each `tap` line below.
 
 tap "anomalyco/tap"
 tap "bearer/tap"
@@ -28,6 +31,7 @@ brew "rsync"
 brew "ssh-copy-id"
 brew "wget"
 brew "pv"
+brew "zsh"
 
 # --- Developer tools ---
 brew "gh"
@@ -56,6 +60,9 @@ brew "hadolint"
 brew "yamllint"
 brew "wrk"
 brew "act"
+brew "glab"
+brew "git-filter-repo"
+brew "k6"
 
 # --- Languages / Runtimes ---
 brew "mise"
@@ -72,6 +79,9 @@ brew "homeport/tap/dyff"
 brew "trivy"
 brew "grpcurl"
 brew "tailscale"
+brew "ansible"
+brew "ansible-lint"
+brew "rclone"
 
 # --- Database ---
 brew "postgresql@15"
@@ -92,6 +102,7 @@ brew "pinentry-mac"
 # --- Multimedia ---
 brew "ffmpeg"
 brew "ghostscript"
+brew "poppler"
 brew "yt-dlp"
 
 # --- AI / LLM ---
@@ -109,10 +120,17 @@ brew "cmake"
 brew "automake"
 brew "subversion"
 
+# --- C / C++ / embedded ---
+brew "ninja"
+brew "ccache"
+brew "cppcheck"
+brew "dfu-util"
+
 # --- Fonts ---
 cask "font-fira-code"
 cask "font-hack"
 cask "font-geist-mono"
+cask "font-symbols-only-nerd-font"
 
 # --- Browsers ---
 cask "firefox"
@@ -144,6 +162,7 @@ cask "loom"
 
 # --- Security / VPN ---
 cask "1password"
+cask "1password-cli"
 cask "gpg-suite"
 cask "protonvpn"
 
@@ -152,6 +171,7 @@ cask "rocket"
 cask "xquartz"
 cask "onyx"
 cask "spotify"
+cask "vlc"
 cask "logi-options+"
 cask "splashtop-business"
 

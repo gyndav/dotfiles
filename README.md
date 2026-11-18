@@ -11,7 +11,7 @@ macOS development environment. One command to bootstrap a new machine — Fish s
 
 - **Fish shell** — Pure-inspired prompt, smart aliases, modern CLI replacements (`bat`, `fd`, `fzf`, `prettyping`, `ncdu`)
 - **Git** — 36 aliases, GPG signing, difftastic diffs, performance tuning (fsmonitor, protocol v2, rerere)
-- **Homebrew** — 80+ formulae + 30+ casks declared in a `Brewfile`: dev tools, cloud/infra CLIs, editors, fonts, security, AI/LLM tooling
+- **Homebrew** — 85+ formulae + 30+ casks declared in a `Brewfile`: dev tools, cloud/infra CLIs, editors, fonts, security, AI/LLM tooling
 - **macOS defaults** — trackpad, keyboard, Finder, Safari, UI preferences, and a raised open-files limit
 - **Languages** — Node 24, Ruby 3.4, Go 1.27, Python 3.14, Java 17, uv, Bun via mise
 - **Mac migration** — full backup/restore script for moving to a new machine
@@ -40,6 +40,8 @@ brew bundle check --verbose --file ~/.dotfiles/Brewfile   # declared but not ins
 brew bundle cleanup --file ~/.dotfiles/Brewfile           # installed but not declared (dry run)
 brew bundle --file ~/.dotfiles/Brewfile                   # install what is missing
 ```
+
+Homebrew only loads packages from trusted third-party taps. On a new machine, if `brew bundle` refuses a tap, trust it first with `brew trust --tap <tap>`.
 
 Migrating from another Mac:
 
