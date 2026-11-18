@@ -1,0 +1,37 @@
+#!/usr/bin/env sh
+# Keep fish/config.fish the single source of truth for PATH: reject the lines
+# installers like to append to fish files (Docker Desktop's `export PATH=...`,
+# universal `fish_add_path`, `set -U fish_user_paths`). Comments are ignored.
+# Usage: check-fish-path <file.fish>...
+
+set -eu
+
+status=0
+for f in "$@"; do
+  awk -v file="$f" '
+    /^[[:space:]]*#/ { next }
+    {
+      bad = ""
+      if ($0 ~ /(^|[;[:space:]])export[[:space:]]+PATH=/) {
+        bad = "sets PATH with export"
+      } else if ($0 ~ /(^|[;[:space:]])set([[:space:]]+-[A-Za-z-]+)*[[:space:]]+PATH([[:space:]]|$)/) {
+        bad = "sets PATH directly"
+      } else if ($0 ~ /(^|[;[:space:]])fish_add_path([[:space:]]|$)/ && $0 !~ /[[:space:]](--global|-g)([[:space:]]|$)/) {
+        bad = "fish_add_path without --global (defaults to universal)"
+      } else if ($0 ~ /(^|[;[:space:]])set[[:space:]]+-[A-Za-z]*U[A-Za-z]*[[:space:]].*fish_user_paths/ &&
+        $0 !~ /set[[:space:]]+-[A-Za-z]*[eq][A-Za-z]*[[:space:]]/) {
+        bad = "universal fish_user_paths"
+      }
+      if (bad != "") {
+        printf "%s:%d: %s\n    %s\n", file, NR, bad, $0
+        found = 1
+      }
+    }
+    END { exit found }
+  ' "$f" >&2 || status=1
+done
+
+if [ "$status" -ne 0 ]; then
+  echo "Add PATH entries to the ordered fish_add_path --global list in fish/config.fish instead." >&2
+fi
+exit "$status"

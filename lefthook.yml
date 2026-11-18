@@ -11,6 +11,18 @@ pre-commit:
       glob: "*.fish"
       run: for f in {staged_files}; do fish -n "$f" || exit 1; done
 
+    - name: fish-path
+      glob: "*.fish"
+      run: .lefthook/check-fish-path {staged_files}
+
+    - name: brewfile
+      glob: "Brewfile"
+      run: HOMEBREW_NO_AUTO_UPDATE=1 brew bundle list --all --file {staged_files} >/dev/null
+
+    - name: plist
+      glob: "*.plist"
+      run: plutil -lint {staged_files}
+
     - name: shellcheck
       glob: ["bin/*", "*.sh", ".lefthook/*"]
       run: shellcheck {staged_files}
