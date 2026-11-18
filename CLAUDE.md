@@ -15,9 +15,13 @@ Config files are not read from the repo; `bin/symlink-dotfiles` symlinks them in
 - `fish/config.fish` → `~/.config/fish/config.fish`
 - `fish/conf.d/*.fish` and `fish/functions/*.fish` → per-file symlinks into `~/.config/fish/{conf.d,functions}/` (a new file there needs `bin/symlink-dotfiles` re-run to be picked up)
 
-Not symlinked: `.gitignore` and `.prettierrc` (repo-local), `limit.maxfiles.plist` (installed manually with `sudo cp limit.maxfiles.plist /Library/LaunchDaemons/ && sudo launchctl load -w /Library/LaunchDaemons/limit.maxfiles.plist`; it raises the hard limit that the `ulimit -n 65536` in `fish/config.fish` depends on).
+`symlink-dotfiles` is idempotent: it replaces existing symlinks and moves a real file in the way to `<name>.backup-<timestamp>`.
 
-`bin/rocknroll` is the full bootstrap: installs Homebrew, a long list of `brew install` / `brew install --cask` lines (grouped by comment headers — add new packages under the matching section), runs `symlink-dotfiles`, sets Fish as the login shell, and creates `~/.localrc.fish`. `bin/osx` applies macOS `defaults`. `mac_migration.sh` backs up an old machine to a destination path.
+Not symlinked: `.gitignore` and `.prettierrc` (repo-local), `Brewfile` (read in place by `brew bundle`), `limit.maxfiles.plist` (copied to `/Library/LaunchDaemons/` and bootstrapped by `bin/osx` when it differs; it raises the hard limit that the `ulimit -n 65536` in `fish/config.fish` depends on).
+
+`bin/rocknroll` is the full bootstrap: installs Homebrew, runs `brew bundle` on the `Brewfile`, runs `symlink-dotfiles`, installs the git hooks, sets Fish as the login shell, and creates `~/.localrc.fish`. A failed Brewfile entry is reported but does not stop the rest of the bootstrap. `bin/osx` applies macOS `defaults` and installs the maxfiles LaunchDaemon. `mac_migration.sh` backs up an old machine to a destination path.
+
+Homebrew packages live only in the `Brewfile`, grouped by comment headers — add new packages under the matching section (and a `tap` line for a third-party tap), not as `brew install` lines in scripts. Language runtimes stay in mise, not the Brewfile. `brew bundle check --verbose` / `brew bundle cleanup` (dry run) show drift between the Brewfile and the machine.
 
 ## Commands
 
@@ -32,9 +36,9 @@ exec fish                                # reload shell (abbr: reload)
 
 ## Linting and CI
 
-`lefthook.yml` defines the checks: `fish_indent --check` and `fish -n` on fish files, `shellcheck` + `shfmt` on shell scripts (`bin/*`, `*.sh`, `.lefthook/*`), `editorconfig-checker` on everything, `actionlint` on workflows, and a `commit-msg` hook (`.lefthook/check-commit-msg`) enforcing Conventional Commits. Lint tool versions are pinned in the root `mise.toml` (separate from `mise/config.toml`, which is the global toolchain symlinked into `$HOME`); `fish` itself comes from Homebrew. `bin/rocknroll` installs the hooks.
+`lefthook.yml` defines the checks: `fish_indent --check`, `fish -n` and `.lefthook/check-fish-path` (rejects `export PATH`, `set PATH`, and universal `fish_add_path` / `fish_user_paths`) on fish files, `brew bundle list` on the `Brewfile`, `plutil -lint` on plists, `shellcheck` + `shfmt` on shell scripts (`bin/*`, `*.sh`, `.lefthook/*`), `editorconfig-checker` on everything, `actionlint` on workflows, and a `commit-msg` hook (`.lefthook/check-commit-msg`) enforcing Conventional Commits. Lint tool versions are pinned in the root `mise.toml` (separate from `mise/config.toml`, which is the global toolchain symlinked into `$HOME`); `fish` itself comes from Homebrew. `bin/rocknroll` installs the hooks.
 
-`.github/workflows/lint.yml` runs the same pre-commit jobs on macOS, plus the commit-message check on every PR commit and on the PR title (the squash-merge subject). When adding a new kind of file, add its check to `lefthook.yml` rather than to the workflow.
+`.github/workflows/lint.yml` runs the same pre-commit jobs on macOS, plus the commit-message check on every PR commit and on the PR title (the squash-merge subject). Actions are pinned by commit SHA; Dependabot (`.github/dependabot.yml`) bumps them monthly with `ci(deps):` commits. mise tool versions are bumped by hand (`mise outdated`). When adding a new kind of file, add its check to `lefthook.yml` rather than to the workflow.
 
 ## Conventions
 
