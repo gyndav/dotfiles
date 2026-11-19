@@ -4,7 +4,7 @@
 #   brew bundle check --verbose --file ~/.dotfiles/Brewfile   # what is declared but not installed
 #   brew bundle cleanup --file ~/.dotfiles/Brewfile    # what is installed but not declared (dry run)
 #
-# Language runtimes (node, ruby, go, python, java, uv, bun) are managed by mise
+# Language runtimes (node, ruby, go, python, java, rust, uv, bun) are managed by mise
 # (mise/config.toml), not here. Add new packages under the matching section.
 #
 # Third-party taps may need trusting on a new machine before their packages
@@ -13,7 +13,10 @@
 tap "anomalyco/tap"
 tap "bearer/tap"
 tap "dagger/tap"
+tap "grafana/grafana"
 tap "homeport/tap"
+tap "sheprd-labs/tap"
+tap "stripe/stripe-cli"
 
 # --- Core / System ---
 brew "bash"
@@ -63,6 +66,7 @@ brew "act"
 brew "glab"
 brew "git-filter-repo"
 brew "k6"
+brew "stripe/stripe-cli/stripe"
 
 # --- Languages / Runtimes ---
 brew "mise"
@@ -110,7 +114,10 @@ brew "ollama"
 brew "gemini-cli" # deprecated upstream ("unsupported"); drop once replaced
 brew "llmfit"
 brew "rtk"
-brew "anomalyco/tap/opencode"
+brew "anomalyco/tap/opencode-v2"
+brew "herdr"
+brew "hunk"
+brew "hermes-agent"
 brew "bearer/tap/bearer"
 
 # --- Other ---
@@ -125,6 +132,9 @@ brew "ninja"
 brew "ccache"
 brew "cppcheck"
 brew "dfu-util"
+brew "boost"
+brew "googletest"
+brew "rapidjson"
 
 # --- Fonts ---
 cask "font-fira-code"
@@ -172,8 +182,11 @@ cask "xquartz"
 cask "onyx"
 cask "spotify"
 cask "vlc"
+cask "space-rabbit"
 cask "logi-options+"
 cask "splashtop-business"
 
 # --- AI ---
 cask "opencode-desktop"
+cask "sheprd"
+cask "grafana-assistant"

@@ -11,9 +11,9 @@ macOS development environment. One command to bootstrap a new machine — Fish s
 
 - **Fish shell** — Pure-inspired prompt, smart aliases, modern CLI replacements (`bat`, `fd`, `fzf`, `prettyping`, `ncdu`)
 - **Git** — 36 aliases, GPG signing, difftastic diffs, performance tuning (fsmonitor, protocol v2, rerere)
-- **Homebrew** — 85+ formulae + 30+ casks declared in a `Brewfile`: dev tools, cloud/infra CLIs, editors, fonts, security, AI/LLM tooling
+- **Homebrew** — 95+ formulae + 35+ casks declared in a `Brewfile`: dev tools, cloud/infra CLIs, editors, fonts, security, AI/LLM tooling
 - **macOS defaults** — trackpad, keyboard, Finder, Safari, UI preferences, and a raised open-files limit
-- **Languages** — Node 24, Ruby 3.4, Go 1.27, Python 3.14, Java 17, uv, Bun via mise
+- **Languages** — Node 24, Ruby 3.4, Go 1.27, Python 3.14, Java 17, Rust, uv, Bun via mise
 - **Mac migration** — full backup/restore script for moving to a new machine
 
 ## Setup
@@ -77,7 +77,7 @@ Migrating from another Mac:
 ├── .editorconfig           # project-wide formatting rules
 ├── .gitignore_global       # global gitignore
 ├── mise/
-│   └── config.toml         # mise tool versions (node, ruby, go, python, java, uv, bun, yarn)
+│   └── config.toml         # mise tool versions (node, ruby, go, python, java, rust, uv, bun, yarn)
 └── mac_migration.sh        # full workstation backup/restore
 ```
 
