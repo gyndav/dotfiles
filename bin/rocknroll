@@ -12,171 +12,36 @@ elif [ -x /usr/local/bin/brew ]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
+DOTFILES="$(cd "$(dirname "$0")/.." && pwd)"
+
+# Packages are declared in the Brewfile. `brew bundle` keeps going past a
+# package that fails and exits non-zero at the end; carry on with the rest of
+# the bootstrap either way so one unavailable cask never blocks the setup.
 echo '--> BREW ALL THE THINGS!'
-
-# --- Core / System ---
-brew install bash
-brew install fish
-brew install coreutils
-brew install make
-brew install gnu-tar
-brew install gnu-which
-brew install gnu-sed
-brew install gnupg
-brew install nano
-brew install tree
-brew install tmux
-brew install rsync
-brew install ssh-copy-id
-brew install wget
-brew install pv
-
-# --- Developer tools ---
-brew install gh
-brew install git-lfs
-brew install difftastic
-brew install shellcheck
-brew install shfmt
-brew install editorconfig
-brew install editorconfig-checker
-brew install pre-commit
-brew install clang-format
-brew install cloc
-brew install bat
-brew install fd
-brew install fzf
-brew install jq
-brew install yq
-brew install tig
-brew install htop
-brew install ctop
-brew install ncdu
-brew install prettyping
-brew install httpie
-brew install httpstat
-brew install hadolint
-brew install yamllint
-brew install wrk
-brew install act
-
-# --- Languages / Runtimes ---
-brew install mise
-brew install uv
-brew install composer
-brew install maven
-brew install oven-sh/bun/bun
-
-# --- Cloud / Infrastructure ---
-brew install awscli
-brew install kubernetes-cli
-brew install ko
-brew install pulumi
-brew install dagger/tap/dagger
-brew install homeport/tap/dyff
-brew install trivy
-brew install grpcurl
-brew install tailscale
-
-# --- Database ---
-brew install postgresql@15
-brew install libpq # keg-only client tools (psql, pg_dump); added to PATH in fish/config.fish
-brew install pgcli
-
-# --- Networking ---
-brew install mtr
-brew install iperf
-brew install netcat
-brew install mole
-brew install cloudflare-speed-cli
-brew install midnight-commander
-
-# --- Security ---
-brew install pinentry-mac
-
-# --- Multimedia ---
-brew install ffmpeg
-brew install ghostscript
-brew install yt-dlp
-
-# --- AI / LLM ---
-brew install ollama
-brew install gemini-cli
-brew install llmfit
-brew install rtk
-brew install anomalyco/tap/opencode
-brew install bearer/tap/bearer
-
-# --- Other ---
-brew install jupyterlab
-brew install phrase-cli
-brew install cmake
-brew install automake
-brew install subversion
-
-echo '--> CASK ALL THE THINGS!'
-
-# --- Fonts ---
-brew install --cask font-fira-code
-brew install --cask font-hack
-brew install --cask font-geist-mono
-
-# --- Browsers ---
-brew install --cask firefox
-brew install --cask brave-browser
-
-# --- Terminals / Editors ---
-brew install --cask ghostty
-brew install --cask warp
-brew install --cask zed
-brew install --cask sublime-text
-brew install --cask visual-studio-code
-
-# --- Development ---
-brew install --cask docker
-brew install --cask android-studio
-brew install --cask postman
-brew install --cask tuist
-
-# --- Cloud ---
-brew install --cask google-cloud-sdk
-brew install --cask tailscale-app
-
-# --- Communication ---
-brew install --cask telegram
-brew install --cask whatsapp
-brew install --cask signal
-brew install --cask microsoft-teams
-brew install --cask loom
-
-# --- Security / VPN ---
-brew install --cask 1password
-brew install --cask gpg-suite
-brew install --cask protonvpn
-
-# --- Utilities ---
-brew install --cask rocket
-brew install --cask xquartz
-brew install --cask onyx
-brew install --cask spotify
-brew install --cask logi-options-plus
-brew install --cask splashtop-business
-
-# --- AI ---
-brew install --cask opencode-desktop
+if ! brew bundle --file "$DOTFILES/Brewfile"; then
+  echo '!!! Some Brewfile entries failed to install; see above. Continuing.' >&2
+fi
 
 echo '--> LETS CODE!'
 
 echo '--> Symlinking dotfiles'
-"$(dirname "$0")/symlink-dotfiles"
+"$DOTFILES/bin/symlink-dotfiles"
 
 echo '--> Installing git hooks'
-(cd "$(dirname "$0")/.." && mise trust && mise install && mise exec -- lefthook install)
+(cd "$DOTFILES" && mise trust && mise install && mise exec -- lefthook install)
 
 echo '--> Setting fish as default shell'
-if ! grep -q '/opt/homebrew/bin/fish' /etc/shells; then
-  echo '/opt/homebrew/bin/fish' | sudo tee -a /etc/shells
+FISH="$(brew --prefix 2>/dev/null)/bin/fish"
+if [ -x "$FISH" ]; then
+  if ! grep -qxF "$FISH" /etc/shells; then
+    echo "$FISH" | sudo tee -a /etc/shells
+  fi
+  if [ "$(dscl . -read "/Users/$USER" UserShell | awk '{print $2}')" != "$FISH" ]; then
+    chsh -s "$FISH"
+  fi
+else
+  echo "!!! fish not found at $FISH; login shell left unchanged." >&2
 fi
-chsh -s /opt/homebrew/bin/fish
 
 # local files
 if [ ! -f ~/.localrc.fish ]; then
@@ -186,5 +51,7 @@ fi
 echo '--> Cleanup Homebrew formulas'
 brew cleanup
 
-echo '--> Refreshing terminal'
-exec /opt/homebrew/bin/fish
+if [ -x "$FISH" ]; then
+  echo '--> Refreshing terminal'
+  exec "$FISH"
+fi

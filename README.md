@@ -5,15 +5,15 @@ macOS development environment. One command to bootstrap a new machine — Fish s
 [![License](https://img.shields.io/github/license/gyndav/dotfiles)](LICENSE)
 [![macOS](https://img.shields.io/badge/macOS-Sequoia-000000?logo=apple&logoColor=white)](bin/osx)
 [![Fish](https://img.shields.io/badge/shell-fish-34C534)](fish/)
-[![Homebrew](https://img.shields.io/badge/homebrew-100%2B_packages-FBB040?logo=homebrew)](bin/rocknroll)
+[![Homebrew](https://img.shields.io/badge/homebrew-100%2B_packages-FBB040?logo=homebrew)](Brewfile)
 
 ---
 
 - **Fish shell** — Pure-inspired prompt, smart aliases, modern CLI replacements (`bat`, `fd`, `fzf`, `prettyping`, `ncdu`)
 - **Git** — 36 aliases, GPG signing, difftastic diffs, performance tuning (fsmonitor, protocol v2, rerere)
-- **Homebrew** — 80+ formulae + 20+ casks: dev tools, cloud/infra CLIs, editors, fonts, security, AI/LLM tooling
-- **macOS defaults** — trackpad, keyboard, Finder, Safari, and UI preferences
-- **Languages** — Node 24, Ruby 3.4, Go 1.26, Python 3.14, Java 17 via mise
+- **Homebrew** — 85+ formulae + 30+ casks declared in a `Brewfile`: dev tools, cloud/infra CLIs, editors, fonts, security, AI/LLM tooling
+- **macOS defaults** — trackpad, keyboard, Finder, Safari, UI preferences, and a raised open-files limit
+- **Languages** — Node 24, Ruby 3.4, Go 1.27, Python 3.14, Java 17, uv, Bun via mise
 - **Mac migration** — full backup/restore script for moving to a new machine
 
 ## Setup
@@ -25,13 +25,23 @@ git clone https://github.com/gyndav/dotfiles.git ~/.dotfiles
 ~/.dotfiles/bin/rocknroll
 ```
 
-`rocknroll` installs Homebrew (if missing), all formulae and casks, symlinks dotfiles, and sets Fish as the default shell.
+`rocknroll` installs Homebrew (if missing), everything in the `Brewfile`, symlinks dotfiles (backing up any real file in the way), installs the git hooks, and sets Fish as the default shell. It is safe to re-run.
 
-Apply opinionated macOS preferences:
+Apply opinionated macOS preferences and install the open-files limit LaunchDaemon (`limit.maxfiles.plist`, needs `sudo`):
 
 ```sh
 ~/.dotfiles/bin/osx
 ```
+
+Keep the machine and the `Brewfile` in sync:
+
+```sh
+brew bundle check --verbose --file ~/.dotfiles/Brewfile   # declared but not installed
+brew bundle cleanup --file ~/.dotfiles/Brewfile           # installed but not declared (dry run)
+brew bundle --file ~/.dotfiles/Brewfile                   # install what is missing
+```
+
+Homebrew only loads packages from trusted third-party taps. On a new machine, if `brew bundle` refuses a tap, trust it first with `brew trust --tap <tap>`.
 
 Migrating from another Mac:
 
@@ -47,9 +57,9 @@ Migrating from another Mac:
 ```
 .dotfiles/
 ├── bin/
-│   ├── rocknroll           # bootstrap: Homebrew + casks + symlinks + set Fish as default shell
-│   ├── osx                 # macOS defaults (trackpad, keyboard, Finder, Safari, UI)
-│   └── symlink-dotfiles    # symlink manager
+│   ├── rocknroll           # bootstrap: Homebrew + Brewfile + symlinks + git hooks + Fish as default shell
+│   ├── osx                 # macOS defaults (trackpad, keyboard, Finder, Safari, UI) + maxfiles LaunchDaemon
+│   └── symlink-dotfiles    # symlink manager (backs up real files it would replace)
 ├── fish/
 │   ├── config.fish         # environment, PATH, integrations (gcloud, fzf, mise)
 │   ├── conf.d/
@@ -61,11 +71,13 @@ Migrating from another Mac:
 │       ├── dk-tail.fish     # Docker container watcher
 │       ├── cct.fish         # Claude Code token/cost report (ccusage)
 │       └── cclive.fish      # Live Claude Code billing-block monitor
+├── Brewfile                # Homebrew formulae, casks and taps
+├── limit.maxfiles.plist    # LaunchDaemon raising the open-files hard limit (installed by bin/osx)
 ├── .gitconfig              # aliases, diff tool, signing, performance tuning
 ├── .editorconfig           # project-wide formatting rules
 ├── .gitignore_global       # global gitignore
 ├── mise/
-│   └── config.toml         # mise tool versions (node, ruby, go, python, java, uv)
+│   └── config.toml         # mise tool versions (node, ruby, go, python, java, uv, bun, yarn)
 └── mac_migration.sh        # full workstation backup/restore
 ```
 
@@ -82,7 +94,7 @@ Rebase-by-default, GPG signing on every commit, rerere, and fsmonitor + protocol
 | Alias | What it does |
 |-------|-------------|
 | `wip` | Stage everything and commit "WIP" |
-| `sync` | Rebase current branch onto master |
+| `sync` | Rebase current branch onto main |
 | `nevermind` | Hard reset + clean working tree |
 | `please` | Force-push with lease |
 | `precommit` | Review staged diff before committing |

@@ -52,9 +52,6 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Enable AirDrop over Ethernet and on unsupported Macs running Lion
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
-# Enable the MacBook Air SuperDrive on any Mac
-sudo nvram boot-args="mbasd=1"
-
 # Show the ~/Library folder.
 chflags nohidden ~/Library
 
@@ -95,3 +92,23 @@ defaults write com.apple.screencapture disable-shadow -bool true
 
 # Enable HiDPI display modes (requires restart)
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+
+#
+# Open files limit
+#
+
+# Raise the maxfiles hard limit at boot, which `ulimit -n 65536` in
+# fish/config.fish depends on. Copied only when the plist changed; loaded
+# whenever launchd doesn't have it (so a failed bootstrap is retried).
+PLIST=/Library/LaunchDaemons/limit.maxfiles.plist
+if ! cmp -s "$(dirname "$0")/../limit.maxfiles.plist" "$PLIST"; then
+  sudo launchctl bootout system "$PLIST" 2>/dev/null || true
+  sudo install -m 644 -o root -g wheel "$(dirname "$0")/../limit.maxfiles.plist" "$PLIST"
+fi
+sudo launchctl enable system/limit.maxfiles
+if ! sudo launchctl print system/limit.maxfiles >/dev/null 2>&1; then
+  sudo launchctl bootstrap system "$PLIST"
+fi
+
+# Apply the changes to running apps
+killall Finder SystemUIServer 2>/dev/null || true
