@@ -132,6 +132,7 @@ brew "ninja"
 brew "ccache"
 brew "cppcheck"
 brew "dfu-util"
+brew "pkgconf" # pkg-config for C/C++ builds
 brew "boost"
 brew "googletest"
 brew "rapidjson"
@@ -168,6 +169,7 @@ cask "telegram"
 cask "whatsapp"
 cask "signal"
 cask "microsoft-teams"
+cask "microsoft-auto-update" # updater microsoft-teams depends on
 cask "loom"
 
 # --- Security / VPN ---
